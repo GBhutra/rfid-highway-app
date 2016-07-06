@@ -1,7 +1,14 @@
 doctype html
-html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
+html(lang="en")
+	head.ui.large.header
+		title= title
+		block stylesheet
+			link(rel='stylesheet', href='/stylesheets/style.css')
+			//link(rel='stylesheet', href='/out/semantic.css')
+			link(href='/stylesheets/skeleton.css', rel='stylesheet')
+			link(href='/stylesheets/normalize.css' , rel='stylesheet')
+		block scripts
+			script(src='/out/semantic.js')
+			script(src='https://code.jquery.com/jquery-2.1.4.min.js')
+	body
+		block content

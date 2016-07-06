@@ -1,0 +1,131 @@
+extends layout
+block append scripts
+	script(src='/socket.io/socket.io.js')
+	script(src='/javascripts/reader.js')
+block content
+	table.controls
+		tr
+			if false==view.status
+				th: button(id='status') Start
+			else
+				th: button(id='status') Stop
+			th: button(id='layout') Layout
+			th: button(id='save') Save
+			th: button(id='exit') Exit
+	#sign_container
+		if 3==view.assets.length
+			table.u-full-width
+				tr
+					td
+						if false==view.assets_status[0]
+							#sign1.container.u-max-full-width(style="background-color:white;")
+								img(id='image_1' src="assets/"+view.assets[0]+".png" alt="Sign")
+						else 
+							#sign1.container.u-max-full-width(style="background-color:green;")
+								img(id='image_1' src="assets/"+view.assets[0]+".png" alt="Sign")
+					td
+						if false==view.assets_status[1]
+							#sign2.container.u-max-full-width(style="background-color:white;")
+								img(id='image_2' src="assets/"+view.assets[1]+".png" alt="Sign")
+						else
+							#sign2.container.u-max-full-width(style="background-color:green;")
+								img(id='image_2' src="assets/"+view.assets[1]+".png" alt="Sign") 
+				tr
+					td(colspan="2")
+						if false==view.assets_status[2]
+							#sign3.container.u-max-full-width(style="background-color:white;")
+								img(id='image_3' src="assets/"+view.assets[2]+".png" alt="Sign")
+						else
+							#sign3.container.u-max-full-width(style="background-color:green;")
+								img(id='image_3' src="assets/"+view.assets[2]+".png" alt="Sign")
+			script.
+				var im1 = document.getElementById("image_1");
+				im1.onload = function() {
+					console.log("Image 1 loaded width:"+im1.width+" height:"+im1.height+" into height of :"+document.getElementById("sign_container").offsetHeight);
+					if(im1.height>=im1.width)	{
+						im1.height = (document.getElementById("sign_container").offsetHeight/2)-25;
+					}
+					else	{
+						im1.width = document.getElementById("sign1").offsetWidth-25;
+					}
+				};
+				var im2 = document.getElementById("image_2");
+				im2.onload = function() {
+					console.log("Image 2 loaded width:"+im2.width+" height:"+im2.height);
+					if(im2.height>=im2.width)	{
+						im2.height = (document.getElementById("sign_container").offsetHeight/2)-25;
+					}
+					else	{
+						console.log("Image loaded in container of width=:"+document.getElementById("sign2").offsetWidth);
+						im2.width = document.getElementById("sign2").offsetWidth-25;
+					}
+				};
+				var im3 = document.getElementById("image_3");
+				im3.onload = function() {
+					console.log("Image 3 loaded width:"+im3.width+" height:"+im3.height);
+					if(im3.height>=im3.width)	{
+						im3.height = (document.getElementById("sign_container").offsetHeight/2)-25;
+					}
+					else	{
+						im3.width = document.getElementById("sign3").offsetWidth-25;
+					}
+				}
+		else if 2==view.assets.length
+			table.u-full-width
+				tr
+					th
+						if false==view.assets_status[0]
+							#sign1.container.u-max-full-width(style="background-color:white;")
+								img(id='image_1' src="assets/"+view.assets[0]+".png" alt="Sign")
+						else
+							#sign1.container.u-max-full-width(style="background-color:green;")
+								img(id='image_1' src="assets/"+view.assets[0]+".png" alt="Sign")
+					th
+						if false==view.assets_status[1]
+							#sign2.container.u-max-full-width(style="background-color:white;")
+								img(id='image_2' src="assets/"+view.assets[1]+".png" alt="Sign")
+						else
+							#sign2.container.u-max-full-width(style="background-color:green;")
+								img(id='image_2' src="assets/"+view.assets[1]+".png" alt="Sign")
+			script.
+				var im1 = document.getElementById("image_1");
+				im1.onload = function() {
+					console.log("Image loaded width:"+im1.width+" height:"+im1.height);
+					if(im1.height>=im1.width)	{
+						im1.height = document.getElementById("sign_container").offsetHeight-25;
+					}
+					else	{
+						im1.width = document.getElementById("sign1").offsetWidth-25;
+					}
+				}
+				var im2 = document.getElementById("image_2");
+				im2.onload = function() {
+					console.log("Image loaded width:"+im2.width+" height:"+im2.height);
+					if(im2.height>=im2.width)	{
+						im2.height = document.getElementById("sign_container").offsetHeight-25;
+					}
+					else	{
+						im2.width = document.getElementById("sign2").offsetWidth-25;
+					}
+				}
+		else
+			table.u-full-width
+				tr
+					th
+						if false==view.assets_status[0]
+							#sign1.container.u-max-full-width(style="background-color:white;")
+								img(id='image_1' src="assets/"+view.assets[0]+".png" alt="Sign")
+						else
+							#sign1.container.u-max-full-width(style="background-color:green;")
+								img(id='image_1' src="assets/"+view.assets[0]+".png" alt="Sign")
+			script.
+				var im = document.getElementById("image_1");
+				im.onload = function() {
+					console.log("Image loaded width:"+im.width+" height:"+im.height);
+					if(im.height>=im.width)	{
+						im.height = document.getElementById("sign_container").offsetHeight-25;
+					}
+					else	{
+						im.width = document.getElementById("sign_container").offsetWidth-25;
+					}
+				}

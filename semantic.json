@@ -1,0 +1,45 @@
+{
+  "base": "semantic/",
+  "paths": {
+    "source": {
+      "config": "src/theme.config",
+      "definitions": "src/definitions/",
+      "site": "src/site/",
+      "themes": "src/themes/"
+    },
+    "output": {
+      "packaged": "public/out/",
+      "uncompressed": "public/out/components/",
+      "compressed": "public/out/components/",
+      "themes": "public/out/themes/"
+    },
+    "clean": "dist/"
+  },
+  "permission": false,
+  "autoInstall": false,
+  "rtl": false,
+  "components": [
+    "flag",
+    "rail",
+    "reveal",
+    "step",
+    "message",
+    "ad",
+    "card",
+    "comment",
+    "feed",
+    "statistic",
+    "accordion",
+    "checkbox",
+    "dimmer",
+    "embed",
+    "modal",
+    "nag",
+    "rating",
+    "search",
+    "sticky",
+    "tab",
+    "api"
+  ],
+  "version": "2.2.1"
+}

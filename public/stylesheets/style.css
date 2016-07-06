@@ -1,8 +1,107 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+table.controls	{
+	width:100%;
+	overflow-x:auto;
 }
 
-a {
-  color: #00B7FF;
+table.controls th	{
+	padding: 1%;
+	/*border-style: solid;*/
+	text-align: center;
+	vertical-align: center;	
 }
+
+#sign_container	{
+	height: 500px;
+}
+
+
+#sign1 {
+	padding: 5px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: white;
+	height: 100%;
+}
+
+#sign2 {
+	padding: 5px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: white;
+	height: 100%;
+}
+
+#sign3 {
+	padding: 5px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: white;
+	height: 100%;
+}
+
+#asset {
+	background-color: white;
+	background-blend-mode: multiply;
+	vertical-align: center;
+	text-align: center;
+}
+
+table {
+	width:100%;
+	overflow-x:auto;
+	table-layout: fixed;
+	height:100%;
+}
+
+table.sign th {
+	height:100%;
+	width:1%;
+}
+/*
+#content {
+	background-position: center;
+	background-color: light-gray;
+	outline-style: solid;
+	width: 1024px;
+	height: 600px;
+	margin-top: 100px;
+	margin-left: 100px;
+}
+
+
+
+.button	{
+	background-color: #e7e7e7; 
+    border: none;
+    color: black;
+    border-radius: 12px;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.button.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+#displaySign	{
+	background-color: #e7e7e7;	
+	margin: 2%;
+	height: 83%;
+	width: 96%;
+	text-align: center;
+}
+
+#displaySign img {	
+  max-width:100%; 
+  max-height:100%;
+  margin:auto;
+  display:block;
+}
+*/

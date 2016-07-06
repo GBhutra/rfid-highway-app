@@ -1,0 +1,51 @@
+Riverside,	1,		Stop,							Bryan Rd - Fifth St,			1,		0xe2002100200054ce14460272,		30.639117 : -96.4678
+Riverside,	2,		Stop,							Bryan Rd - Fifth St,			2,		0x10000000000000000000768,		30.638895 : -96.4676
+Riverside,	3,		Street: Bryan Rd,				Bryan Rd - Fifth St,			3,		0x100000000000000000000003,		30.638921 : -96.4678
+Riverside,	4,		Street: Bryan Rd,				Sixth St - Bryan Rd,			4,		0xe20021002000545915620272,		30.637929 : -96.4678
+Riverside,	5,		Street: Sixth St,				Sixth St - Bryan Rd,			4,		0xe200210020005b45153c0272,		30.637929 : -96.4678
+Riverside,	6,		Street: Bryan Rd,				Bryan Rd - Seventh St,			5,		0xe20021002000558213f70272,		30.635671 : -96.4678
+Riverside,	7,		Street: Seventh St,				Bryan Rd - Seventh St,			5,		0xe20021002000549513b20272,		30.635671 : -96.4678
+Riverside,	8,		Yield,							Bryan Rd - Seventh St,			5,		0xe2002100200050c315120272,		30.635671 : -96.4678
+Riverside,	9,		Street: Project Dr,				Avenue B - Project Dr,			6,		0xe200210020005aca14610272,		30.633712 : -96.4727
+Riverside,	10,		Street: Avenue B,				Avenue B - Project Dr,			6,		0xe20021002000571915260272,		30.633712 : -96.4727
+Riverside,	11,		Street: Stirling Dr,			Avenue B - Stirling Dr,			7,		0xe200210020005396139f0272,		30.633164 : -96.4727
+Riverside,	12,		Street: Avenue B,				Avenue B - Stirling Dr,			7,		0xe20021002000579d15600272,		30.633164 : -96.4727
+Riverside,	13,		Stop,							Avenue D - Seventh St,			8,		0xe200210020005589137a0272,		30.635279 : -96.4701
+Riverside,	14,		Street: Seventh St,				Avenue D - Seventh St,			8,		0xe20021002000599b14fb0272,		30.635279 : -96.4701
+Riverside,	15,		Street: Avenue D,				Avenue D - Seventh St,			8,		0xe20021002000589414620272,		30.635279 : -96.4701
+Riverside,	16,		Stop,							Avenue D - Seventh St,			9,		0xe20021002000555b15600272,		30.635671 : -96.4703
+Riverside,	17,		Stop,							Avenue C - Seventh St,			10,		0xe20021002000555315280272,		30.635723 : -96.4717
+Riverside,	18,		Street: Avenue C,				Avenue C - Seventh St,			10,		0xe20021002000569315600272,		30.635723 : -96.4717
+Riverside,	19,		Street: Seventh St,				Avenue C - Seventh St,			10,		0xe20021002000508a13e00272,		30.635723 : -96.4717
+Riverside,	20,		Stop,							Avenue B - Seventh St,			11,		0xe20021002000509d13df0272,		30.635684 : -96.4729
+Riverside,	21,		Street: Avenue B,				Avenue B - Seventh St,			11,		0xe20021002000568915250272,		30.635684 : -96.4729
+Riverside,	22,		Street: Seventh St,				Avenue B - Seventh St,			11,		0xe200210020005b42138a0272,		30.635684 : -96.4729
+Riverside,	23,		Yield,							Avenue A - Seventh St,			13,		0xe20021002000578313b30272,		30.635475 : -96.4740
+Riverside,	24,		Yield,							Avenue A - Seventh St,			12,		0xe20021002000545214940272,		30.635645 : -96.4742
+Riverside,	25,		Street: Avenue A,				Avenue A - Seventh St,			12,		0xe200210020005859138b0272,		30.635645 : -96.4742
+Riverside,	26,		Street: Seventh St,				Avenue A - Seventh St,			12,		0xe2002100200058c114120272,		30.635645 : -96.4742
+Riverside,	27,		Stop,							Seventh St - Flight Line Dr,	14,		0xe20021002000578315270272,		30.635658 : -96.4754
+Riverside,	28,		Street: Flight Line,			Seventh St - Flight Line Dr,	14,		0xe20021002000558215290272,		30.635658 : -96.4754
+Riverside,	29,		Street: Seventh St,				Seventh St - Flight Line Dr,	14,		0xe200210020005a9e13c60272,		30.635658 : -96.4754
+Riverside,	30,		Stop,							Sixth St - Flight Line Dr,		15,		0xe20021002000525e154d0272,		30.638151 : -96.4754
+Riverside,	31,		Street: Flight Line,			Sixth St - Flight Line Dr,		15,		0xe20021002000569514e30272,		30.638151 : -96.4754
+Riverside,	32,		Street: Sixth St,				Sixth St - Flight Line Dr,		15,		0xe2002100200056d215260272,		30.638151 : -96.4754
+Riverside,	33,		Yield,							Avenue A - Sixth St,			16,		0xe2002100200056cd15250272,		30.637942 : -96.4739
+Riverside,	34,		Yield,							Avenue A - Sixth St,			17,		0xe200210020005095154f0272,		30.638138 : -96.4741
+Riverside,	35,		Street: Sixth St,				Avenue A - Sixth St,			17,		0xe20021002000570b13b50272,		30.638138 : -96.4741
+Riverside,	36,		Street: Avenue A,				Avenue A - Sixth St,			17,		0xe20021002000595a14620272,		30.638138 : -96.4741
+Riverside,	37,		Stop,							Fifth St - Avenue A,			18,		0xe20021002000595913890272,		30.638895 : -96.4742
+Riverside,	38,		Stop,							Fifth St - Avenue A,			19,		0xe20021002000528314cb0272,		30.639104 : -96.4739
+Riverside,	39,		Street: Fifth St,				Fifth St - Avenue A,			19,		0xe2002100200050d4139b0272,		30.639104 : -96.4739
+Riverside,	40,		Street: Avenue A,				Fifth St - Avenue A,			19,		0xe20021002000555314450272,		30.639104 : -96.4739
+Riverside,	41,		Yield,							Fourth St - Avenue A,			20,		0xe20021002000558d13760272,		30.641371 : -96.4742
+Riverside,	42,		Yield,							Fourth St - Avenue A,			21,		0xe200210020005b5414fd0272,		30.641602 : -96.4739
+Riverside,	43,		Street: Avenue A,				Fourth St - Avenue A,			21,		0xe200210020005491152a0272,		30.641602 : -96.4739
+Riverside,	44,		Yield,							Avenue A - Third St,			24,		0xe20021002000585313c60272,		30.642767 : -96.4739
+Riverside,	45,		Yield,							Avenue A - Third St,			22,		0x100000000000000000000002,		30.642829 : -96.4741
+Riverside,	46,		Yield,							Avenue A - Third St,			23,		0xe200210020005156147d0272,		30.643341 : -96.4742
+Riverside,	47,		Street: Second St,				Second St - Avenue A,			23,		0xe200210020005351150f0272,		30.643341 : -96.4742
+Riverside,	48,		Street: Avenue A,				Second St - Avenue A,			23,		0xe20021002000508b147e0272,		30.643341 : -96.4742
+Riverside,	49,		Street: Third St,				Avenue A - Third St,			25,		0xe20021002000579b14470272,		30.642767 : -96.4739
+Riverside,	50,		Street: Avenue A,				Avenue A - Third St,			25,		0xe20021002000531414cc0272,		30.642767 : -96.4739
+Riverside,	51,		text,							Avenue A - Third St,			26,		0x10000000000000000000067,		30.635858 : -96.4652			

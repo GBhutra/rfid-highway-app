@@ -1,57 +1,64 @@
 #!/usr/bin/env node
-
-/**
- * Module dependencies.
- */
-
 var app = require('../app');
-var debug = require('debug')('rfid-highway-app:server');
+var debug = require('debug')('rfidhwyapp:server');
 var http = require('http');
+var stdio = require('stdio');
 
-/**
- * Get port from environment and store in Express.
- */
+// defined locally 
+var models = require('../models');
+var fh = require('../fileHandler.js');
+var io = require('../sockets.js').io;
+var view = require('../reader_view.js');
+var gps = require('../gps_reader.js');
+var reader = require('../rfid_reader.js');
 
-var port = normalizePort(process.env.PORT || '3000');
-app.set('port', port);
-
-/**
- * Create HTTP server.
- */
-
+var log = true;
+var port = 3200;
 var server = http.createServer(app);
 
-/**
- * Listen on provided port, on all network interfaces.
- */
 
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+models.sequelize.sync({force:true}).then(function() {
+  if (log) {  console.log("Database initialized !! :D "); }
+  app.set('port', port);
 
-/**
- * Normalize a port into a number, string, or false.
- */
+  gps.Initialize();
 
-function normalizePort(val) {
-  var port = parseInt(val, 10);
+  io.listen(server.listen(port));
+  server.on('error', onError);
+  server.on('listening', onListening);
 
-  if (isNaN(port)) {
-    // named pipe
-    return val;
-  }
+  fh.createDBFromFile("Riverside2.csv", models);
 
-  if (port >= 0) {
-    // port number
-    return port;
-  }
+  CLIStart();
+});
 
-  return false;
+function CLIStart() {
+  stdio.question('Input Data ?', function (err, input) {
+    if('gps'==input)  {
+      stdio.question('Lat :', function (err, Lat) {
+        stdio.question('Lon :', function (err, Lon) {
+          console.log('Lat: '+Lat+' Lon: '+Lon);
+          gps.TestWithCoordinates(Lat,Lon);
+        });
+      });
+    }
+    if('rfid'==input)  {
+      stdio.question('Tag :', function (err, Tag) {
+        console.log('Tag: '+Tag);
+        reader.TestWithTag({tagID: Tag});
+      });
+    }
+    CLIStart();
+  });
 }
 
-/**
- * Event listener for HTTP server "error" event.
- */
+function onErr(err) {
+    console.log(err);
+    return 1;
+}
+
+
+
 
 function onError(error) {
   if (error.syscall !== 'listen') {
@@ -76,10 +83,6 @@ function onError(error) {
       throw error;
   }
 }
-
-/**
- * Event listener for HTTP server "listening" event.
- */
 
 function onListening() {
   var addr = server.address();
