@@ -1,0 +1,25 @@
+extends layout
+block navigation
+	.ui.attached.header
+		nav.ui.four.item.menu
+			a.header.item(href="/") Home
+			a.active.item(href="/area") Inventory
+			a.item(href="/reports") Reports
+			a.item(href="/reader") Reader
+block content
+	#info.ui.container.segment
+		.ui.fluid.grid
+			.eight.wide.column
+				h2 Areas 
+			.four.wide.right.aligned.column
+				.ui.areas.search
+					.ui.icon.input
+						input(class="prompt" type="text" placeholder="Search areas...")
+						i.search.icon
+					.results
+			.four.wide.right.aligned.column
+				button.ui.blue.button Add New Area
+		.ui.divider
+		#areas.ui.ordered.list
+			each area in areas
+				a.item(href='/area/'+area.DISTINCT)=area.DISTINCT

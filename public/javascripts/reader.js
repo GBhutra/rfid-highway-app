@@ -4,7 +4,7 @@ window.onload = function() {
     var status = document.getElementById("status");
     var layout = document.getElementById("layout");
     var save = document.getElementById("save");
-    var Exit = document.getElementById("exit");
+    var back = document.getElementById("back");
 
     var content = document.getElementById("disp");
 
@@ -13,10 +13,11 @@ window.onload = function() {
 
     socket.on('status', function (data) {
         console.log("Status : "+data);
-        if('start'==data)
+        if('start'==data)   
             status.innerHTML = 'Stop';
         else if('stop'==data)
             status.innerHTML = 'Start';
+        status.className=status.className.replace( /(?:^|\s)loading(?!\S)/g , '' );
     });
 
     socket.on('signs', function (data) {
@@ -37,6 +38,7 @@ window.onload = function() {
             socket.emit('start','Start the reader');
         else   
             socket.emit('stop', 'Stop the reader');
+        status.className=status.className.replace( /(?:^|\s)button(?!\S)/g , ' loading button' );
     };
 
     layout.onclick = function() {
@@ -47,8 +49,7 @@ window.onload = function() {
         socket.emit('save','save the file');
     };
 
-    exit.onclick = function() {
-	socket.emit('exit','save the file');
-        window.close();
+    back.onclick = function() {
+        window.history.back();
     };
 }

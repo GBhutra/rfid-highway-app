@@ -1,0 +1,18 @@
+extends layout
+block navigation
+	.ui.attached.header
+		nav.ui.four.item.menu
+			a.header.item(href="/") Home
+			a.item(href="/area") Inventory
+			a.active.item(href="/reports") Reports
+			a.item(href="/reader") Reader
+block content
+	#info.ui.segment
+		h2 Reports 
+		.ui.divider
+		if reports
+			#areas.ui.ordered.list
+				each area in areas
+					a.item(href='/area/'+area.DISTINCT)=area.DISTINCT
+		else
+			h3 No Reports available

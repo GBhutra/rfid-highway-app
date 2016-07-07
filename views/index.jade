@@ -1,8 +1,14 @@
 extends layout
+block navigation
+	.ui.attached.header
+		nav.ui.four.item.menu
+			a.header.item(href="/") Home
+			a.item(href="/area") Inventory
+			a.item(href="/reports") Reports
+			a.item(href="/reader") Reader
 
 block content
-	h1 Welcome to RFID Highway Application
-	#menu.ui.three.item.menu
-	a.item(href="inventory") Inventory
-	a.item(href="Something") Something
-	a.active.item(href="reader") Reader
+	#info.ui.padded.text.container.segment
+		h2.ui.header Welcome to RFID Highway Application
+		p
+			This paper delves into the purpose, development, and testing of the RFID (radio-frequency identification) highway monitoring system. The goal for this system is to improve and modernize the process of road sign maintenance, primarily along highways, through the use of RFID signal emitting tags attached to signs, which will be monitored using our device in standard maintenance trucks. The development of this system primarily revolved around designing the software used in the device, and the testing of the system consisted of using the software to detect and log the presence of tagged signs at a test site. After performing experimental test runs with the software we concluded that it does an excellent job of automatically recording and storing data pertaining to the condition of road signs, but the performance of the system as a whole was limited by the power of the hardware used. This was only a secondary concern; however, as the functionality of the software was the main purpose of the tests and it performed all of its tasks as expected.

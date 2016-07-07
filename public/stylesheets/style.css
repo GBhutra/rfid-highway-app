@@ -1,3 +1,4 @@
+/*
 table.controls	{
 	width:100%;
 	overflow-x:auto;
@@ -5,13 +6,11 @@ table.controls	{
 
 table.controls th	{
 	padding: 1%;
-	/*border-style: solid;*/
 	text-align: center;
 	vertical-align: center;	
-}
-
+}*/
 #sign_container	{
-	height: 500px;
+	height: 400px;
 }
 
 

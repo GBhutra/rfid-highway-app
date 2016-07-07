@@ -1,0 +1,39 @@
+extends layout
+block navigation
+	.ui.attached.header
+		nav.ui.four.item.menu
+			a.header.item(href="/") Home
+			a.active.item(href="/area") Inventory
+			a.item(href="/reports") Reports
+			a.item(href="/reader") Reader
+block content
+	#info.ui.segment
+		.ui.fluid.grid
+			.eight.wide.column
+				h2=area
+			.four.wide.right.aligned.column
+				.ui.areas.search
+					.ui.icon.input
+						input(class="prompt" type="text" placeholder="Search tags...")
+						i.search.icon
+					.results
+			.four.wide.right.aligned.column
+				button.ui.blue.button Add New Tag
+		.ui.divider
+		table.ui.celled.striped.table(id="tags")
+			thead
+				tr
+					th.four.wide RFID Tag
+					th.three.wide Address
+					th.three.wide Sign					
+					th.three.wide Latitude
+					th.three.wide Longitude
+			tbody
+				each tag in tags
+					tr
+						td: a.item(href='/area/tag/'+tag.tagId)=tag.tagId
+						td: =tag.address
+						td: =tag.signType
+						td: =tag.lat
+						td: =tag.lon
+			
