@@ -1,6 +1,6 @@
-Riverside,	1,		Stop,							Bryan Rd - Fifth St,			1,		0xe2002100200054ce14460272,		30.639117 : -96.4678
-Riverside,	2,		Stop,							Bryan Rd - Fifth St,			2,		0x10000000000000000000768,		30.638895 : -96.4676
-Riverside,	3,		Street: Bryan Rd,				Bryan Rd - Fifth St,			3,		0x100000000000000000000003,		30.638921 : -96.4678
+Riverside,	1,		Stop,							Bryan Rd - Fifth St,			1,		0xe200210020005b4d153e0272,		30.639117 : -96.4678
+Riverside,	2,		Stop,							Bryan Rd - Fifth St,			2,		0xe2002100200050ce15100272,		30.638895 : -96.4676
+Riverside,	3,		Street: Bryan Rd,				Bryan Rd - Fifth St,			3,		0xe200210020005311147b0272,		30.638921 : -96.4678
 Riverside,	4,		Street: Bryan Rd,				Sixth St - Bryan Rd,			4,		0xe20021002000545915620272,		30.637929 : -96.4678
 Riverside,	5,		Street: Sixth St,				Sixth St - Bryan Rd,			4,		0xe200210020005b45153c0272,		30.637929 : -96.4678
 Riverside,	6,		Street: Bryan Rd,				Bryan Rd - Seventh St,			5,		0xe20021002000558213f70272,		30.635671 : -96.4678

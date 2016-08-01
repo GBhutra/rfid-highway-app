@@ -1,14 +1,33 @@
 extends layout
 block navigation
+	script(src=src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js")
 	.ui.attached.header
 		nav.ui.four.item.menu
-			a.header.item(href="/") Home
-			a.item(href="/area") Inventory
-			a.item(href="/reports") Reports
-			a.item(href="/reader") Reader
+			a.header.item(style="font-size:1.5em; padding: 0.45em 0.5em;" href="/") Home
+			a.item(style="font-size:1.5em; padding: 0.45em 0.5em;" href="/area") Inventory
+			a.item(style="font-size:1.5em; padding: 0.45em 0.5em;" href="/reports") Reports
+			a.item(style="font-size:1.5em; padding: 0.45em 0.5em;" href="/reader") Reader
 
 block content
-	#info.ui.padded.text.container.segment
+	#info.ui.container.segment(style="margin-top:5%;")
 		h2.ui.header Welcome to RFID Highway Application
-		p
-			This paper delves into the purpose, development, and testing of the RFID (radio-frequency identification) highway monitoring system. The goal for this system is to improve and modernize the process of road sign maintenance, primarily along highways, through the use of RFID signal emitting tags attached to signs, which will be monitored using our device in standard maintenance trucks. The development of this system primarily revolved around designing the software used in the device, and the testing of the system consisted of using the software to detect and log the presence of tagged signs at a test site. After performing experimental test runs with the software we concluded that it does an excellent job of automatically recording and storing data pertaining to the condition of road signs, but the performance of the system as a whole was limited by the power of the hardware used. This was only a secondary concern; however, as the functionality of the software was the main purpose of the tests and it performed all of its tasks as expected.
+		p(style="font-size:1.2em") This software is designed to assist in the monitoring and maintenance of road signs as you drive along the highway. To get started touch the buttons along the top of the screen, or read the instructions below in each tab.
+		.ui.three.column.grid
+			.column
+				a.ui.fulid.card(href="/area")
+					.content
+						.header Inventory
+						.description
+							p(style="font-size:1.2em") This tab allows you to view and manage locations with tagged signs and the signs within each area.
+			.column
+				a.ui.fulid.card(href="/reports")
+					.content
+						.header Reports
+						.description
+							p(style="font-size:1.2em") This tab allows you to view previously saved reports and save them to external storage devices such as flash drives.
+			.column
+				a.ui.fulid.card(href="/reader")
+					.content
+						.header Reader
+						.description
+							p(style="font-size:1.2em") This button changes the interface to the sign-reader display. This mode allows you to stop and start reading tagged signs, and it allows you to generate reports of successfully read signs.

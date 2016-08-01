@@ -1,9 +1,10 @@
 var log=true;
 var View = new Object();
 View.status = false;
-View.assets =['test'];
-View.assets_status= [true];
+View.assets =[];
+View.assets_status= [];
 View.numClients = 0;
+View.controls=false;
 
 
 View.UpdateStatusTo = function(data)	{

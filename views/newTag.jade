@@ -1,0 +1,35 @@
+extends layout
+block navigation
+	.ui.attached.header
+		nav.ui.four.item.menu
+			a.header.item(style="font-size:1.5em; padding: 0.45em 0.5em;" href="/") Home
+			a.active.item(style="font-size:1.5em; padding: 0.45em 0.5em;" href="/area") Inventory
+			a.item(style="font-size:1.5em; padding: 0.45em 0.5em;" href="/reports") Reports
+			a.item(style="font-size:1.5em; padding: 0.45em 0.5em;" href="/reader") Reader
+block content
+	#info.ui.segment
+		form.ui.form(method="post")
+			input(type="hidden" name="area" value=tag.area)
+			h4.ui.dividing.header New Tag
+			.fields
+				.six.wide.field
+					label Asset ID
+						input(type="text" name="assetId" placeholder="Asset ID")
+				.six.wide.field
+					label Sign Type
+						input(type="text" name="signType" placeholder="Sign Type" )
+			.field
+				label RFID Tag
+					input(placeholder="Tag Id" name="tagId" type="text")
+			.field
+				label Address
+					input(placeholder="Address" name="address" type="text" value=tag.address)
+			.fields
+				.six.wide.field
+					label Latitude
+						input(type="text" name="lat" placeholder="Latitude" value=tag.lat)
+				.six.wide.field
+					label Longitude
+						input(type="text" name="lon" placeholder="Longitude" value=tag.lon)		
+			button.ui.labeled.icon.green.button(type="submit" name="create_button" value="create" formaction="/tagCreate/") Create
+				i.save.outline.icon

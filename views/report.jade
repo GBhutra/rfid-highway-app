@@ -1,0 +1,35 @@
+extends layout
+block navigation
+	.ui.attached.header
+		nav.ui.four.item.menu
+			a.header.item(style="font-size:1.5em; padding: 0.45em 0.5em;" href="/") Home
+			a.item(style="font-size:1.5em; padding: 0.45em 0.5em;" href="/area") Inventory
+			a.active.item(style="font-size:1.5em; padding: 0.45em 0.5em;" href="/reports") Reports
+			a.item(style="font-size:1.5em; padding: 0.45em 0.5em;" href="/reader") Reader
+block content
+	#info.ui.segment
+		.ui.fluid.grid
+			.eight.wide.column
+				h2=name
+			.eight.wide.right.aligned.column
+				.ui.areas.search
+					.ui.icon.input
+						input(class="prompt" type="text" placeholder="Search tags...")
+						i.search.icon
+					.results
+		.ui.divider
+		table.ui.celled.striped.table(id="tags")
+			thead
+				tr
+					th.five.wide=headers[8]
+					th.five.wide=headers[0]				
+					th.three.wide=headers[3]
+					th.three.wide=headers[4]
+
+			tbody
+				each rep in report
+					tr
+						td: =rep[8]
+						td: =rep[0]
+						td: =rep[3]
+						td: =rep[4]

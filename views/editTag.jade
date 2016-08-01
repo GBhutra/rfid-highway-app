@@ -1,0 +1,45 @@
+extends layout
+block navigation
+	.ui.attached.header
+		nav.ui.four.item.menu
+			a.header.item(style="font-size:1.5em; padding: 0.45em 0.5em;" href="/") Home
+			a.active.item(style="font-size:1.5em; padding: 0.45em 0.5em;" href="/area") Inventory
+			a.item(style="font-size:1.5em; padding: 0.45em 0.5em;" href="/reports") Reports
+			a.item(style="font-size:1.5em; padding: 0.45em 0.5em;" href="/reader") Reader
+block content
+	#info.ui.segment
+		.ui.internally.celled.grid
+			.twelve.wide.column
+				form.ui.form(method="post")
+					input(type="hidden" name="area" value=tag.area)
+					h4.ui.dividing.header Edit Tag
+					.fields
+						.eight.wide.field
+							label Asset ID
+								input(type="text" name="assetId" placeholder=tag.assetId value=tag.assetId)
+						.eight.wide.field
+							label Sign Type
+								input(type="text" name="signType" placeholder=tag.signType value=tag.signType)
+					.field
+						label RFID Tag
+							input(placeholder=tag.tagId name="tagId" readonly="" type="text" value=tag.tagId)
+					.field
+						label Address
+							input(placeholder=tag.address name="address" type="text" value=tag.address)
+					.fields
+						.eight.wide.field
+							label Latitude
+								input(type="text" name="lat" placeholder=tag.lat value=tag.lat)
+						.eight.wide.field
+							label Longitude
+								input(type="text" name="lon" placeholder=tag.lon value=tag.lon)		
+					.ui.centered.grid
+						.row
+							.left.floated.left.aligned.eight.wide.column
+								button.ui.labeled.icon.green.button(type="submit" name="update_button" value="update" formaction="/tagUpdate/"+tag.tagId) Save
+									i.save.outline.icon
+							.right.floated.right.aligned.eight.wide.column
+								button.ui.labeled.icon.red.button(type="submit" name="delete_button" value="delete" formaction="/tagDelete/"+tag.tagId) Delete
+									i.trash.outline.icon
+			.four.wide.column(style="margin-top:3%")
+				img.ui.centered.medium.image(src="/assets/"+tag.assetId+".png")				

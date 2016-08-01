@@ -2,24 +2,41 @@ extends layout
 block navigation
 	.ui.attached.header
 		nav.ui.four.item.menu
-			a.header.item(href="/") Home
-			a.active.item(href="/area") Inventory
-			a.item(href="/reports") Reports
-			a.item(href="/reader") Reader
+			a.header.item(style="font-size:1.5em; padding: 0.45em 0.5em;" href="/") Home
+			a.active.item(style="font-size:1.5em; padding: 0.45em 0.5em;" href="/area") Inventory
+			a.item(style="font-size:1.5em; padding: 0.45em 0.5em;" href="/reports") Reports
+			a.item(style="font-size:1.5em; padding: 0.45em 0.5em;" href="/reader") Reader
 block content
 	#info.ui.container.segment
 		.ui.fluid.grid
-			.eight.wide.column
+			.six.wide.column
 				h2 Areas 
-			.four.wide.right.aligned.column
+			.six.wide.right.aligned.column
 				.ui.areas.search
 					.ui.icon.input
 						input(class="prompt" type="text" placeholder="Search areas...")
 						i.search.icon
 					.results
 			.four.wide.right.aligned.column
-				button.ui.blue.button Add New Area
+				button.ui.blue.button(onClick="showModal()") Add New Area
+		.ui.modal
+			i.close.icon
+			.header	Add New Area..
+			.description &nbsp&nbsp&nbspPlease enter the path to the .CSV file directory&nbsp&nbsp&nbsp
+				.ui.input.focus
+					input(type="text" placeholder="Path")
+			.actions
+				.ui.button Add
+		script.
+			function showModal()	{
+				$('.ui.modal')
+				  .modal({blurring: true})
+				  .modal('show')
+				;
+			}
+			
 		.ui.divider
-		#areas.ui.ordered.list
+		#areas.ui.internally.celled.left.aligned.grid
 			each area in areas
-				a.item(href='/area/'+area.DISTINCT)=area.DISTINCT
+				.row
+					a.item(style="font-size:1.5em;" href='/area/'+area.DISTINCT)=area.DISTINCT		

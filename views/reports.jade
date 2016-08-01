@@ -2,17 +2,45 @@ extends layout
 block navigation
 	.ui.attached.header
 		nav.ui.four.item.menu
-			a.header.item(href="/") Home
-			a.item(href="/area") Inventory
-			a.active.item(href="/reports") Reports
-			a.item(href="/reader") Reader
+			a.header.item(style="font-size:1.5em; padding: 0.45em 0.5em;" href="/") Home
+			a.item(style="font-size:1.5em; padding: 0.45em 0.5em;" href="/area") Inventory
+			a.active.item(style="font-size:1.5em; padding: 0.45em 0.5em;" href="/reports") Reports
+			a.item(style="font-size:1.5em; padding: 0.45em 0.5em;" href="/reader") Reader
 block content
-	#info.ui.segment
+	#info.ui.container.segment
 		h2 Reports 
 		.ui.divider
 		if reports
-			#areas.ui.ordered.list
-				each area in areas
-					a.item(href='/area/'+area.DISTINCT)=area.DISTINCT
+			#reports.ui.internally.celled.centered.grid
+				each report in reports
+					.row
+						.left.floated.left.aligned.ten.wide.column
+							a.item(href='/reports/'+report.substring(0,(report.length-4)))=report.substring(0,(report.length-4))
+						.right.floated.right.aligned.six.wide.column
+							button.ui.labeled.icon.blue.button(onClick="showModal('"+report+"')") Delete
+								i.trash.outline.icon
+						.ui.small.test.modal
+							.header	Confirm Delete
+							.content
+								p Are you sure you want to Delete this Report ?
+							.actions
+								.ui.negative.button No
+								.ui.positive.right.labeled.icon.button Yes
+									i.checkmark.icon
+						script.
+							function showModal(report)	{
+								$('.small.test.modal')
+								  .modal({
+								  	blurring: true,
+								  	onDeny    : function(){
+										window.location.href='/reports/';
+								    },
+								    onApprove : function() {
+								    	window.location.href='/reports/reportDelete/'+report;
+								    }
+								  })
+								  .modal('show')
+								;
+							}				
 		else
 			h3 No Reports available

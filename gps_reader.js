@@ -9,6 +9,7 @@ GPS.currLat = 0.0;
 GPS.currLon = 0.0;
 GPS.prevLat = 0.0;
 GPS.prevLon = 0.0;
+GPS.range = 0.0001;
 
 
 var port= new SerialPort('/dev/ttyAMA0', {
@@ -17,23 +18,28 @@ var port= new SerialPort('/dev/ttyAMA0', {
 		autoOpen: false
 });
 
-var Initialize = function(dev)	{
+var Initialize = function()	{
 	if(log) console.log("In GPS Initialize function !!");
-}
+};
 
-var Start = function()	{
+var StartGPS = function()	{
 	if (log) console.log("In Start function for GPS");
 	port.open(function(err)	{
 		if(log) console.log("ERROR opening GPS port :"+err);
 	});
-}
+};
 
-var Stop= function()	{
+var StopGPS= function()	{
 	if (log) console.log("In Stop function for GPS");
 	port.close(function(err)	{
 		if(log) console.log("ERROR closing GPS port :"+err);
 	});
-}
+};
+
+var UpdateRange= function(val)	{
+	GPS.range=AddFloats(0.0001,+parseFloat(val/100000).toFixed(5),5);
+	console.log("gps range changed to: "+GPS.range);
+};
 
 
 port.on('open',function()	{
@@ -49,21 +55,21 @@ port.on('data',function(data)	{
 			var lon_raw = temp[5];
 			var lat = parseFloat(lat_raw.substring(0,2));
 			var lon = parseFloat(lon_raw.substring(0,3));
-			lat=(parseFloat(lat)+(parseFloat(lat_raw.substring(2))/60)).toFixed(5);
+			lat=(parseFloat(lat)+(parseFloat(lat_raw.substring(2))/60)).toFixed(6);
 			lon=(parseFloat(lon)+(parseFloat(lon_raw.substring(3))/60)).toFixed(4);
 			if("W"==temp[6])	{ lon = lon*-1;	}
 			if (log) console.log("\n\nGPSData: lat: "+lat+" lon: "+lon);
 			if (log) console.log("currLat: "+GPS.currLat+" currLon: "+GPS.currLon+" prevLat: "+GPS.prevLat+" prevLon: "+GPS.prevLon);
-			if (log) console.log("LatDiff: "+(Math.abs(parseFloat(lat)-parseFloat(GPS.currLat)).toFixed(5))+"\tLonDiff: "+(Math.abs(parseFloat(lon)-parseFloat(GPS.currLon)).toFixed(4)));
-			if (0.0!=(parseFloat(lat)-parseFloat(GPS.currLat)).toFixed(5) || 0.0!=(parseFloat(lon)-parseFloat(GPS.currLon)).toFixed(4))	{
+			if (log) console.log("LatDiff: "+(Math.abs(parseFloat(lat)-parseFloat(GPS.currLat)).toFixed(6))+"\tLonDiff: "+(Math.abs(parseFloat(lon)-parseFloat(GPS.currLon)).toFixed(4)));
+			if (0.0!=(parseFloat(lat)-parseFloat(GPS.currLat)).toFixed(6) || 0.0!=(parseFloat(lon)-parseFloat(GPS.currLon)).toFixed(4))	{
 				GPS.prevLat = GPS.currLat;
 				GPS.prevLon = GPS.currLon;
 				GPS.currLon = lon;
 				GPS.currLat = lat;
-				var rlat = AddFloats(GPS.currLat,-0.0005,5);
-				var llat = AddFloats(GPS.currLat,0.0005,5);
-				var rlon = AddFloats(GPS.currLon,-0.0005,4);
-				var llon = AddFloats(GPS.currLon,0.0005,4);
+				var rlat = AddFloats(GPS.currLat,GPS.range,6);
+				var llat = AddFloats(GPS.currLat,-GPS.range,6);
+				var rlon = AddFloats(GPS.currLon,GPS.range,4);
+				var llon = AddFloats(GPS.currLon,-GPS.range,4);
 				model.Tag.findAll({
 					where: {
 		  	            lat: {$between: [llat, rlat]},
@@ -92,7 +98,7 @@ port.on('data',function(data)	{
 						if (log) console.log(closest_tags);
 						if (closest_tags.length<4)	{
 							var update = UpdateAssetIDs(closest_tags);
-							io.UpdateAllClients('signs','update');
+							io.UpdateAllClients('signs',{assets: view.assets});
 						}
 					}
         		});				
@@ -110,14 +116,21 @@ function GetDistanceBetween(location1, location2)	{
 }
 
 function UpdateAssetIDs(tags)	{
-	if(tags.length>3)	false;
+	if(tags.length>3)	return false;
 
 	if(tags.length==view.assets.length)	{
 		var update = false;
 		for (var i=0;i<tags.length;i++)	{
 			if (tags[i].assetId!=view.assets[i])	{
-				view.assets[i] = tags[i].assetId;
+				view.assets[i] = "assets/"+tags[i].assetId+".png";
 				view.assets_status[i]=false;
+				update = true;
+			}
+		}
+		if (0==tags.length)	{
+			if("images/load.gif"!=view.assets[0])	{
+				view.assets[0]="images/load.gif";
+				view.assets_status[0]=false;
 				update = true;
 			}
 		}
@@ -127,28 +140,36 @@ function UpdateAssetIDs(tags)	{
 		view.assets.length = 0;
 		view.assets_status.length = 0;
 		for (var i=0;i<tags.length;i++)	{
-			view.assets[i] = tags[i].assetId;
+			view.assets[i] = "assets/"+tags[i].assetId+".png";
 			view.assets_status[i]=false;
+		}
+		if (0==tags.length)	{
+			if("images/load.gif"!=view.assets[0])	{
+				view.assets[0]="images/load.gif";
+				view.assets_status[0]=false;
+			}
+			else
+				return false;
 		}
 		return true;
 	}
 }
 
 function AddFloats(val1, val2, precision)	{
-	return (parseFloat(val1)-parseFloat(val2)).toFixed(precision);
+	return (parseFloat(val1)+parseFloat(val2)).toFixed(precision);
 }
 
 //Testing functions
 var TestWithCoordinates = function(lat,lon)	{
-	if (0.0!=(parseFloat(lat)-parseFloat(GPS.currLat)).toFixed(5) || 0.0!=(parseFloat(lon)-parseFloat(GPS.currLon)).toFixed(4))	{
+	if (0.0!=(parseFloat(lat)-parseFloat(GPS.currLat)).toFixed(6) || 0.0!=(parseFloat(lon)-parseFloat(GPS.currLon)).toFixed(4))	{
 		GPS.prevLat = GPS.currLat;
 		GPS.prevLon = GPS.currLon;
 		GPS.currLon = lon;
 		GPS.currLat = lat;
-		var rlat = AddFloats(GPS.currLat,-0.0005,5);
-		var llat = AddFloats(GPS.currLat,0.0005,5);
-		var rlon = AddFloats(GPS.currLon,-0.0005,4);
-		var llon = AddFloats(GPS.currLon,0.0005,4);
+		var rlat = AddFloats(GPS.currLat,GPS.range,6);
+		var llat = AddFloats(GPS.currLat,-GPS.range,6);
+		var rlon = AddFloats(GPS.currLon,GPS.range,4);
+		var llon = AddFloats(GPS.currLon,-GPS.range,4);
 		model.Tag.findAll({
 			where: {
   	            lat: {$between: [llat, rlat]},
@@ -157,7 +178,7 @@ var TestWithCoordinates = function(lat,lon)	{
     		raw: true
     	}).then(function(tags)  {
 			if(log)	{	console.log(" Number of tags found: "+tags.length+"\n");	}
-			if(tags.length>0)	{
+			if(tags.length>=0)	{
 				var i=0; 
 				var min_dist=1.0;
 				var closest_tags=[];
@@ -177,17 +198,19 @@ var TestWithCoordinates = function(lat,lon)	{
 				if (log) console.log(closest_tags);
 				if (closest_tags.length<4)	{
 					var update = UpdateAssetIDs(closest_tags);
-					io.UpdateAllClients('signs','update');
+					if(update)	{
+						io.UpdateAllClients('sign_status',{assets_status: view.assets_status});
+						io.UpdateAllClients('signs',{assets: view.assets});
+					}
 				}
 			}
 		});				
 	}
 }
 
-
-
-module.exports= GPS;
+module.exports.UpdateRange=UpdateRange;
+module.exports.StartGPS=StartGPS;
+module.exports.StopGPS=StopGPS;
+module.exports=GPS;
 module.exports.Initialize=Initialize;
-module.exports.Start=Start;
-module.exports.Stop=Stop;
 module.exports.TestWithCoordinates = TestWithCoordinates;

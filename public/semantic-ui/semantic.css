@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 2.2.1
+ * # Semantic UI - 2.2.2
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -10,7 +10,7 @@
  */
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic&subset=latin');
 /*!
- * # Semantic UI 2.2.1 - Reset
+ * # Semantic UI 2.2.2 - Reset
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -78,7 +78,7 @@ html {
  */
 
 body {
-  margin: 5px;
+  margin: 0;
 }
 
 /* HTML5 display definitions
@@ -496,7 +496,7 @@ th {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.2.1 - Site
+ * # Semantic UI 2.2.2 - Site
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -523,7 +523,7 @@ body {
   padding: 0px;
   overflow-x: hidden;
   min-width: 320px;
-  background: white;
+  background: #FFFFFF;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 14px;
   line-height: 1.4285em;
@@ -664,7 +664,7 @@ input::selection {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.2.1 - Button
+ * # Semantic UI 2.2.2 - Button
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -697,7 +697,7 @@ input::selection {
   text-align: center;
   text-decoration: none;
   border-radius: 0.28571429rem;
-  box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(14, 16, 18, 0.5) inset;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -719,7 +719,7 @@ input::selection {
 .ui.button:hover {
   background-color: #CACBCD;
   background-image: none;
-  box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(14, 16, 18, 0.5) inset;
   color: rgba(0, 0, 0, 0.8);
 }
 
@@ -957,6 +957,7 @@ input::selection {
 
 .ui.vertical.animated.button .visible.content {
   -webkit-transform: translateY(0%);
+  -ms-transform: translateY(0%);
   transform: translateY(0%);
   right: auto;
 }
@@ -970,6 +971,7 @@ input::selection {
 .ui.vertical.animated.button:focus .visible.content,
 .ui.vertical.animated.button:hover .visible.content {
   -webkit-transform: translateY(200%);
+  -ms-transform: translateY(200%);
   transform: translateY(200%);
   right: auto;
 }
@@ -995,6 +997,7 @@ input::selection {
   right: auto;
   opacity: 1;
   -webkit-transform: scale(1);
+  -ms-transform: scale(1);
   transform: scale(1);
 }
 
@@ -1003,6 +1006,7 @@ input::selection {
   left: 0%;
   right: auto;
   -webkit-transform: scale(1.5);
+  -ms-transform: scale(1.5);
   transform: scale(1.5);
 }
 
@@ -1012,6 +1016,7 @@ input::selection {
   right: auto;
   opacity: 0;
   -webkit-transform: scale(0.75);
+  -ms-transform: scale(0.75);
   transform: scale(0.75);
 }
 
@@ -1021,6 +1026,7 @@ input::selection {
   right: auto;
   opacity: 1;
   -webkit-transform: scale(1);
+  -ms-transform: scale(1);
   transform: scale(1);
 }
 
@@ -1116,7 +1122,7 @@ input::selection {
   margin: 0px 0px 0px -1px !important;
   padding: '';
   font-size: 1em;
-  border-color: rgba(34, 36, 38, 0.15);
+  border-color: rgba(14, 16, 18, 0.5);
 }
 
 /* Tag */
@@ -1161,7 +1167,7 @@ input::selection {
   color: #FFFFFF;
   text-shadow: none;
   background-image: none;
-  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(14, 16, 18, 0.5) inset;
 }
 
 .ui.facebook.button:hover {
@@ -1183,7 +1189,7 @@ input::selection {
   color: #FFFFFF;
   text-shadow: none;
   background-image: none;
-  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(14, 16, 18, 0.5) inset;
 }
 
 .ui.twitter.button:hover {
@@ -1205,7 +1211,7 @@ input::selection {
   color: #FFFFFF;
   text-shadow: none;
   background-image: none;
-  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(14, 16, 18, 0.5) inset;
 }
 
 .ui.google.plus.button:hover {
@@ -1247,7 +1253,7 @@ input::selection {
   color: #FFFFFF;
   text-shadow: none;
   background-image: none;
-  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(14, 16, 18, 0.5) inset;
 }
 
 .ui.youtube.button:hover {
@@ -1269,7 +1275,7 @@ input::selection {
   color: #FFFFFF;
   text-shadow: none;
   background-image: none;
-  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(14, 16, 18, 0.5) inset;
 }
 
 .ui.instagram.button:hover {
@@ -1291,7 +1297,7 @@ input::selection {
   color: #FFFFFF;
   text-shadow: none;
   background-image: none;
-  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(14, 16, 18, 0.5) inset;
 }
 
 .ui.pinterest.button:hover {
@@ -1312,7 +1318,7 @@ input::selection {
   background-color: #4D7198;
   color: #FFFFFF;
   background-image: none;
-  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(14, 16, 18, 0.5) inset;
 }
 
 .ui.vk.button:hover {
@@ -1468,12 +1474,12 @@ input::selection {
   border-radius: 0.28571429rem;
   text-transform: none;
   text-shadow: none !important;
-  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0px 0px 1px rgba(14, 16, 18, 0.5) inset;
 }
 
 .ui.basic.buttons {
   box-shadow: none;
-  border: 1px solid rgba(34, 36, 38, 0.15);
+  border: 1px solid rgba(14, 16, 18, 0.5);
   border-radius: 0.28571429rem;
 }
 
@@ -1485,21 +1491,21 @@ input::selection {
 .ui.basic.button:hover {
   background: #FFFFFF !important;
   color: rgba(0, 0, 0, 0.8) !important;
-  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.35) inset, 0px 0px 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.35) inset, 0px 0px 0px 0px rgba(14, 16, 18, 0.5) inset;
 }
 
 .ui.basic.buttons .button:focus,
 .ui.basic.button:focus {
   background: #FFFFFF !important;
   color: rgba(0, 0, 0, 0.8) !important;
-  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.35) inset, 0px 0px 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.35) inset, 0px 0px 0px 0px rgba(14, 16, 18, 0.5) inset;
 }
 
 .ui.basic.buttons .button:active,
 .ui.basic.button:active {
   background: #F8F8F8 !important;
   color: rgba(0, 0, 0, 0.9) !important;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset, 0px 1px 4px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset, 0px 1px 4px 0px rgba(14, 16, 18, 0.5) inset;
 }
 
 .ui.basic.buttons .active.button,
@@ -1518,11 +1524,11 @@ input::selection {
 /* Vertical */
 
 .ui.basic.buttons .button:hover {
-  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.35) inset, 0px 0px 0px 0px rgba(34, 36, 38, 0.15) inset inset;
+  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.35) inset, 0px 0px 0px 0px rgba(14, 16, 18, 0.5) inset inset;
 }
 
 .ui.basic.buttons .button:active {
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset, 0px 1px 4px 0px rgba(34, 36, 38, 0.15) inset inset;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset, 0px 1px 4px 0px rgba(14, 16, 18, 0.5) inset inset;
 }
 
 .ui.basic.buttons .active.button {
@@ -1574,7 +1580,7 @@ input::selection {
 /* Basic Group */
 
 .ui.basic.buttons .button {
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
+  border-left: 1px solid rgba(14, 16, 18, 0.5);
   box-shadow: none;
 }
 
@@ -1584,7 +1590,7 @@ input::selection {
 
 .ui.basic.vertical.buttons .button {
   border-left-width: 0px;
-  border-top: 1px solid rgba(34, 36, 38, 0.15);
+  border-top: 1px solid rgba(14, 16, 18, 0.5);
 }
 
 .ui.basic.vertical.buttons .button:first-child {
@@ -1654,6 +1660,7 @@ input::selection {
   top: 50%;
   text-align: center;
   -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
 
@@ -1779,7 +1786,7 @@ input::selection {
   display: block;
   margin: 0em;
   border-radius: 0em;
-  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) !important;
+  box-shadow: 0px 0px 0px 1px rgba(14, 16, 18, 0.5) !important;
 }
 
 /* Top / Bottom */
@@ -2077,7 +2084,7 @@ input::selection {
 }
 
 .ui.black.button {
-  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(14, 16, 18, 0.5) inset;
 }
 
 .ui.black.buttons .button:hover,
@@ -2239,7 +2246,7 @@ input::selection {
 }
 
 .ui.grey.button {
-  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(14, 16, 18, 0.5) inset;
 }
 
 .ui.grey.buttons .button:hover,
@@ -2401,7 +2408,7 @@ input::selection {
 }
 
 .ui.brown.button {
-  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(14, 16, 18, 0.5) inset;
 }
 
 .ui.brown.buttons .button:hover,
@@ -2563,7 +2570,7 @@ input::selection {
 }
 
 .ui.blue.button {
-  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(14, 16, 18, 0.5) inset;
 }
 
 .ui.blue.buttons .button:hover,
@@ -2725,7 +2732,7 @@ input::selection {
 }
 
 .ui.green.button {
-  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(14, 16, 18, 0.5) inset;
 }
 
 .ui.green.buttons .button:hover,
@@ -2887,7 +2894,7 @@ input::selection {
 }
 
 .ui.orange.button {
-  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(14, 16, 18, 0.5) inset;
 }
 
 .ui.orange.buttons .button:hover,
@@ -3049,7 +3056,7 @@ input::selection {
 }
 
 .ui.pink.button {
-  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(14, 16, 18, 0.5) inset;
 }
 
 .ui.pink.buttons .button:hover,
@@ -3211,7 +3218,7 @@ input::selection {
 }
 
 .ui.violet.button {
-  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(14, 16, 18, 0.5) inset;
 }
 
 .ui.violet.buttons .button:hover,
@@ -3373,7 +3380,7 @@ input::selection {
 }
 
 .ui.purple.button {
-  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(14, 16, 18, 0.5) inset;
 }
 
 .ui.purple.buttons .button:hover,
@@ -3535,7 +3542,7 @@ input::selection {
 }
 
 .ui.red.button {
-  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(14, 16, 18, 0.5) inset;
 }
 
 .ui.red.buttons .button:hover,
@@ -3697,7 +3704,7 @@ input::selection {
 }
 
 .ui.teal.button {
-  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(14, 16, 18, 0.5) inset;
 }
 
 .ui.teal.buttons .button:hover,
@@ -3859,7 +3866,7 @@ input::selection {
 }
 
 .ui.olive.button {
-  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(14, 16, 18, 0.5) inset;
 }
 
 .ui.olive.buttons .button:hover,
@@ -4021,7 +4028,7 @@ input::selection {
 }
 
 .ui.yellow.button {
-  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(14, 16, 18, 0.5) inset;
 }
 
 .ui.yellow.buttons .button:hover,
@@ -4187,7 +4194,7 @@ input::selection {
 }
 
 .ui.primary.button {
-  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(14, 16, 18, 0.5) inset;
 }
 
 .ui.primary.buttons .button:hover,
@@ -4274,7 +4281,7 @@ input::selection {
 }
 
 .ui.secondary.button {
-  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(14, 16, 18, 0.5) inset;
 }
 
 .ui.secondary.buttons .button:hover,
@@ -4361,7 +4368,7 @@ input::selection {
 }
 
 .ui.positive.button {
-  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(14, 16, 18, 0.5) inset;
 }
 
 .ui.positive.buttons .button:hover,
@@ -4448,7 +4455,7 @@ input::selection {
 }
 
 .ui.negative.button {
-  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0em 0px 0px rgba(14, 16, 18, 0.5) inset;
 }
 
 .ui.negative.buttons .button:hover,
@@ -4567,7 +4574,7 @@ input::selection {
 
 .ui.buttons > .ui.button:not(.basic):not(.inverted),
 .ui.buttons:not(.basic):not(.inverted) > .button {
-  box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(14, 16, 18, 0.5) inset;
 }
 
 .ui.buttons .button:first-child {
@@ -4632,7 +4639,7 @@ input::selection {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.2.1 - Container
+ * # Semantic UI 2.2.2 - Container
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -4781,6 +4788,7 @@ input::selection {
 .ui.justified.container {
   text-align: justify;
   -webkit-hyphens: auto;
+  -moz-hyphens: auto;
   -ms-hyphens: auto;
   hyphens: auto;
 }
@@ -4793,7 +4801,7 @@ input::selection {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.2.1 - Divider
+ * # Semantic UI 2.2.2 - Divider
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -4826,7 +4834,7 @@ input::selection {
 ---------------*/
 
 .ui.divider:not(.vertical):not(.horizontal) {
-  border-top: 1px solid rgba(34, 36, 38, 0.15);
+  border-top: 1px solid rgba(14, 16, 18, 0.5);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -4888,6 +4896,7 @@ input::selection {
   line-height: 0em;
   text-align: center;
   -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
   transform: translateX(-50%);
 }
 
@@ -4897,7 +4906,7 @@ input::selection {
   left: 50%;
   content: '';
   z-index: 3;
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
+  border-left: 1px solid rgba(14, 16, 18, 0.5);
   border-right: 1px solid rgba(255, 255, 255, 0.1);
   width: 0%;
   height: calc(100% -  1rem );
@@ -4928,6 +4937,7 @@ input::selection {
     top: 0;
     left: 0;
     -webkit-transform: none;
+    -ms-transform: none;
     transform: none;
   }
 
@@ -4999,8 +5009,8 @@ input::selection {
 .ui.divider.inverted,
 .ui.divider.inverted:after,
 .ui.divider.inverted:before {
-  border-top-color: rgba(34, 36, 38, 0.15) !important;
-  border-left-color: rgba(34, 36, 38, 0.15) !important;
+  border-top-color: rgba(14, 16, 18, 0.5) !important;
+  border-left-color: rgba(14, 16, 18, 0.5) !important;
   border-bottom-color: rgba(255, 255, 255, 0.15) !important;
   border-right-color: rgba(255, 255, 255, 0.15) !important;
 }
@@ -5060,7 +5070,7 @@ input::selection {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.2.1 - Flag
+ * # Semantic UI 2.2.2 - Flag
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -6331,7 +6341,7 @@ i.flag.zimbabwe:before {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.2.1 - Header
+ * # Semantic UI 2.2.2 - Header
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -7032,7 +7042,7 @@ a.ui.inverted.grey.header:hover {
 
 .ui.dividing.header {
   padding-bottom: 0.21428571rem;
-  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+  border-bottom: 1px solid rgba(14, 16, 18, 0.5);
 }
 
 .ui.dividing.header .sub.header {
@@ -7152,7 +7162,7 @@ a.ui.inverted.grey.header:hover {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.2.1 - Icon
+ * # Semantic UI 2.2.2 - Icon
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -7311,11 +7321,13 @@ i.circular.inverted.icon {
 i.flipped.icon,
 i.horizontally.flipped.icon {
   -webkit-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
   transform: scale(-1, 1);
 }
 
 i.vertically.flipped.icon {
   -webkit-transform: scale(1, -1);
+  -ms-transform: scale(1, -1);
   transform: scale(1, -1);
 }
 
@@ -7327,12 +7339,14 @@ i.rotated.icon,
 i.right.rotated.icon,
 i.clockwise.rotated.icon {
   -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
   transform: rotate(90deg);
 }
 
 i.left.rotated.icon,
 i.counterclockwise.rotated.icon {
   -webkit-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
   transform: rotate(-90deg);
 }
 
@@ -7652,6 +7666,7 @@ i.icons .icon {
   top: 50%;
   left: 50%;
   -webkit-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
   margin: 0em;
   margin: 0;
@@ -7663,6 +7678,7 @@ i.icons .icon:first-child {
   height: auto;
   vertical-align: top;
   -webkit-transform: none;
+  -ms-transform: none;
   transform: none;
   margin-right: 0.25rem;
 }
@@ -7675,6 +7691,7 @@ i.icons .corner.icon {
   right: 0;
   bottom: 0;
   -webkit-transform: none;
+  -ms-transform: none;
   transform: none;
   font-size: 0.45em;
   text-shadow: -1px -1px 0 #FFFFFF, 1px -1px 0 #FFFFFF, -1px 1px 0 #FFFFFF, 1px 1px 0 #FFFFFF;
@@ -11204,7 +11221,7 @@ i.icon.fa:before {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.2.1 - Image
+ * # Semantic UI 2.2.2 - Image
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -11521,7 +11538,7 @@ img.ui.bordered.image {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.2.1 - Input
+ * # Semantic UI 2.2.2 - Input
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -11563,7 +11580,7 @@ img.ui.bordered.image {
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   padding: 0.67861429em 1em;
   background: #FFFFFF;
-  border: 1px solid rgba(34, 36, 38, 0.15);
+  border: 1px solid rgba(14, 16, 18, 0.5);
   color: rgba(0, 0, 0, 0.87);
   border-radius: 0.28571429rem;
   -webkit-transition: box-shadow 0.1s ease, border-color 0.1s ease;
@@ -12091,7 +12108,7 @@ img.ui.bordered.image {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.2.1 - Label
+ * # Semantic UI 2.2.2 - Label
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -12294,6 +12311,7 @@ a.ui.label {
 .ui.tag.label:before {
   position: absolute;
   -webkit-transform: translateY(-50%) translateX(50%) rotate(-45deg);
+  -ms-transform: translateY(-50%) translateX(50%) rotate(-45deg);
   transform: translateY(-50%) translateX(50%) rotate(-45deg);
   top: 50%;
   right: 100%;
@@ -12452,6 +12470,7 @@ a.ui.label {
 .ui[class*="right ribbon"].label {
   text-align: left;
   -webkit-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
   transform: translateX(-100%);
   border-radius: 0.28571429rem 0em 0em 0.28571429rem;
 }
@@ -13240,7 +13259,7 @@ a.ui.basic.black.label:hover {
 
 .ui.basic.label {
   background: none #FFFFFF;
-  border: 1px solid rgba(34, 36, 38, 0.15);
+  border: 1px solid rgba(14, 16, 18, 0.5);
   color: rgba(0, 0, 0, 0.87);
   box-shadow: none;
 }
@@ -13251,7 +13270,7 @@ a.ui.basic.label:hover {
   text-decoration: none;
   background: none #FFFFFF;
   color: #1e70bf;
-  box-shadow: 1px solid rgba(34, 36, 38, 0.15);
+  box-shadow: 1px solid rgba(14, 16, 18, 0.5);
   box-shadow: none;
 }
 
@@ -13342,6 +13361,7 @@ a.ui.basic.label:hover {
   position: absolute;
   content: '';
   -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
   transform: rotate(45deg);
   background-image: none;
   z-index: 2;
@@ -13362,6 +13382,7 @@ a.ui.basic.label:hover {
 .ui[class*="pointing above"].label:before {
   border-width: 1px 0px 0px 1px;
   -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  -ms-transform: translateX(-50%) translateY(-50%) rotate(45deg);
   transform: translateX(-50%) translateY(-50%) rotate(45deg);
   top: 0%;
   left: 50%;
@@ -13381,6 +13402,7 @@ a.ui.basic.label:hover {
   top: auto;
   right: auto;
   -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  -ms-transform: translateX(-50%) translateY(-50%) rotate(45deg);
   transform: translateX(-50%) translateY(-50%) rotate(45deg);
   top: 100%;
   left: 50%;
@@ -13396,6 +13418,7 @@ a.ui.basic.label:hover {
 .ui[class*="left pointing"].label:before {
   border-width: 0px 0px 1px 1px;
   -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  -ms-transform: translateX(-50%) translateY(-50%) rotate(45deg);
   transform: translateX(-50%) translateY(-50%) rotate(45deg);
   bottom: auto;
   right: auto;
@@ -13413,6 +13436,7 @@ a.ui.basic.label:hover {
 .ui[class*="right pointing"].label:before {
   border-width: 1px 1px 0px 0px;
   -webkit-transform: translateX(50%) translateY(-50%) rotate(45deg);
+  -ms-transform: translateX(50%) translateY(-50%) rotate(45deg);
   transform: translateX(50%) translateY(-50%) rotate(45deg);
   top: 50%;
   right: 0%;
@@ -13516,7 +13540,7 @@ a.ui.basic.label:hover {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.2.1 - List
+ * # Semantic UI 2.2.2 - List
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -14266,7 +14290,7 @@ ol.ui.horizontal.list li:before,
 --------------------*/
 
 .ui.divided.list > .item {
-  border-top: 1px solid rgba(34, 36, 38, 0.15);
+  border-top: 1px solid rgba(14, 16, 18, 0.5);
 }
 
 .ui.divided.list .list > .item {
@@ -14345,7 +14369,7 @@ ol.ui.horizontal.list li:before,
 
 .ui.divided.horizontal.list > .item {
   border-top: none;
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
+  border-left: 1px solid rgba(14, 16, 18, 0.5);
   margin: 0em;
   line-height: 0.6;
 }
@@ -14368,13 +14392,13 @@ ol.ui.horizontal.list li:before,
 
 .ui.celled.list > .item,
 .ui.celled.list > .list {
-  border-top: 1px solid rgba(34, 36, 38, 0.15);
+  border-top: 1px solid rgba(14, 16, 18, 0.5);
   padding-left: 0.5em;
   padding-right: 0.5em;
 }
 
 .ui.celled.list > .item:last-child {
-  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+  border-bottom: 1px solid rgba(14, 16, 18, 0.5);
 }
 
 /* Padding on all elements */
@@ -14442,7 +14466,7 @@ ol.ui.horizontal.list li:before,
 .ui.horizontal.celled.list .list > .item,
 .ui.horizontal.celled.list > .item {
   border-top: none;
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
+  border-left: 1px solid rgba(14, 16, 18, 0.5);
   margin: 0em;
   padding-left: 0.5em;
   padding-right: 0.5em;
@@ -14452,7 +14476,7 @@ ol.ui.horizontal.list li:before,
 .ui.horizontal.celled.list .list > .item:last-child,
 .ui.horizontal.celled.list > .item:last-child {
   border-bottom: none;
-  border-right: 1px solid rgba(34, 36, 38, 0.15);
+  border-right: 1px solid rgba(14, 16, 18, 0.5);
 }
 
 /* Inverted */
@@ -14593,7 +14617,7 @@ ol.ui.horizontal.list li:before,
     User Variable Overrides
 *******************************/
 /*!
- * # Semantic UI 2.2.1 - Loader
+ * # Semantic UI 2.2.2 - Loader
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -14617,6 +14641,7 @@ ol.ui.horizontal.list li:before,
   text-align: center;
   z-index: 1000;
   -webkit-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
 }
 
@@ -14946,6 +14971,7 @@ ol.ui.horizontal.list li:before,
   left: 0em;
   top: 0em;
   -webkit-transform: none;
+  -ms-transform: none;
   transform: none;
 }
 
@@ -14971,7 +14997,7 @@ ol.ui.horizontal.list li:before,
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.2.1 - Rail
+ * # Semantic UI 2.2.2 - Rail
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -15038,11 +15064,11 @@ ol.ui.horizontal.list li:before,
 .ui.left.dividing.rail {
   padding: 0em 2.5rem 0em 0em;
   margin: 0em 2.5rem 0em 0em;
-  border-right: 1px solid rgba(34, 36, 38, 0.15);
+  border-right: 1px solid rgba(14, 16, 18, 0.5);
 }
 
 .ui.right.dividing.rail {
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
+  border-left: 1px solid rgba(14, 16, 18, 0.5);
   padding: 0em 0em 0em 2.5rem;
   margin: 0em 0em 0em 2.5rem;
 }
@@ -15133,7 +15159,7 @@ ol.ui.horizontal.list li:before,
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.2.1 - Reveal
+ * # Semantic UI 2.2.2 - Reveal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -15207,74 +15233,87 @@ ol.ui.horizontal.list li:before,
   left: 0% !important;
   width: 100% !important;
   -webkit-transform: translateX(100%) !important;
+  -ms-transform: translateX(100%) !important;
   transform: translateX(100%) !important;
 }
 
 .ui.slide.active.reveal > .visible.content,
 .ui.slide.reveal:hover > .visible.content {
   -webkit-transform: translateX(-100%) !important;
+  -ms-transform: translateX(-100%) !important;
   transform: translateX(-100%) !important;
 }
 
 .ui.slide.active.reveal > .hidden.content,
 .ui.slide.reveal:hover > .hidden.content {
   -webkit-transform: translateX(0%) !important;
+  -ms-transform: translateX(0%) !important;
   transform: translateX(0%) !important;
 }
 
 .ui.slide.right.reveal > .visible.content {
   -webkit-transform: translateX(0%) !important;
+  -ms-transform: translateX(0%) !important;
   transform: translateX(0%) !important;
 }
 
 .ui.slide.right.reveal > .hidden.content {
   -webkit-transform: translateX(-100%) !important;
+  -ms-transform: translateX(-100%) !important;
   transform: translateX(-100%) !important;
 }
 
 .ui.slide.right.active.reveal > .visible.content,
 .ui.slide.right.reveal:hover > .visible.content {
   -webkit-transform: translateX(100%) !important;
+  -ms-transform: translateX(100%) !important;
   transform: translateX(100%) !important;
 }
 
 .ui.slide.right.active.reveal > .hidden.content,
 .ui.slide.right.reveal:hover > .hidden.content {
   -webkit-transform: translateX(0%) !important;
+  -ms-transform: translateX(0%) !important;
   transform: translateX(0%) !important;
 }
 
 .ui.slide.up.reveal > .hidden.content {
   -webkit-transform: translateY(100%) !important;
+  -ms-transform: translateY(100%) !important;
   transform: translateY(100%) !important;
 }
 
 .ui.slide.up.active.reveal > .visible.content,
 .ui.slide.up.reveal:hover > .visible.content {
   -webkit-transform: translateY(-100%) !important;
+  -ms-transform: translateY(-100%) !important;
   transform: translateY(-100%) !important;
 }
 
 .ui.slide.up.active.reveal > .hidden.content,
 .ui.slide.up.reveal:hover > .hidden.content {
   -webkit-transform: translateY(0%) !important;
+  -ms-transform: translateY(0%) !important;
   transform: translateY(0%) !important;
 }
 
 .ui.slide.down.reveal > .hidden.content {
   -webkit-transform: translateY(-100%) !important;
+  -ms-transform: translateY(-100%) !important;
   transform: translateY(-100%) !important;
 }
 
 .ui.slide.down.active.reveal > .visible.content,
 .ui.slide.down.reveal:hover > .visible.content {
   -webkit-transform: translateY(100%) !important;
+  -ms-transform: translateY(100%) !important;
   transform: translateY(100%) !important;
 }
 
 .ui.slide.down.active.reveal > .hidden.content,
 .ui.slide.down.reveal:hover > .hidden.content {
   -webkit-transform: translateY(0%) !important;
+  -ms-transform: translateY(0%) !important;
   transform: translateY(0%) !important;
 }
 
@@ -15324,24 +15363,28 @@ ol.ui.horizontal.list li:before,
 .ui.move.active.reveal > .visible.content,
 .ui.move.reveal:hover > .visible.content {
   -webkit-transform: translateX(-100%) !important;
+  -ms-transform: translateX(-100%) !important;
   transform: translateX(-100%) !important;
 }
 
 .ui.move.right.active.reveal > .visible.content,
 .ui.move.right.reveal:hover > .visible.content {
   -webkit-transform: translateX(100%) !important;
+  -ms-transform: translateX(100%) !important;
   transform: translateX(100%) !important;
 }
 
 .ui.move.up.active.reveal > .visible.content,
 .ui.move.up.reveal:hover > .visible.content {
   -webkit-transform: translateY(-100%) !important;
+  -ms-transform: translateY(-100%) !important;
   transform: translateY(-100%) !important;
 }
 
 .ui.move.down.active.reveal > .visible.content,
 .ui.move.down.reveal:hover > .visible.content {
   -webkit-transform: translateY(100%) !important;
+  -ms-transform: translateY(100%) !important;
   transform: translateY(100%) !important;
 }
 
@@ -15353,12 +15396,14 @@ ol.ui.horizontal.list li:before,
   -webkit-transition-duration: 0.5s;
   transition-duration: 0.5s;
   -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
   transform: rotate(0deg);
 }
 
 .ui.rotate.reveal > .visible.content,
 .ui.rotate.right.reveal > .visible.content {
   -webkit-transform-origin: bottom right;
+  -ms-transform-origin: bottom right;
   transform-origin: bottom right;
 }
 
@@ -15367,17 +15412,20 @@ ol.ui.horizontal.list li:before,
 .ui.rotate.right.active.reveal > .visible.content,
 .ui.rotate.right.reveal:hover > .visible.content {
   -webkit-transform: rotate(110deg);
+  -ms-transform: rotate(110deg);
   transform: rotate(110deg);
 }
 
 .ui.rotate.left.reveal > .visible.content {
   -webkit-transform-origin: bottom left;
+  -ms-transform-origin: bottom left;
   transform-origin: bottom left;
 }
 
 .ui.rotate.left.active.reveal > .visible.content,
 .ui.rotate.left.reveal:hover > .visible.content {
   -webkit-transform: rotate(-110deg);
+  -ms-transform: rotate(-110deg);
   transform: rotate(-110deg);
 }
 
@@ -15394,6 +15442,7 @@ ol.ui.horizontal.list li:before,
   right: auto !important;
   bottom: auto !important;
   -webkit-transform: none !important;
+  -ms-transform: none !important;
   transform: none !important;
 }
 
@@ -15438,7 +15487,7 @@ ol.ui.horizontal.list li:before,
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.2.1 - Segment
+ * # Semantic UI 2.2.2 - Segment
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -15454,11 +15503,11 @@ ol.ui.horizontal.list li:before,
 .ui.segment {
   position: relative;
   background: #FFFFFF;
-  box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
+  box-shadow: 0px 1px 2px 0 rgba(14, 16, 18, 0.5);
   margin: 1rem 0em;
   padding: 1em 1em;
   border-radius: 0.28571429rem;
-  border: 1px solid rgba(34, 36, 38, 0.15);
+  border: 1px solid rgba(14, 16, 18, 0.5);
 }
 
 .ui.segment:first-child {
@@ -15479,7 +15528,7 @@ ol.ui.horizontal.list li:before,
   border-radius: 0px;
   box-shadow: none;
   border: none;
-  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+  border-bottom: 1px solid rgba(14, 16, 18, 0.5);
 }
 
 .ui.vertical.segment:last-child {
@@ -15536,8 +15585,8 @@ ol.ui.horizontal.list li:before,
 
 .ui.basic.table.segment {
   background: #FFFFFF;
-  border: 1px solid rgba(34, 36, 38, 0.15);
-  box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
+  border: 1px solid rgba(14, 16, 18, 0.5);
+  box-shadow: 0px 1px 2px 0 rgba(14, 16, 18, 0.5);
 }
 
 .ui[class*="very basic"].table.segment {
@@ -15579,13 +15628,14 @@ ol.ui.horizontal.list li:before,
   left: 0px;
   position: absolute;
   width: 100%;
-  border: 1px solid rgba(34, 36, 38, 0.15);
+  border: 1px solid rgba(14, 16, 18, 0.5);
   box-shadow: '';
 }
 
 .ui.piled.segments:before,
 .ui.piled.segment:before {
   -webkit-transform: rotate(-1.2deg);
+  -ms-transform: rotate(-1.2deg);
   transform: rotate(-1.2deg);
   top: 0;
   z-index: -2;
@@ -15594,6 +15644,7 @@ ol.ui.horizontal.list li:before,
 .ui.piled.segments:after,
 .ui.piled.segment:after {
   -webkit-transform: rotate(1.2deg);
+  -ms-transform: rotate(1.2deg);
   transform: rotate(1.2deg);
   top: 0;
   z-index: -1;
@@ -15635,7 +15686,7 @@ ol.ui.horizontal.list li:before,
   position: absolute;
   bottom: -3px;
   left: 0%;
-  border-top: 1px solid rgba(34, 36, 38, 0.15);
+  border-top: 1px solid rgba(14, 16, 18, 0.5);
   background: rgba(0, 0, 0, 0.03);
   width: 100%;
   height: 6px;
@@ -15721,7 +15772,7 @@ ol.ui.horizontal.list li:before,
 
 .ui.raised.segments,
 .ui.raised.segment {
-  box-shadow: 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15);
+  box-shadow: 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(14, 16, 18, 0.5);
 }
 
 /*******************************
@@ -15738,8 +15789,8 @@ ol.ui.horizontal.list li:before,
   flex-direction: column;
   position: relative;
   margin: 1rem 0em;
-  border: 1px solid rgba(34, 36, 38, 0.15);
-  box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
+  border: 1px solid rgba(14, 16, 18, 0.5);
+  box-shadow: 0px 1px 2px 0 rgba(14, 16, 18, 0.5);
   border-radius: 0.28571429rem;
 }
 
@@ -15761,7 +15812,7 @@ ol.ui.horizontal.list li:before,
   width: auto;
   box-shadow: none;
   border: none;
-  border-top: 1px solid rgba(34, 36, 38, 0.15);
+  border-top: 1px solid rgba(14, 16, 18, 0.5);
 }
 
 .ui.segments:not(.horizontal) > .segment:first-child {
@@ -15780,7 +15831,7 @@ ol.ui.horizontal.list li:before,
   bottom: 0px;
   margin-top: 0em;
   margin-bottom: 0em;
-  box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15), none;
+  box-shadow: 0px 1px 2px 0 rgba(14, 16, 18, 0.5), none;
   border-radius: 0em 0em 0.28571429rem 0.28571429rem;
 }
 
@@ -15793,7 +15844,7 @@ ol.ui.horizontal.list li:before,
 /* Nested Group */
 
 .ui.segments > .ui.segments {
-  border-top: 1px solid rgba(34, 36, 38, 0.15);
+  border-top: 1px solid rgba(14, 16, 18, 0.5);
   margin: 1rem 1rem;
 }
 
@@ -15821,10 +15872,10 @@ ol.ui.horizontal.list li:before,
   border-radius: 0px;
   padding: 0em;
   background-color: #FFFFFF;
-  box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
+  box-shadow: 0px 1px 2px 0 rgba(14, 16, 18, 0.5);
   margin: 1rem 0em;
   border-radius: 0.28571429rem;
-  border: 1px solid rgba(34, 36, 38, 0.15);
+  border: 1px solid rgba(14, 16, 18, 0.5);
 }
 
 /* Nested Horizontal Group */
@@ -15835,7 +15886,7 @@ ol.ui.horizontal.list li:before,
   border-radius: 0px;
   border: none;
   box-shadow: none;
-  border-top: 1px solid rgba(34, 36, 38, 0.15);
+  border-top: 1px solid rgba(14, 16, 18, 0.5);
 }
 
 /* Horizontal Segment */
@@ -15852,7 +15903,7 @@ ol.ui.horizontal.list li:before,
   border-radius: 0px;
   border: none;
   box-shadow: none;
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
+  border-left: 1px solid rgba(14, 16, 18, 0.5);
 }
 
 /* Border Fixes */
@@ -16257,7 +16308,7 @@ ol.ui.horizontal.list li:before,
   margin-top: 0em;
   top: 0px;
   margin-bottom: 1rem;
-  box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15), none;
+  box-shadow: 0px 1px 2px 0 rgba(14, 16, 18, 0.5), none;
   border-radius: 0em 0em 0.28571429rem 0.28571429rem;
 }
 
@@ -16317,7 +16368,7 @@ ol.ui.horizontal.list li:before,
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.2.1 - Step
+ * # Semantic UI 2.2.2 - Step
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -16349,7 +16400,7 @@ ol.ui.horizontal.list li:before,
   box-shadow: none;
   line-height: 1.14285714em;
   border-radius: 0.28571429rem;
-  border: 1px solid rgba(34, 36, 38, 0.15);
+  border: 1px solid rgba(14, 16, 18, 0.5);
 }
 
 /* First Steps */
@@ -16402,7 +16453,7 @@ ol.ui.horizontal.list li:before,
   box-shadow: none;
   border-radius: 0em;
   border: none;
-  border-right: 1px solid rgba(34, 36, 38, 0.15);
+  border-right: 1px solid rgba(14, 16, 18, 0.5);
   -webkit-transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, box-shadow 0.1s ease;
   transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, box-shadow 0.1s ease;
 }
@@ -16421,11 +16472,12 @@ ol.ui.horizontal.list li:before,
   width: 1.14285714em;
   height: 1.14285714em;
   border-style: solid;
-  border-color: rgba(34, 36, 38, 0.15);
+  border-color: rgba(14, 16, 18, 0.5);
   border-width: 0px 1px 1px 0px;
   -webkit-transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, box-shadow 0.1s ease;
   transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, box-shadow 0.1s ease;
   -webkit-transform: translateY(-50%) translateX(50%) rotate(-45deg);
+  -ms-transform: translateY(-50%) translateX(50%) rotate(-45deg);
   transform: translateY(-50%) translateX(50%) rotate(-45deg);
 }
 
@@ -16584,7 +16636,7 @@ ol.ui.horizontal.list li:before,
   border-radius: 0em;
   padding: 1.14285714em 2em;
   border-right: none;
-  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+  border-bottom: 1px solid rgba(14, 16, 18, 0.5);
 }
 
 .ui.vertical.steps .step:first-child {
@@ -17026,7 +17078,7 @@ ol.ui.horizontal.list li:before,
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.2.1 - Breadcrumb
+ * # Semantic UI 2.2.2 - Breadcrumb
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -17157,7 +17209,7 @@ ol.ui.horizontal.list li:before,
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.2.1 - Form
+ * # Semantic UI 2.2.2 - Form
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -17266,7 +17318,7 @@ ol.ui.horizontal.list li:before,
   padding: 0.67861429em 1em;
   font-size: 1em;
   background: #FFFFFF;
-  border: 1px solid rgba(34, 36, 38, 0.15);
+  border: 1px solid rgba(14, 16, 18, 0.5);
   color: rgba(0, 0, 0, 0.87);
   border-radius: 0.28571429rem;
   box-shadow: 0em 0em 0em 0em transparent inset;
@@ -17282,7 +17334,7 @@ ol.ui.horizontal.list li:before,
   tap-highlight-color: rgba(255, 255, 255, 0);
   padding: 0.78571429em 1em;
   background: #FFFFFF;
-  border: 1px solid rgba(34, 36, 38, 0.15);
+  border: 1px solid rgba(14, 16, 18, 0.5);
   outline: none;
   color: rgba(0, 0, 0, 0.87);
   border-radius: 0.28571429rem;
@@ -17322,7 +17374,7 @@ ol.ui.horizontal.list li:before,
   height: auto;
   width: 100%;
   background: #FFFFFF;
-  border: 1px solid rgba(34, 36, 38, 0.15);
+  border: 1px solid rgba(14, 16, 18, 0.5);
   border-radius: 0.28571429rem;
   box-shadow: 0em 0em 0em 0em transparent inset;
   padding: 0.62em 1em;
@@ -17479,7 +17531,7 @@ ol.ui.horizontal.list li:before,
 /* browsers require these rules separate */
 
 .ui.form ::-webkit-input-placeholder {
-  color: rgba(191, 191, 191, 0.87);
+  color: rgba(10, 10, 10, 0.67);
 }
 
 .ui.form :-ms-input-placeholder {
@@ -17547,7 +17599,7 @@ ol.ui.horizontal.list li:before,
   border-color: #85B7D9;
   border-radius: 0.28571429rem;
   background: #FFFFFF;
-  box-shadow: 0px 0em 0em 0em rgba(34, 36, 38, 0.35) inset;
+  box-shadow: 0px 0em 0em 0em rgba(14, 16, 18, 0.5) inset;
 }
 
 .ui.form textarea:focus {
@@ -17555,7 +17607,7 @@ ol.ui.horizontal.list li:before,
   border-color: #85B7D9;
   border-radius: 0.28571429rem;
   background: #FFFFFF;
-  box-shadow: 0px 0em 0em 0em rgba(34, 36, 38, 0.35) inset;
+  box-shadow: 0px 0em 0em 0em rgba(14, 16, 18, 0.5) inset;
   -webkit-appearance: none;
 }
 
@@ -18207,7 +18259,6 @@ ol.ui.horizontal.list li:before,
   -webkit-box-align: center;
   -webkit-align-items: center;
   -ms-flex-align: center;
-  -ms-grid-row-align: center;
   align-items: center;
 }
 
@@ -18328,7 +18379,7 @@ ol.ui.horizontal.list li:before,
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.2.1 - Grid
+ * # Semantic UI 2.2.2 - Grid
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -19528,7 +19579,7 @@ ol.ui.horizontal.list li:before,
 
 .ui.divided.grid:not([class*="vertically divided"]) > .column:not(.row),
 .ui.divided.grid:not([class*="vertically divided"]) > .row > .column {
-  box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.15);
+  box-shadow: -1px 0px 0px 0px rgba(14, 16, 18, 0.5);
 }
 
 /* Swap from padding to margin on columns to have dividers align */
@@ -19562,7 +19613,7 @@ ol.ui.horizontal.list li:before,
 /* Divided Row */
 
 .ui.grid > .divided.row > .column {
-  box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.15);
+  box-shadow: -1px 0px 0px 0px rgba(14, 16, 18, 0.5);
 }
 
 .ui.grid > .divided.row > .column:first-child {
@@ -19583,7 +19634,7 @@ ol.ui.horizontal.list li:before,
   width: calc(100% -  2rem );
   height: 1px;
   margin: 0% 1rem;
-  box-shadow: 0px -1px 0px 0px rgba(34, 36, 38, 0.15);
+  box-shadow: 0px -1px 0px 0px rgba(14, 16, 18, 0.5);
 }
 
 /* Padded Horizontally Divided */
@@ -19835,6 +19886,7 @@ ol.ui.horizontal.list li:before,
 .ui.grid > .row > .justified.column {
   text-align: justify;
   -webkit-hyphens: auto;
+  -moz-hyphens: auto;
   -ms-hyphens: auto;
   hyphens: auto;
 }
@@ -20032,7 +20084,7 @@ ol.ui.horizontal.list li:before,
 
   .ui[class*="mobile reversed"].divided.grid:not([class*="vertically divided"]) > .column:first-child,
   .ui[class*="mobile reversed"].divided.grid:not([class*="vertically divided"]) > .row > .column:first-child {
-    box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.15);
+    box-shadow: -1px 0px 0px 0px rgba(14, 16, 18, 0.5);
   }
 
   .ui[class*="mobile reversed"].divided.grid:not([class*="vertically divided"]) > .column:last-child,
@@ -20043,7 +20095,7 @@ ol.ui.horizontal.list li:before,
   /* Vertically Divided Reversed */
 
   .ui.grid[class*="vertically divided"][class*="mobile vertically reversed"] > .row:first-child:before {
-    box-shadow: 0px -1px 0px 0px rgba(34, 36, 38, 0.15);
+    box-shadow: 0px -1px 0px 0px rgba(14, 16, 18, 0.5);
   }
 
   .ui.grid[class*="vertically divided"][class*="mobile vertically reversed"] > .row:last-child:before {
@@ -20086,7 +20138,7 @@ ol.ui.horizontal.list li:before,
 
   .ui[class*="tablet reversed"].divided.grid:not([class*="vertically divided"]) > .column:first-child,
   .ui[class*="tablet reversed"].divided.grid:not([class*="vertically divided"]) > .row > .column:first-child {
-    box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.15);
+    box-shadow: -1px 0px 0px 0px rgba(14, 16, 18, 0.5);
   }
 
   .ui[class*="tablet reversed"].divided.grid:not([class*="vertically divided"]) > .column:last-child,
@@ -20097,7 +20149,7 @@ ol.ui.horizontal.list li:before,
   /* Vertically Divided Reversed */
 
   .ui.grid[class*="vertically divided"][class*="tablet vertically reversed"] > .row:first-child:before {
-    box-shadow: 0px -1px 0px 0px rgba(34, 36, 38, 0.15);
+    box-shadow: 0px -1px 0px 0px rgba(14, 16, 18, 0.5);
   }
 
   .ui.grid[class*="vertically divided"][class*="tablet vertically reversed"] > .row:last-child:before {
@@ -20140,7 +20192,7 @@ ol.ui.horizontal.list li:before,
 
   .ui[class*="computer reversed"].divided.grid:not([class*="vertically divided"]) > .column:first-child,
   .ui[class*="computer reversed"].divided.grid:not([class*="vertically divided"]) > .row > .column:first-child {
-    box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.15);
+    box-shadow: -1px 0px 0px 0px rgba(14, 16, 18, 0.5);
   }
 
   .ui[class*="computer reversed"].divided.grid:not([class*="vertically divided"]) > .column:last-child,
@@ -20151,7 +20203,7 @@ ol.ui.horizontal.list li:before,
   /* Vertically Divided Reversed */
 
   .ui.grid[class*="vertically divided"][class*="computer vertically reversed"] > .row:first-child:before {
-    box-shadow: 0px -1px 0px 0px rgba(34, 36, 38, 0.15);
+    box-shadow: 0px -1px 0px 0px rgba(14, 16, 18, 0.5);
   }
 
   .ui.grid[class*="vertically divided"][class*="computer vertically reversed"] > .row:last-child:before {
@@ -20459,7 +20511,7 @@ ol.ui.horizontal.list li:before,
   .ui.stackable.divided:not(.vertically).grid > .column:not(.row),
   .ui.stackable.celled.grid > .row > .column,
   .ui.stackable.divided:not(.vertically).grid > .row > .column {
-    border-top: 1px solid rgba(34, 36, 38, 0.15);
+    border-top: 1px solid rgba(14, 16, 18, 0.5);
     box-shadow: none !important;
     padding-top: 2rem !important;
     padding-bottom: 2rem !important;
@@ -20656,8 +20708,8 @@ ol.ui.horizontal.list li:before,
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   background: #FFFFFF;
   font-weight: normal;
-  border: 1px solid rgba(34, 36, 38, 0.15);
-  box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
+  border: 1px solid rgba(14, 16, 18, 0.5);
+  box-shadow: 0px 1px 2px 0 rgba(14, 16, 18, 0.5);
   border-radius: 0.28571429rem;
   min-height: 2.85714286em;
 }
@@ -21178,7 +21230,7 @@ Floated Menu / Item
   -ms-flex-direction: column;
   flex-direction: column;
   background: #FFFFFF;
-  box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
+  box-shadow: 0px 1px 2px 0 rgba(14, 16, 18, 0.5);
 }
 
 /*--- Item ---*/
@@ -21639,7 +21691,7 @@ Floated Menu / Item
 .ui.secondary.pointing.menu {
   margin-left: 0em;
   margin-right: 0em;
-  border-bottom: 2px solid rgba(34, 36, 38, 0.15);
+  border-bottom: 2px solid rgba(14, 16, 18, 0.5);
 }
 
 .ui.secondary.pointing.menu .item {
@@ -21685,7 +21737,7 @@ Floated Menu / Item
 .ui.secondary.pointing.menu .link.item:active,
 .ui.secondary.pointing.menu a.item:active {
   background-color: transparent;
-  border-color: rgba(34, 36, 38, 0.15);
+  border-color: rgba(14, 16, 18, 0.5);
 }
 
 /* Active */
@@ -21717,7 +21769,7 @@ Floated Menu / Item
   border-bottom-width: 0px;
   border-right-width: 2px;
   border-right-style: solid;
-  border-right-color: rgba(34, 36, 38, 0.15);
+  border-right-color: rgba(14, 16, 18, 0.5);
 }
 
 .ui.secondary.vertical.pointing.menu .item {
@@ -21743,7 +21795,7 @@ Floated Menu / Item
 
 .ui.secondary.inverted.pointing.menu {
   border-width: 2px;
-  border-color: rgba(34, 36, 38, 0.15);
+  border-color: rgba(14, 16, 18, 0.5);
 }
 
 .ui.secondary.inverted.pointing.menu .item {
@@ -22658,6 +22710,7 @@ Floated Menu / Item
   top: 100%;
   left: 50%;
   -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  -ms-transform: translateX(-50%) translateY(-50%) rotate(45deg);
   transform: translateX(-50%) translateY(-50%) rotate(45deg);
   background: none;
   margin: 0.5px 0em 0em;
@@ -22678,6 +22731,7 @@ Floated Menu / Item
   bottom: auto;
   left: auto;
   -webkit-transform: translateX(50%) translateY(-50%) rotate(45deg);
+  -ms-transform: translateX(50%) translateY(-50%) rotate(45deg);
   transform: translateX(50%) translateY(-50%) rotate(45deg);
   margin: 0em -0.5px 0em 0em;
   border: none;
@@ -22769,7 +22823,7 @@ Floated Menu / Item
   margin-top: 0em;
   top: 0px;
   margin-bottom: 1rem;
-  box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15), none;
+  box-shadow: 0px 1px 2px 0 rgba(14, 16, 18, 0.5), none;
   border-radius: 0em 0em 0.28571429rem 0.28571429rem;
 }
 
@@ -22895,7 +22949,7 @@ Floated Menu / Item
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.2.1 - Message
+ * # Semantic UI 2.2.2 - Message
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -23092,7 +23146,7 @@ Floated Menu / Item
 .ui.attached.message {
   margin-bottom: -1px;
   border-radius: 0.28571429rem 0.28571429rem 0em 0em;
-  box-shadow: 0em 0em 0em 1px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0em 0em 0em 1px rgba(14, 16, 18, 0.5) inset;
   margin-left: -1px;
   margin-right: -1px;
 }
@@ -23105,7 +23159,7 @@ Floated Menu / Item
 .ui.bottom.attached.message {
   margin-top: -1px;
   border-radius: 0em 0em 0.28571429rem 0.28571429rem;
-  box-shadow: 0em 0em 0em 1px rgba(34, 36, 38, 0.15) inset, 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
+  box-shadow: 0em 0em 0em 1px rgba(14, 16, 18, 0.5) inset, 0px 1px 2px 0 rgba(14, 16, 18, 0.5);
 }
 
 .ui.bottom.attached.message:not(:last-child) {
@@ -23167,7 +23221,7 @@ Floated Menu / Item
 ---------------*/
 
 .ui.floating.message {
-  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.22) inset, 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15);
+  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.22) inset, 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(14, 16, 18, 0.5);
 }
 
 /*--------------
@@ -23438,10 +23492,10 @@ Floated Menu / Item
 *******************************/
 
 /*******************************
-        Site Overrides
+    User Variable Overrides
 *******************************/
 /*!
- * # Semantic UI 2.2.1 - Table
+ * # Semantic UI 2.2.2 - Table
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -23460,7 +23514,7 @@ Floated Menu / Item
   width: 100%;
   background: #FFFFFF;
   margin: 1em 0em;
-  border: 1px solid rgba(34, 36, 38, 0.15);
+  border: 1px solid rgba(14, 16, 18, 0.5);
   box-shadow: none;
   border-radius: 0.28571429rem;
   text-align: left;
@@ -23533,7 +23587,7 @@ Floated Menu / Item
 
 .ui.table tfoot th {
   cursor: auto;
-  border-top: 1px solid rgba(34, 36, 38, 0.15);
+  border-top: 1px solid rgba(14, 16, 18, 0.5);
   background: #F9FAFB;
   text-align: inherit;
   color: rgba(0, 0, 0, 0.87);
@@ -23685,8 +23739,8 @@ Floated Menu / Item
 }
 
 .ui.structured.sortable.table thead th {
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
-  border-right: 1px solid rgba(34, 36, 38, 0.15);
+  border-left: 1px solid rgba(14, 16, 18, 0.5);
+  border-right: 1px solid rgba(14, 16, 18, 0.5);
 }
 
 .ui.structured.basic.table th {
@@ -23748,15 +23802,15 @@ Floated Menu / Item
 /* Fix 2nd Column */
 
 .ui.definition.table thead:not(.full-width) th:nth-child(2) {
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
+  border-left: 1px solid rgba(14, 16, 18, 0.5);
 }
 
 .ui.definition.table tfoot:not(.full-width) th:nth-child(2) {
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
+  border-left: 1px solid rgba(14, 16, 18, 0.5);
 }
 
 .ui.definition.table td:nth-child(2) {
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
+  border-left: 1px solid rgba(14, 16, 18, 0.5);
 }
 
 /*******************************
@@ -24423,7 +24477,7 @@ Floated Menu / Item
 .ui.sortable.table thead th {
   cursor: pointer;
   white-space: nowrap;
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
+  border-left: 1px solid rgba(14, 16, 18, 0.5);
   color: rgba(0, 0, 0, 0.87);
 }
 
@@ -24565,7 +24619,7 @@ Floated Menu / Item
 
 .ui.basic.table {
   background: transparent;
-  border: 1px solid rgba(34, 36, 38, 0.15);
+  border: 1px solid rgba(14, 16, 18, 0.5);
   box-shadow: none;
 }
 
@@ -24705,7 +24759,7 @@ Floated Menu / Item
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.2.1 - Ad
+ * # Semantic UI 2.2.2 - Ad
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -24971,6 +25025,7 @@ Floated Menu / Item
   width: 100%;
   text-align: center;
   -webkit-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
   content: 'Ad';
   color: #FFFFFF;
@@ -24994,7 +25049,7 @@ Floated Menu / Item
     User Variable Overrides
 *******************************/
 /*!
- * # Semantic UI 2.2.1 - Item
+ * # Semantic UI 2.2.2 - Item
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -25464,19 +25519,19 @@ Floated Menu / Item
 
 .ui.raised.cards > .card,
 .ui.raised.card {
-  box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15);
+  box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(14, 16, 18, 0.5);
 }
 
 .ui.raised.cards a.card:hover,
 .ui.link.cards .raised.card:hover,
 a.ui.raised.card:hover,
 .ui.link.raised.card:hover {
-  box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 4px 0px rgba(34, 36, 38, 0.15), 0px 2px 10px 0px rgba(34, 36, 38, 0.25);
+  box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 4px 0px rgba(14, 16, 18, 0.5), 0px 2px 10px 0px rgba(34, 36, 38, 0.25);
 }
 
 .ui.raised.cards > .card,
 .ui.raised.card {
-  box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15);
+  box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(14, 16, 18, 0.5);
 }
 
 /*-------------------
@@ -25513,6 +25568,7 @@ a.ui.raised.card:hover,
 a.ui.card,
 .ui.link.card {
   -webkit-transform: none;
+  -ms-transform: none;
   transform: none;
 }
 
@@ -25526,6 +25582,7 @@ a.ui.card:hover,
   border: none;
   box-shadow: 0px 1px 3px 0px #BCBDBD, 0px 0px 0px 1px #D4D4D5;
   -webkit-transform: translateY(-3px);
+  -ms-transform: translateY(-3px);
   transform: translateY(-3px);
 }
 
@@ -26077,7 +26134,7 @@ a.ui.card:hover,
     User Variable Overrides
 *******************************/
 /*!
- * # Semantic UI 2.2.1 - Comment
+ * # Semantic UI 2.2.2 - Comment
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -26295,7 +26352,7 @@ a.ui.card:hover,
 .ui.threaded.comments .comment .comments {
   margin: -1.5em 0 -1em 1.25em;
   padding: 3em 0em 2em 2.25em;
-  box-shadow: -1px 0px 0px rgba(34, 36, 38, 0.15);
+  box-shadow: -1px 0px 0px rgba(14, 16, 18, 0.5);
 }
 
 /*--------------------
@@ -26346,7 +26403,7 @@ a.ui.card:hover,
     User Variable Overrides
 *******************************/
 /*!
- * # Semantic UI 2.2.1 - Feed
+ * # Semantic UI 2.2.2 - Feed
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -26664,7 +26721,7 @@ a.ui.card:hover,
     User Variable Overrides
 *******************************/
 /*!
- * # Semantic UI 2.2.1 - Item
+ * # Semantic UI 2.2.2 - Item
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -27121,7 +27178,7 @@ a.ui.card:hover,
 --------------------*/
 
 .ui.divided.items > .item {
-  border-top: 1px solid rgba(34, 36, 38, 0.15);
+  border-top: 1px solid rgba(14, 16, 18, 0.5);
   margin: 0em;
   padding: 1em 0em;
 }
@@ -27179,7 +27236,7 @@ a.ui.card:hover,
     User Variable Overrides
 *******************************/
 /*!
- * # Semantic UI 2.2.1 - Statistic
+ * # Semantic UI 2.2.2 - Statistic
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -27485,7 +27542,6 @@ a.ui.card:hover,
   -webkit-box-align: center;
   -webkit-align-items: center;
   -ms-flex-align: center;
-  -ms-grid-row-align: center;
   align-items: center;
 }
 
@@ -27508,7 +27564,6 @@ a.ui.card:hover,
   -webkit-box-align: center;
   -webkit-align-items: center;
   -ms-flex-align: center;
-  -ms-grid-row-align: center;
   align-items: center;
   max-width: none;
   margin: 1em 0em;
@@ -27831,7 +27886,7 @@ a.ui.card:hover,
     User Variable Overrides
 *******************************/
 /*!
- * # Semantic UI 2.2.1 - Accordion
+ * # Semantic UI 2.2.2 - Accordion
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -27907,6 +27962,7 @@ a.ui.card:hover,
   transition: transform 0.1s ease, opacity 0.1s ease, -webkit-transform 0.1s ease;
   vertical-align: baseline;
   -webkit-transform: none;
+  -ms-transform: none;
   transform: none;
 }
 
@@ -27925,6 +27981,7 @@ a.ui.card:hover,
   float: right;
   margin: 0.21425em 0em 0em 1em;
   -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
   transform: rotate(180deg);
 }
 
@@ -27942,11 +27999,13 @@ a.ui.card:hover,
 .ui.accordion .active.title .dropdown.icon,
 .ui.accordion .accordion .active.title .dropdown.icon {
   -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
   transform: rotate(90deg);
 }
 
 .ui.accordion.menu .item .active.title > .dropdown.icon {
   -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
   transform: rotate(90deg);
 }
 
@@ -27966,7 +28025,7 @@ a.ui.card:hover,
 .ui.styled.accordion .accordion {
   border-radius: 0.28571429rem;
   background: #FFFFFF;
-  box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15), 0px 0px 0px 1px rgba(34, 36, 38, 0.15);
+  box-shadow: 0px 1px 2px 0 rgba(14, 16, 18, 0.5), 0px 0px 0px 1px rgba(14, 16, 18, 0.5);
 }
 
 .ui.styled.accordion .title,
@@ -27975,7 +28034,7 @@ a.ui.card:hover,
   padding: 0.75em 1em;
   color: rgba(0, 0, 0, 0.4);
   font-weight: bold;
-  border-top: 1px solid rgba(34, 36, 38, 0.15);
+  border-top: 1px solid rgba(14, 16, 18, 0.5);
   -webkit-transition: background 0.1s ease, color 0.1s ease;
   transition: background 0.1s ease, color 0.1s ease;
 }
@@ -28093,7 +28152,7 @@ a.ui.card:hover,
         User Overrides
 *******************************/
 /*!
- * # Semantic UI 2.2.1 - Checkbox
+ * # Semantic UI 2.2.2 - Checkbox
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -28384,6 +28443,7 @@ a.ui.card:hover,
 .ui.radio.checkbox label:before {
   content: '';
   -webkit-transform: none;
+  -ms-transform: none;
   transform: none;
   width: 15px;
   height: 15px;
@@ -28413,6 +28473,7 @@ a.ui.card:hover,
   height: 15px;
   border-radius: 500rem;
   -webkit-transform: scale(0.46666667);
+  -ms-transform: scale(0.46666667);
   transform: scale(0.46666667);
   background-color: rgba(0, 0, 0, 0.87);
 }
@@ -28499,6 +28560,7 @@ a.ui.card:hover,
   width: 3.5rem;
   height: 0.21428571rem;
   -webkit-transform: none;
+  -ms-transform: none;
   transform: none;
   border-radius: 500rem;
   -webkit-transition: background 0.3s ease;
@@ -28516,12 +28578,13 @@ a.ui.card:hover,
   opacity: 1;
   z-index: 2;
   border: none;
-  box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15), 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 1px 2px 0 rgba(14, 16, 18, 0.5), 0px 0px 0px 1px rgba(14, 16, 18, 0.5) inset;
   width: 1.5rem;
   height: 1.5rem;
   top: -0.25rem;
   left: 0em;
   -webkit-transform: none;
+  -ms-transform: none;
   transform: none;
   border-radius: 500rem;
   -webkit-transition: left 0.3s ease;
@@ -28614,6 +28677,7 @@ a.ui.card:hover,
   content: '';
   z-index: 1;
   -webkit-transform: none;
+  -ms-transform: none;
   transform: none;
   border: none;
   top: 0rem;
@@ -28634,7 +28698,7 @@ a.ui.card:hover,
   opacity: 1;
   z-index: 2;
   border: none;
-  box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15), 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 1px 2px 0 rgba(14, 16, 18, 0.5), 0px 0px 0px 1px rgba(14, 16, 18, 0.5) inset;
   width: 1.5rem;
   height: 1.5rem;
   top: 0rem;
@@ -28758,7 +28822,7 @@ a.ui.card:hover,
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.2.1 - Dimmer
+ * # Semantic UI 2.2.2 - Dimmer
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -28861,6 +28925,7 @@ a.ui.card:hover,
   -webkit-perspective: 2000px;
   perspective: 2000px;
   -webkit-transform-origin: center center;
+  -ms-transform-origin: center center;
   transform-origin: center center;
 }
 
@@ -28964,7 +29029,7 @@ body.dimmable > .dimmer {
         User Overrides
 *******************************/
 /*!
- * # Semantic UI 2.2.1 - Dropdown
+ * # Semantic UI 2.2.2 - Dropdown
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -29011,8 +29076,8 @@ body.dimmable > .dimmer {
   font-size: 1em;
   text-shadow: none;
   text-align: left;
-  box-shadow: 0px 2px 3px 0px rgba(34, 36, 38, 0.15);
-  border: 1px solid rgba(34, 36, 38, 0.15);
+  box-shadow: 0px 2px 3px 0px rgba(14, 16, 18, 0.5);
+  border: 1px solid rgba(14, 16, 18, 0.5);
   border-radius: 0.28571429rem;
   -webkit-transition: opacity 0.1s ease;
   transition: opacity 0.1s ease;
@@ -29324,6 +29389,7 @@ body.dimmable > .dimmer {
   white-space: normal;
   outline: 0;
   -webkit-transform: rotateZ(0deg);
+  -ms-transform: rotate(0deg);
   transform: rotateZ(0deg);
   min-width: 14em;
   min-height: 2.7142em;
@@ -29332,7 +29398,7 @@ body.dimmable > .dimmer {
   padding: 0.78571429em 2.1em 0.78571429em 1em;
   color: rgba(0, 0, 0, 0.87);
   box-shadow: none;
-  border: 1px solid rgba(34, 36, 38, 0.15);
+  border: 1px solid rgba(14, 16, 18, 0.5);
   border-radius: 0.28571429rem;
   -webkit-transition: box-shadow 0.1s ease, width 0.1s ease;
   transition: box-shadow 0.1s ease, width 0.1s ease;
@@ -29346,7 +29412,7 @@ body.dimmable > .dimmer {
 select.ui.dropdown {
   height: 38px;
   padding: 0.5em;
-  border: 1px solid rgba(34, 36, 38, 0.15);
+  border: 1px solid rgba(14, 16, 18, 0.5);
   visibility: visible;
 }
 
@@ -29389,7 +29455,7 @@ select.ui.dropdown {
   min-width: calc(100% +  2px );
   width: calc(100% +  2px );
   border-radius: 0em 0em 0.28571429rem 0.28571429rem;
-  box-shadow: 0px 2px 3px 0px rgba(34, 36, 38, 0.15);
+  box-shadow: 0px 2px 3px 0px rgba(14, 16, 18, 0.5);
   -webkit-transition: opacity 0.1s ease;
   transition: opacity 0.1s ease;
 }
@@ -29457,12 +29523,12 @@ select.ui.dropdown {
 
 .ui.selection.active.dropdown {
   border-color: #96C8DA;
-  box-shadow: 0px 2px 3px 0px rgba(34, 36, 38, 0.15);
+  box-shadow: 0px 2px 3px 0px rgba(14, 16, 18, 0.5);
 }
 
 .ui.selection.active.dropdown .menu {
   border-color: #96C8DA;
-  box-shadow: 0px 2px 3px 0px rgba(34, 36, 38, 0.15);
+  box-shadow: 0px 2px 3px 0px rgba(14, 16, 18, 0.5);
 }
 
 /* Focus */
@@ -29474,7 +29540,7 @@ select.ui.dropdown {
 
 .ui.selection.dropdown:focus .menu {
   border-color: #96C8DA;
-  box-shadow: 0px 2px 3px 0px rgba(34, 36, 38, 0.15);
+  box-shadow: 0px 2px 3px 0px rgba(14, 16, 18, 0.5);
 }
 
 /* Visible */
@@ -29488,12 +29554,12 @@ select.ui.dropdown {
 
 .ui.selection.active.dropdown:hover {
   border-color: #96C8DA;
-  box-shadow: 0px 2px 3px 0px rgba(34, 36, 38, 0.15);
+  box-shadow: 0px 2px 3px 0px rgba(14, 16, 18, 0.5);
 }
 
 .ui.selection.active.dropdown:hover .menu {
   border-color: #96C8DA;
-  box-shadow: 0px 2px 3px 0px rgba(34, 36, 38, 0.15);
+  box-shadow: 0px 2px 3px 0px rgba(14, 16, 18, 0.5);
 }
 
 /* Dropdown Icon */
@@ -29539,7 +29605,7 @@ select.ui.dropdown {
   background: none transparent !important;
   border: none !important;
   box-shadow: none !important;
-  cursor: pointer;
+  cursor: text;
   top: 0em;
   left: 0em;
   width: 100%;
@@ -29669,7 +29735,7 @@ select.ui.dropdown {
   font-size: 1em;
   padding: 0.35714286em 0.78571429em;
   margin: 0.14285714rem 0.28571429rem 0.14285714rem 0em;
-  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 0px 0px 1px rgba(14, 16, 18, 0.5) inset;
 }
 
 /* Dropdown Icon */
@@ -30116,7 +30182,7 @@ select.ui.dropdown {
   margin: 0 !important;
   min-width: 100% !important;
   width: auto !important;
-  border-top: 1px solid rgba(34, 36, 38, 0.15);
+  border-top: 1px solid rgba(14, 16, 18, 0.5);
 }
 
 .ui.scrolling.dropdown .menu .item.item.item,
@@ -30254,7 +30320,7 @@ select.ui.dropdown {
 .ui.floating.dropdown .menu {
   left: 0;
   right: auto;
-  box-shadow: 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15) !important;
+  box-shadow: 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(14, 16, 18, 0.5) !important;
   border-radius: 0.28571429rem !important;
 }
 
@@ -30280,10 +30346,11 @@ select.ui.dropdown {
   content: '';
   visibility: visible;
   -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
   transform: rotate(45deg);
   width: 0.5em;
   height: 0.5em;
-  box-shadow: -1px -1px 0px 1px rgba(34, 36, 38, 0.15);
+  box-shadow: -1px -1px 0px 1px rgba(14, 16, 18, 0.5);
   background: #FFFFFF;
   z-index: 2;
 }
@@ -30318,6 +30385,7 @@ select.ui.dropdown {
   right: auto;
   margin: 0em;
   -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
 
@@ -30337,6 +30405,7 @@ select.ui.dropdown {
   right: 1em;
   margin: 0em;
   -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
 
@@ -30354,6 +30423,7 @@ select.ui.dropdown {
   left: -0.25em;
   margin: 0em 0em 0em 0em;
   -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
 
@@ -30372,6 +30442,7 @@ select.ui.dropdown {
   right: -0.25em;
   margin: 0em 0em 0em 0em;
   -webkit-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
   transform: rotate(135deg);
 }
 
@@ -30391,6 +30462,7 @@ select.ui.dropdown {
   right: auto;
   margin: 0em;
   -webkit-transform: rotate(-135deg);
+  -ms-transform: rotate(-135deg);
   transform: rotate(-135deg);
 }
 
@@ -30439,7 +30511,7 @@ select.ui.dropdown {
 .ui.upward.top.pointing.dropdown > .menu:after {
   top: 100%;
   bottom: auto;
-  box-shadow: 1px 1px 0px 1px rgba(34, 36, 38, 0.15);
+  box-shadow: 1px 1px 0px 1px rgba(14, 16, 18, 0.5);
   margin: -0.25em 0em 0em;
 }
 
@@ -30512,7 +30584,7 @@ select.ui.dropdown {
         User Overrides
 *******************************/
 /*!
- * # Semantic UI 2.2.1 - Video
+ * # Semantic UI 2.2.2 - Video
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -30609,6 +30681,7 @@ select.ui.dropdown {
   left: 50%;
   z-index: 4;
   -webkit-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
   color: #FFFFFF;
   font-size: 6rem;
@@ -30677,7 +30750,7 @@ select.ui.dropdown {
   padding-bottom: 42.85714286%;
 }
 /*!
- * # Semantic UI 2.2.1 - Modal
+ * # Semantic UI 2.2.2 - Modal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -30701,6 +30774,7 @@ select.ui.dropdown {
   border: none;
   box-shadow: 1px 3px 3px 0px rgba(0, 0, 0, 0.2), 1px 3px 15px 2px rgba(0, 0, 0, 0.2);
   -webkit-transform-origin: 50% 25%;
+  -ms-transform-origin: 50% 25%;
   transform-origin: 50% 25%;
   border-radius: 0.28571429rem;
   -webkit-user-select: text;
@@ -30759,7 +30833,7 @@ select.ui.dropdown {
   padding: 1.25rem 1.5rem;
   box-shadow: none;
   color: rgba(0, 0, 0, 0.85);
-  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+  border-bottom: 1px solid rgba(14, 16, 18, 0.5);
 }
 
 .ui.modal > .header:not(.ui) {
@@ -30867,7 +30941,7 @@ select.ui.dropdown {
 .ui.modal > .actions {
   background: #F9FAFB;
   padding: 1rem 1rem;
-  border-top: 1px solid rgba(34, 36, 38, 0.15);
+  border-top: 1px solid rgba(14, 16, 18, 0.5);
   text-align: right;
 }
 
@@ -31234,7 +31308,7 @@ select.ui.dropdown {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.2.1 - Nag
+ * # Semantic UI 2.2.2 - Nag
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -31379,7 +31453,7 @@ a.ui.nag {
         User Overrides
 *******************************/
 /*!
- * # Semantic UI 2.2.1 - Popup
+ * # Semantic UI 2.2.2 - Popup
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -31411,7 +31485,7 @@ a.ui.nag {
   font-style: normal;
   color: rgba(0, 0, 0, 0.87);
   border-radius: 0.28571429rem;
-  box-shadow: 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15);
+  box-shadow: 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(14, 16, 18, 0.5);
 }
 
 .ui.popup > .header {
@@ -31433,6 +31507,7 @@ a.ui.nag {
   height: 0.71428571em;
   background: #FFFFFF;
   -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
   transform: rotate(45deg);
   z-index: 2;
   box-shadow: 1px 1px 0px 0px #bababc;
@@ -31463,6 +31538,7 @@ a.ui.nag {
   height: 0.71428571em;
   background: #FFFFFF;
   -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
   transform: rotate(45deg);
   z-index: 2;
   box-shadow: 1px 1px 0px 0px #bababc;
@@ -31487,7 +31563,7 @@ a.ui.nag {
   font-style: normal;
   color: rgba(0, 0, 0, 0.87);
   border-radius: 0.28571429rem;
-  box-shadow: 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15);
+  box-shadow: 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(14, 16, 18, 0.5);
   z-index: 1;
 }
 
@@ -31506,6 +31582,7 @@ a.ui.nag {
 [data-tooltip]:not([data-position]):after {
   left: 50%;
   -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
   transform: translateX(-50%);
   bottom: 100%;
   margin-bottom: 0.5em;
@@ -31522,8 +31599,10 @@ a.ui.nag {
 [data-tooltip]:before {
   opacity: 0;
   -webkit-transform: rotate(45deg) scale(0) !important;
+  -ms-transform: rotate(45deg) scale(0) !important;
   transform: rotate(45deg) scale(0) !important;
   -webkit-transform-origin: center top;
+  -ms-transform-origin: center top;
   transform-origin: center top;
   -webkit-transition: all 0.1s ease;
   transition: all 0.1s ease;
@@ -31532,6 +31611,7 @@ a.ui.nag {
 [data-tooltip]:after {
   opacity: 1;
   -webkit-transform-origin: center bottom;
+  -ms-transform-origin: center bottom;
   transform-origin: center bottom;
   -webkit-transition: all 0.1s ease;
   transition: all 0.1s ease;
@@ -31545,6 +31625,7 @@ a.ui.nag {
 
 [data-tooltip]:hover:before {
   -webkit-transform: rotate(45deg) scale(1) !important;
+  -ms-transform: rotate(45deg) scale(1) !important;
   transform: rotate(45deg) scale(1) !important;
   opacity: 1;
 }
@@ -31555,24 +31636,28 @@ a.ui.nag {
 [data-tooltip][data-position="top center"]:after,
 [data-tooltip][data-position="bottom center"]:after {
   -webkit-transform: translateX(-50%) scale(0) !important;
+  -ms-transform: translateX(-50%) scale(0) !important;
   transform: translateX(-50%) scale(0) !important;
 }
 
 [data-tooltip]:hover:after,
 [data-tooltip][data-position="bottom center"]:hover:after {
   -webkit-transform: translateX(-50%) scale(1) !important;
+  -ms-transform: translateX(-50%) scale(1) !important;
   transform: translateX(-50%) scale(1) !important;
 }
 
 [data-tooltip][data-position="left center"]:after,
 [data-tooltip][data-position="right center"]:after {
   -webkit-transform: translateY(-50%) scale(0) !important;
+  -ms-transform: translateY(-50%) scale(0) !important;
   transform: translateY(-50%) scale(0) !important;
 }
 
 [data-tooltip][data-position="left center"]:hover:after,
 [data-tooltip][data-position="right center"]:hover:after {
   -webkit-transform: translateY(-50%) scale(1) !important;
+  -ms-transform: translateY(-50%) scale(1) !important;
   transform: translateY(-50%) scale(1) !important;
 }
 
@@ -31581,6 +31666,7 @@ a.ui.nag {
 [data-tooltip][data-position="bottom left"]:after,
 [data-tooltip][data-position="bottom right"]:after {
   -webkit-transform: scale(0) !important;
+  -ms-transform: scale(0) !important;
   transform: scale(0) !important;
 }
 
@@ -31589,6 +31675,7 @@ a.ui.nag {
 [data-tooltip][data-position="bottom left"]:hover:after,
 [data-tooltip][data-position="bottom right"]:hover:after {
   -webkit-transform: scale(1) !important;
+  -ms-transform: scale(1) !important;
   transform: scale(1) !important;
 }
 
@@ -31634,6 +31721,7 @@ a.ui.nag {
   left: 50%;
   bottom: 100%;
   -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
   transform: translateX(-50%);
   margin-bottom: 0.5em;
 }
@@ -31694,6 +31782,7 @@ a.ui.nag {
   left: 50%;
   top: 100%;
   -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
   transform: translateX(-50%);
   margin-top: 0.5em;
 }
@@ -31748,6 +31837,7 @@ a.ui.nag {
   top: 50%;
   margin-right: 0.5em;
   -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
 
@@ -31765,6 +31855,7 @@ a.ui.nag {
   top: 50%;
   margin-left: 0.5em;
   -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
 
@@ -31819,31 +31910,37 @@ a.ui.nag {
 
 [data-position~="bottom"][data-tooltip]:before {
   -webkit-transform-origin: center bottom;
+  -ms-transform-origin: center bottom;
   transform-origin: center bottom;
 }
 
 [data-position~="bottom"][data-tooltip]:after {
   -webkit-transform-origin: center top;
+  -ms-transform-origin: center top;
   transform-origin: center top;
 }
 
 [data-position="left center"][data-tooltip]:before {
   -webkit-transform-origin: top center;
+  -ms-transform-origin: top center;
   transform-origin: top center;
 }
 
 [data-position="left center"][data-tooltip]:after {
   -webkit-transform-origin: right center;
+  -ms-transform-origin: right center;
   transform-origin: right center;
 }
 
 [data-position="right center"][data-tooltip]:before {
   -webkit-transform-origin: right center;
+  -ms-transform-origin: right center;
   transform-origin: right center;
 }
 
 [data-position="right center"][data-tooltip]:after {
   -webkit-transform-origin: left center;
+  -ms-transform-origin: left center;
   transform-origin: left center;
 }
 
@@ -31863,16 +31960,19 @@ a.ui.nag {
 
 .ui.top.left.popup {
   -webkit-transform-origin: left bottom;
+  -ms-transform-origin: left bottom;
   transform-origin: left bottom;
 }
 
 .ui.top.center.popup {
   -webkit-transform-origin: center bottom;
+  -ms-transform-origin: center bottom;
   transform-origin: center bottom;
 }
 
 .ui.top.right.popup {
   -webkit-transform-origin: right bottom;
+  -ms-transform-origin: right bottom;
   transform-origin: right bottom;
 }
 
@@ -31881,12 +31981,14 @@ a.ui.nag {
 .ui.left.center.popup {
   margin: 0em 0.71428571em 0em 0em;
   -webkit-transform-origin: right 50%;
+  -ms-transform-origin: right 50%;
   transform-origin: right 50%;
 }
 
 .ui.right.center.popup {
   margin: 0em 0em 0em 0.71428571em;
   -webkit-transform-origin: left 50%;
+  -ms-transform-origin: left 50%;
   transform-origin: left 50%;
 }
 
@@ -31898,16 +32000,19 @@ a.ui.nag {
 
 .ui.bottom.left.popup {
   -webkit-transform-origin: left top;
+  -ms-transform-origin: left top;
   transform-origin: left top;
 }
 
 .ui.bottom.center.popup {
   -webkit-transform-origin: center top;
+  -ms-transform-origin: center top;
   transform-origin: center top;
 }
 
 .ui.bottom.right.popup {
   -webkit-transform-origin: right top;
+  -ms-transform-origin: right top;
   transform-origin: right top;
 }
 
@@ -32190,7 +32295,7 @@ a.ui.nag {
         User Overrides
 *******************************/
 /*!
- * # Semantic UI 2.2.1 - Progress Bar
+ * # Semantic UI 2.2.2 - Progress Bar
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -32771,7 +32876,7 @@ a.ui.nag {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.2.1 - Rating
+ * # Semantic UI 2.2.2 - Rating
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -33050,7 +33155,7 @@ a.ui.nag {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.2.1 - Search
+ * # Semantic UI 2.2.2 - Search
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -33079,7 +33184,7 @@ a.ui.nag {
   padding: 0.67861429em 1em;
   font-size: 1em;
   background: #FFFFFF;
-  border: 1px solid rgba(34, 36, 38, 0.15);
+  border: 1px solid rgba(14, 16, 18, 0.5);
   color: rgba(0, 0, 0, 0.87);
   box-shadow: 0em 0em 0em 0em transparent inset;
   -webkit-transition: background-color 0.1s ease, color 0.1s ease, box-shadow 0.1s ease, border-color 0.1s ease;
@@ -33108,13 +33213,14 @@ a.ui.nag {
   top: 100%;
   left: 0%;
   -webkit-transform-origin: center top;
+  -ms-transform-origin: center top;
   transform-origin: center top;
   white-space: normal;
   background: #FFFFFF;
   margin-top: 0.5em;
   width: 18em;
   border-radius: 0.28571429rem;
-  box-shadow: 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15);
+  box-shadow: 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(14, 16, 18, 0.5);
   border: 1px solid #D4D4D5;
   z-index: 998;
 }
@@ -33393,7 +33499,7 @@ a.ui.nag {
 .ui.category.search > .results .category .result {
   background: #FFFFFF;
   margin-left: 100px;
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
+  border-left: 1px solid rgba(14, 16, 18, 0.5);
   border-bottom: 1px solid rgba(34, 36, 38, 0.1);
   -webkit-transition: background 0.1s ease, border-color 0.1s ease;
   transition: background 0.1s ease, border-color 0.1s ease;
@@ -33484,7 +33590,7 @@ a.ui.nag {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.2.1 - Shape
+ * # Semantic UI 2.2.2 - Shape
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -33643,7 +33749,7 @@ a.ui.nag {
         User Overrides
 *******************************/
 /*!
- * # Semantic UI 2.2.1 - Sidebar
+ * # Semantic UI 2.2.2 - Sidebar
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -33858,12 +33964,12 @@ body.pushable > .pusher {
 
 .ui.left.visible.sidebar,
 .ui.right.visible.sidebar {
-  box-shadow: 0px 0px 20px rgba(34, 36, 38, 0.15);
+  box-shadow: 0px 0px 20px rgba(14, 16, 18, 0.5);
 }
 
 .ui.top.visible.sidebar,
 .ui.bottom.visible.sidebar {
-  box-shadow: 0px 0px 20px rgba(34, 36, 38, 0.15);
+  box-shadow: 0px 0px 20px rgba(14, 16, 18, 0.5);
 }
 
 /* Visible On Load */
@@ -34081,6 +34187,7 @@ html.ios body {
 .ui.visible.overlay.sidebar ~ .fixed,
 .ui.visible.overlay.sidebar ~ .pusher {
   -webkit-transform: none !important;
+  -ms-transform: none !important;
   transform: none !important;
 }
 
@@ -34286,21 +34393,25 @@ html.ios body {
 
 .ui.scale.down.left.sidebar ~ .pusher {
   -webkit-transform-origin: 75% 50%;
+  -ms-transform-origin: 75% 50%;
   transform-origin: 75% 50%;
 }
 
 .ui.scale.down.right.sidebar ~ .pusher {
   -webkit-transform-origin: 25% 50%;
+  -ms-transform-origin: 25% 50%;
   transform-origin: 25% 50%;
 }
 
 .ui.scale.down.top.sidebar ~ .pusher {
   -webkit-transform-origin: 50% 75%;
+  -ms-transform-origin: 50% 75%;
   transform-origin: 50% 75%;
 }
 
 .ui.scale.down.bottom.sidebar ~ .pusher {
   -webkit-transform-origin: 50% 25%;
+  -ms-transform-origin: 50% 25%;
   transform-origin: 50% 25%;
 }
 
@@ -34330,6 +34441,7 @@ html.ios body {
 
 .ui.visible.scale.down.sidebar ~ .pusher {
   -webkit-transform: scale(0.75);
+  -ms-transform: scale(0.75);
   transform: scale(0.75);
 }
 
@@ -34341,7 +34453,7 @@ html.ios body {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.2.1 - Sticky
+ * # Semantic UI 2.2.2 - Sticky
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -34415,7 +34527,7 @@ html.ios body {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.2.1 - Tab
+ * # Semantic UI 2.2.2 - Tab
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -34502,7 +34614,7 @@ html.ios body {
         User Overrides
 *******************************/
 /*!
- * # Semantic UI 2.2.1 - Transition
+ * # Semantic UI 2.2.2 - Transition
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -34781,6 +34893,7 @@ html.ios body {
 
 .drop.transition {
   -webkit-transform-origin: top center;
+  -ms-transform-origin: top center;
   transform-origin: top center;
   -webkit-animation-duration: 400ms;
   animation-duration: 400ms;
@@ -35946,6 +36059,7 @@ html.ios body {
   -webkit-animation-name: slideInY;
   animation-name: slideInY;
   -webkit-transform-origin: top center;
+  -ms-transform-origin: top center;
   transform-origin: top center;
 }
 
@@ -35953,6 +36067,7 @@ html.ios body {
   -webkit-animation-name: slideInY;
   animation-name: slideInY;
   -webkit-transform-origin: bottom center;
+  -ms-transform-origin: bottom center;
   transform-origin: bottom center;
 }
 
@@ -35960,6 +36075,7 @@ html.ios body {
   -webkit-animation-name: slideInX;
   animation-name: slideInX;
   -webkit-transform-origin: center right;
+  -ms-transform-origin: center right;
   transform-origin: center right;
 }
 
@@ -35967,6 +36083,7 @@ html.ios body {
   -webkit-animation-name: slideInX;
   animation-name: slideInX;
   -webkit-transform-origin: center left;
+  -ms-transform-origin: center left;
   transform-origin: center left;
 }
 
@@ -35975,6 +36092,7 @@ html.ios body {
   -webkit-animation-name: slideOutY;
   animation-name: slideOutY;
   -webkit-transform-origin: top center;
+  -ms-transform-origin: top center;
   transform-origin: top center;
 }
 
@@ -35982,6 +36100,7 @@ html.ios body {
   -webkit-animation-name: slideOutY;
   animation-name: slideOutY;
   -webkit-transform-origin: bottom center;
+  -ms-transform-origin: bottom center;
   transform-origin: bottom center;
 }
 
@@ -35989,6 +36108,7 @@ html.ios body {
   -webkit-animation-name: slideOutX;
   animation-name: slideOutX;
   -webkit-transform-origin: center right;
+  -ms-transform-origin: center right;
   transform-origin: center right;
 }
 
@@ -35996,6 +36116,7 @@ html.ios body {
   -webkit-animation-name: slideOutX;
   animation-name: slideOutX;
   -webkit-transform-origin: center left;
+  -ms-transform-origin: center left;
   transform-origin: center left;
 }
 
@@ -36128,6 +36249,7 @@ html.ios body {
   -webkit-animation-name: swingInX;
   animation-name: swingInX;
   -webkit-transform-origin: top center;
+  -ms-transform-origin: top center;
   transform-origin: top center;
 }
 
@@ -36135,6 +36257,7 @@ html.ios body {
   -webkit-animation-name: swingInX;
   animation-name: swingInX;
   -webkit-transform-origin: bottom center;
+  -ms-transform-origin: bottom center;
   transform-origin: bottom center;
 }
 
@@ -36142,6 +36265,7 @@ html.ios body {
   -webkit-animation-name: swingInY;
   animation-name: swingInY;
   -webkit-transform-origin: center right;
+  -ms-transform-origin: center right;
   transform-origin: center right;
 }
 
@@ -36149,6 +36273,7 @@ html.ios body {
   -webkit-animation-name: swingInY;
   animation-name: swingInY;
   -webkit-transform-origin: center left;
+  -ms-transform-origin: center left;
   transform-origin: center left;
 }
 
@@ -36157,6 +36282,7 @@ html.ios body {
   -webkit-animation-name: swingOutX;
   animation-name: swingOutX;
   -webkit-transform-origin: top center;
+  -ms-transform-origin: top center;
   transform-origin: top center;
 }
 
@@ -36164,6 +36290,7 @@ html.ios body {
   -webkit-animation-name: swingOutX;
   animation-name: swingOutX;
   -webkit-transform-origin: bottom center;
+  -ms-transform-origin: bottom center;
   transform-origin: bottom center;
 }
 
@@ -36171,6 +36298,7 @@ html.ios body {
   -webkit-animation-name: swingOutY;
   animation-name: swingOutY;
   -webkit-transform-origin: center right;
+  -ms-transform-origin: center right;
   transform-origin: center right;
 }
 
@@ -36178,6 +36306,7 @@ html.ios body {
   -webkit-animation-name: swingOutY;
   animation-name: swingOutY;
   -webkit-transform-origin: center left;
+  -ms-transform-origin: center left;
   transform-origin: center left;
 }
 
