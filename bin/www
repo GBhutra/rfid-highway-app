@@ -6,7 +6,7 @@ var stdio = require('stdio');
 
 // defined locally 
 var models = require('../models');
-var fh = require('../fileHandler.js');
+var fh = require('../file_handler.js');
 var io = require('../sockets.js').io;
 var view = require('../reader_view.js');
 var gps = require('../gps_reader.js');
@@ -56,9 +56,6 @@ function onErr(err) {
     console.log(err);
     return 1;
 }
-
-
-
 
 function onError(error) {
   if (error.syscall !== 'listen') {

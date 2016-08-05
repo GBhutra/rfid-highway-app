@@ -1,0 +1,59 @@
+extends layout
+block navigation
+	.ui.top.attached.tabular.menu(style="margin-top:0.4em; margin-left:0.4em")
+		a.item(style="font-size:1.6em; padding: 0.45em 2.5em;" href="/") Home
+		a.active.item(style="background-color: rgba(150,150,150,0.5); font-size:1.6em; padding: 0.45em 2.5em;" href="/inventory") Inventory
+		a.item(style="font-size:1.6em; padding: 0.45em 2.5em;" href="/reports") Reports
+		.right.menu
+			a.item(href="/")
+				b Back&nbsp&nbsp  
+					i.arrow.right.icon
+block content
+	#info.ui.container.segment
+		.ui.fluid.grid
+			.six.wide.column
+				h2 Locations 
+			.six.wide.right.aligned.column
+				.ui.areas.search
+					.ui.icon.input
+						input(class="prompt" type="text" placeholder="Search locations...")
+						i.search.icon
+					.results
+			.four.wide.right.aligned.column
+				button.ui.blue.button(onclick="showModal()") New Location
+		.ui.modal
+			i.close.icon
+			.header	Add New Location..
+			.description &nbsp&nbsp&nbspPlease enter the path to the .CSV file directory&nbsp&nbsp&nbsp
+				.ui.input.focus
+					input(type="text" placeholder="Path")
+			.actions
+				.ui.button Add
+		script.
+			function showModal()	{
+				$('.ui.modal')
+				  .modal({blurring: true})
+				  .modal('show')
+				;
+			}
+			
+		.ui.divider
+		#areas.ui.internally.celled.left.aligned.grid
+			each area in areas
+				.row
+					.left.floated.left.aligned.seven.wide.column
+						p(style="font-size:1.3em;")=area.DISTINCT	
+					.right.floated.center.aligned.four.wide.column
+						button.ui.labeled.icon.blue.button(onclick="location.href='/inventory/"+area.DISTINCT+"'") Open
+							i.folder.open.outline.icon
+					.right.floated.center.aligned.five.wide.column
+						if true==view.status 
+							if view.loc==area.DISTINCT
+								button.ui.labeled.icon.blue.button(onclick="location.href='/reader/"+area.DISTINCT+"'") Scanning..
+									i.play.icon
+							else
+								button.ui.labeled.icon.blue.button(onclick="location.href='/reader/"+area.DISTINCT+"'") Scan
+								i.play.icon
+						else
+							button.ui.labeled.icon.blue.button(onclick="location.href='/reader/"+area.DISTINCT+"'") Scan
+								i.play.icon

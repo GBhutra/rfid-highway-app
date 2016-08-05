@@ -59,6 +59,18 @@ var createDBFromFile = function(filePath, model)	{
 	});
 }
 
+var initLogOfLocation = function(location)	{
+	model.Tag.findAll({where: {area: location }, raw: true}).then(function(tags){
+		tags.forEach(createLogEntry);
+		return true;
+	});
+}
+
+var createLogEntry = function(tag)	{
+	var logE = {tag: tag, GPSLat: null, GPSLon: null, Count: 0,DateTime: null};
+	rfidLog[tag.tagId] = logE;
+}
+
 var logData = function(tag)	{
 	var d = new Date();
 	var logEntry = rfidLog[tag.tagId];
@@ -69,7 +81,7 @@ var logData = function(tag)	{
 		logEntry.DateTime=d.toUTCString();
 	}
 	else	{
-		var logE = {tag: tag, GPSLat: gps.currLat, GPSLon: gps.currLon, Count: 0,DateTime: d.toUTCString()};
+		var logE = {tag: tag, GPSLat: gps.currLat, GPSLon: gps.currLon, Count: -10000,DateTime: d.toUTCString()};
 		rfidLog[tag.tagId] = logE;
 		if(log)	console.log("Logger || New log entry added !!");
 	}
@@ -98,3 +110,4 @@ var saveLog = function(logName)	{
 module.exports.logData = logData;
 module.exports.saveLog = saveLog;
 module.exports.createDBFromFile = createDBFromFile;
+module.exports.initLogOfLocation = initLogOfLocation;

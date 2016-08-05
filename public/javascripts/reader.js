@@ -1,5 +1,4 @@
 window.onload = function() {
-    var messages = [];
     var socket = io.connect('http://localhost:3200');
     var status = document.getElementById("status");
     var settings = document.getElementById("settings");
@@ -11,6 +10,8 @@ window.onload = function() {
     var sign3 = document.getElementById("sign3");
     var gpsRange=document.getElementById("gps_range");
     var loading = document.getElementById("loadingScreen");
+
+    var $progress = $('.ui.progress');
 
     socket.on('initialize', function (data) {
         console.log("Initialize !!");
@@ -187,14 +188,23 @@ window.onload = function() {
 
 
     status.onclick = function() {
-        if (status.innerHTML == 'Start') 
+        if (status.innerHTML == 'Start')    {
+            $progress.transition('scale');
+            window.fakeProgress = setInterval(function() {
+                $progress.progress('increment');
+                if($progress.progress('is complete'))   {
+                    clearInterval(window.fakeProgress);
+                    
+            }},10);
             socket.emit('start','Start the reader');
+        }
         else   
             socket.emit('stop', 'Stop the reader');
         status.className=status.className.replace( /(?:^|\s)button(?!\S)/g , ' loading button' );
     };
 
     settings.onclick = function() {
+        $progress.transition('scale');
         socket.emit('settings','toggle settings tab');
     };
 

@@ -36,17 +36,21 @@ block navigation
 						input(id="gps_range" type="range" min="0" max="100" value="0" step="1")
 block content
 	#sign_container
+		.ui.indicating.progress.container.success.transition.hidden(data-value="1" data-total="300" id="bar")
+			.bar
+				.progress
+			.label Initializing the RFID reader
 		#loadingScreen.ui.segment
 			.ui.active.dimmer
 				.ui.text.loader Loading...
 		#signs.ui.one.stackable.cards
 			#sign1.card(style="background:rgba(200, 200, 200,0.75);")
-				img.ui.fluid.image(id="image1" src="images/load.gif" style="max-height:100%")
+				img.ui.fluid.image(id="image1" src="/images/load.gif" style="max-height:100%")
 			#sign2.card(style="background:rgba(200, 200, 200,0.75);")
-				img.ui.fluid.image(id="image2" src="images/load.gif" style="max-height:100%")
+				img.ui.fluid.image(id="image2" src="/images/load.gif" style="max-height:100%")
 			#sign3.card(style="background:rgba(200, 200, 200,0.75);")
-				img.ui.fluid.image(id="image3" src="images/load.gif" style="max-height:100%")
+				img.ui.fluid.image(id="image3" src="/images/load.gif" style="max-height:100%")
 			#sign3.card(style="background:rgba(200, 200, 200,0.75);")
-				img.ui.fluid.image(id="image4" src="images/load.gif" style="max-height:100%")
+				img.ui.fluid.image(id="image4" src="/images/load.gif" style="max-height:100%")
 				
 				

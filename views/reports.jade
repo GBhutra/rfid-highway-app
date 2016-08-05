@@ -1,11 +1,13 @@
 extends layout
 block navigation
-	.ui.attached.header
-		nav.ui.four.item.menu
-			a.header.item(style="font-size:1.5em; padding: 0.45em 0.5em;" href="/") Home
-			a.item(style="font-size:1.5em; padding: 0.45em 0.5em;" href="/area") Inventory
-			a.active.item(style="font-size:1.5em; padding: 0.45em 0.5em;" href="/reports") Reports
-			a.item(style="font-size:1.5em; padding: 0.45em 0.5em;" href="/reader") Reader
+	.ui.top.attached.tabular.menu(style="margin-top:0.4em; margin-left:0.4em")
+		a.item(style="font-size:1.6em; padding: 0.45em 2.5em;" href="/") Home
+		a.item(style="font-size:1.6em; padding: 0.45em 2.5em;" href="/inventory") Inventory
+		a.active.item(style="background-color: rgba(150,150,150,0.5); font-size:1.6em; padding: 0.45em 2.5em;" href="/reports") Reports
+		.right.menu
+			a.item(href="/")
+				b Back&nbsp&nbsp  
+					i.arrow.right.icon
 block content
 	#info.ui.container.segment
 		h2 Reports 
@@ -14,9 +16,12 @@ block content
 			#reports.ui.internally.celled.centered.grid
 				each report in reports
 					.row
-						.left.floated.left.aligned.ten.wide.column
-							a.item(href='/reports/'+report.substring(0,(report.length-4)))=report.substring(0,(report.length-4))
-						.right.floated.right.aligned.six.wide.column
+						.left.floated.left.aligned.eight.wide.column
+							p(style="font-size:1.2em;")=report.substring(0,(report.length-4))
+						.right.floated.center.aligned.four.wide.column
+							button.ui.labeled.icon.blue.button(onclick="location.href='/reports/"+report.substring(0,(report.length-4))+"'") Open
+								i.folder.open.outline.icon
+						.right.floated.center.aligned.four.wide.column
 							button.ui.labeled.icon.blue.button(onClick="showModal('"+report+"')") Delete
 								i.trash.outline.icon
 						.ui.small.test.modal

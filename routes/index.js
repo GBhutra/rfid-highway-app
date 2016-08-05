@@ -1,40 +1,45 @@
 var express = require('express');
 var router = express.Router();
 var view = require('../reader_view.js');
-var model = require('../models');
+var logger = require('../file_handler.js');
+
+var log = true;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'RFID Highway Application' });
 });
 
-router.get("/reader", function(req, res){
-    res.render("rfidReader",{view});
+router.get("/reader/:loc", function(req, res) {
+	if (null==view.loc)	{
+		view.loc = req.params.loc;
+		res.render("rfidReader",{view});
+		logger.initLogOfLocation(req.params.loc);
+	}
+	else if (req.params.loc == view.loc)	{
+		res.render("rfidReader",{view});
+	}
+	else
+		console.error("error opening the reader page !!");
 });
 
-router.get("/area", function(req, res){
-	model.Tag.aggregate('area', 'DISTINCT', {plain: false})
-	.then(function(areas)	{
-		res.render('area', {areas: areas});
+/*
+router.post('/tagCreate/', function(req,res,next)	{
+	var tag = model.Tag.build({
+			area 		: req.body.area;
+			signType	: req.body.signType,
+			address 	: req.body.address,
+			assetId 	: req.body.assetId,
+			tagId 		: req.body.tagId,
+			lat 		: req.body.lat,
+			lon			: req.body.lon,
 	});
-});
-
-router.get('/area/:ar', function(req, res, next) {
-	model.Tag.findAll({where: {area: req.params.ar }, raw: true}).then(function(tags){
-		res.render('tagList',{area:req.params.ar, tags:tags});
+	return model.Tag.destroy({where: {tagId:req.params.id}}).then(function(affectedRows){
+		console.log("Number of rows deleted :"+affectedRows);
+		model.Tag.findAll({where: {area: req.body.area }, raw: true}).then(function(tags){
+			res.render('tagList',{area:req.body.area, tags:tags});
+		});
 	});
-});
-
-router.get('/area/tag/:id', function(req, res, next) {
-	model.Tag.findOne({where: {tagId: req.params.id }, raw: true}).then(function(tag){
-		res.render('tag',{tag:tag});
-	});
-});
-
-router.get('/reports/', function(req, res, next) {
-	model.Tag.findOne({where: {tagId: req.params.id }, raw: true}).then(function(tag){
-		res.render('reports',{reports: null});
-	});
-});
+});*/
 
 module.exports = router;

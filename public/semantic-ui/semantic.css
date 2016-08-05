@@ -21347,7 +21347,7 @@ Floated Menu / Item
   box-shadow: none !important;
   border: none;
   background: none transparent;
-  border-bottom: 1px solid #D4D4D5;
+  border-bottom: 2px solid #939394;
 }
 
 .ui.tabular.fluid.menu {
@@ -23828,7 +23828,7 @@ Floated Menu / Item
 
 .ui.table tr.positive,
 .ui.table td.positive {
-  background: #FCFFF5 !important;
+  background: #ebFFe3 !important;
   color: #2C662D !important;
 }
 
@@ -23843,7 +23843,7 @@ Floated Menu / Item
 
 .ui.table tr.negative,
 .ui.table td.negative {
-  background: #FFF6F6 !important;
+  background: #FFe5e5 !important;
   color: #9F3A38 !important;
 }
 
@@ -23873,7 +23873,7 @@ Floated Menu / Item
 
 .ui.table tr.warning,
 .ui.table td.warning {
-  background: #FFFAF3 !important;
+  background: #FFFAd1 !important;
   color: #573A08 !important;
 }
 

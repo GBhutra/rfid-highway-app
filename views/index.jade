@@ -1,33 +1,21 @@
 extends layout
 block navigation
-	script(src=src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js")
-	.ui.attached.header
-		nav.ui.four.item.menu
-			a.header.item(style="font-size:1.5em; padding: 0.45em 0.5em;" href="/") Home
-			a.item(style="font-size:1.5em; padding: 0.45em 0.5em;" href="/area") Inventory
-			a.item(style="font-size:1.5em; padding: 0.45em 0.5em;" href="/reports") Reports
-			a.item(style="font-size:1.5em; padding: 0.45em 0.5em;" href="/reader") Reader
-
+	.ui.top.attached.tabular.menu(style="margin-top:0.4em; margin-left:0.4em")
+		a.active.item(style="background-color: rgba(150,150,150,0.5); font-size:1.6em; padding: 0.45em 2.5em;" href="/") Home
+		a.item(style="font-size:1.6em; padding: 0.45em 2.5em;" href="/inventory") Inventory
+		a.item(style="font-size:1.6em; padding: 0.45em 2.5em;" href="/reports") Reports
 block content
-	#info.ui.container.segment(style="margin-top:5%;")
-		h2.ui.header Welcome to RFID Highway Application
-		p(style="font-size:1.2em") This software is designed to assist in the monitoring and maintenance of road signs as you drive along the highway. To get started touch the buttons along the top of the screen, or read the instructions below in each tab.
-		.ui.three.column.grid
-			.column
-				a.ui.fulid.card(href="/area")
+		#info.ui.container.segment(style="margin-top:5%;")
+			h2.ui.header Welcome to RFID Highway Application
+			p(style="font-size:1.2em") This software is designed to assist in the monitoring and maintenance of road signs as you drive along the highway. To get started touch the buttons along the top of the screen, or read the instructions below in each tab.
+			.ui.large.steps(style="width:100%;")
+				a.link.step(href="/inventory")
+					i.tags.icon
 					.content
-						.header Inventory
-						.description
-							p(style="font-size:1.2em") This tab allows you to view and manage locations with tagged signs and the signs within each area.
-			.column
-				a.ui.fulid.card(href="/reports")
+						h2.title Inventory
+						.description(style="font-size:1.2em") Manage & Scan RFID Tagss
+				a.link.step(href="/reports")
+					i.file.text.icon
 					.content
-						.header Reports
-						.description
-							p(style="font-size:1.2em") This tab allows you to view previously saved reports and save them to external storage devices such as flash drives.
-			.column
-				a.ui.fulid.card(href="/reader")
-					.content
-						.header Reader
-						.description
-							p(style="font-size:1.2em") This button changes the interface to the sign-reader display. This mode allows you to stop and start reading tagged signs, and it allows you to generate reports of successfully read signs.
+						h2.title Reports
+						.description(style="font-size:1.2em") View or Print reports

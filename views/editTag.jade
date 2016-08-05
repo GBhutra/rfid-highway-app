@@ -1,18 +1,25 @@
 extends layout
 block navigation
-	.ui.attached.header
-		nav.ui.four.item.menu
-			a.header.item(style="font-size:1.5em; padding: 0.45em 0.5em;" href="/") Home
-			a.active.item(style="font-size:1.5em; padding: 0.45em 0.5em;" href="/area") Inventory
-			a.item(style="font-size:1.5em; padding: 0.45em 0.5em;" href="/reports") Reports
-			a.item(style="font-size:1.5em; padding: 0.45em 0.5em;" href="/reader") Reader
+	.ui.top.attached.tabular.menu(style="margin-top:0.4em; margin-left:0.4em")
+		a.item(style="font-size:1.6em; padding: 0.45em 2.5em;" href="/") Home
+		a.active.item(style="background-color: rgba(150,150,150,0.5); font-size:1.6em; padding: 0.45em 2.5em;" href="/inventory") Inventory
+		a.item(style="font-size:1.6em; padding: 0.45em 2.5em;" href="/reports") Reports
+		.right.menu
+			a.item(href="/inventory/"+loc) 
+				b Back&nbsp&nbsp  
+					i.arrow.right.icon
+	if success
+		.ui.small.positive.message
+			h3= success
+	if error
+		.ui.small.negative.message
+			h3= error
 block content
 	#info.ui.segment
 		.ui.internally.celled.grid
 			.twelve.wide.column
 				form.ui.form(method="post")
-					input(type="hidden" name="area" value=tag.area)
-					h4.ui.dividing.header Edit Tag
+					h3.ui.dividing.header Edit Tag
 					.fields
 						.eight.wide.field
 							label Asset ID
@@ -36,10 +43,35 @@ block content
 					.ui.centered.grid
 						.row
 							.left.floated.left.aligned.eight.wide.column
-								button.ui.labeled.icon.green.button(type="submit" name="update_button" value="update" formaction="/tagUpdate/"+tag.tagId) Save
+								button.ui.labeled.icon.green.button(type="submit" name="update_button" value="update" formaction="/inventory/"+loc+"/tagUpdate/"+tag.tagId) Save
 									i.save.outline.icon
 							.right.floated.right.aligned.eight.wide.column
-								button.ui.labeled.icon.red.button(type="submit" name="delete_button" value="delete" formaction="/tagDelete/"+tag.tagId) Delete
+								button.ui.labeled.icon.red.button(type="button" onClick="showModal('"+loc+"','"+tag.tagId+"')") Delete
 									i.trash.outline.icon
+							.ui.small.test.modal
+								.header	Confirm Delete
+								.content
+									p Are you sure you want to Delete this TagS ?
+								.actions
+									button.ui.negative.button No
+									button.ui.positive.right.labeled.icon.button(type="submit" name="delete_button" value="delete" formaction="/inventory/"+loc+"/tagDelete/"+tag.tagId) Yes
+										i.checkmark.icon
+							script.
+								function showModal(loc,tagID)	{
+									$('.small.test.modal')
+									  .modal({
+									  	blurring: true,
+									  	onDeny    : function() {
+									    },
+									    onApprove : function() {
+									    	$.post("/inventory/"+loc+"/tagDelete/"+tagID,{}, function(result)	{
+									    		window.location="/inventory/"+loc;
+									    	})
+									    }
+									  })
+									  .modal('show')
+									;
+								}				
+					input(type="hidden" name="area" value=tag.area)
 			.four.wide.column(style="margin-top:3%")
 				img.ui.centered.medium.image(src="/assets/"+tag.assetId+".png")				

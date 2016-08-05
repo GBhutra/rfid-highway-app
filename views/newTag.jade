@@ -1,35 +1,63 @@
 extends layout
+block append scripts
+	script(src='/socket.io/socket.io.js')
+	script(src='/javascripts/newTag.js')
 block navigation
-	.ui.attached.header
-		nav.ui.four.item.menu
+	.ui.top.attached.tabular.menu(style="margin-top:0.4em; margin-left:0.4em")
+		nav.ui.three.item.menu
 			a.header.item(style="font-size:1.5em; padding: 0.45em 0.5em;" href="/") Home
-			a.active.item(style="font-size:1.5em; padding: 0.45em 0.5em;" href="/area") Inventory
+			a.active.item(style="background-color: rgba(150,150,150,0.5); font-size:1.5em; padding: 0.45em 0.5em;" href="/inventory") Inventory
 			a.item(style="font-size:1.5em; padding: 0.45em 0.5em;" href="/reports") Reports
-			a.item(style="font-size:1.5em; padding: 0.45em 0.5em;" href="/reader") Reader
 block content
 	#info.ui.segment
-		form.ui.form(method="post")
-			input(type="hidden" name="area" value=tag.area)
-			h4.ui.dividing.header New Tag
-			.fields
-				.six.wide.field
-					label Asset ID
-						input(type="text" name="assetId" placeholder="Asset ID")
-				.six.wide.field
-					label Sign Type
-						input(type="text" name="signType" placeholder="Sign Type" )
-			.field
-				label RFID Tag
-					input(placeholder="Tag Id" name="tagId" type="text")
-			.field
-				label Address
-					input(placeholder="Address" name="address" type="text" value=tag.address)
-			.fields
-				.six.wide.field
-					label Latitude
-						input(type="text" name="lat" placeholder="Latitude" value=tag.lat)
-				.six.wide.field
-					label Longitude
-						input(type="text" name="lon" placeholder="Longitude" value=tag.lon)		
-			button.ui.labeled.icon.green.button(type="submit" name="create_button" value="create" formaction="/tagCreate/") Create
-				i.save.outline.icon
+		.ui.internally.celled.grid
+			.twelve.wide.column
+				form.ui.form(method="post")
+					input(type="hidden" name="area" value=area)
+					h4.ui.dividing.header New Tag
+					.fields
+						.six.wide.field
+							label Asset ID
+								input(id="assetid" type="text" name="assetId" placeholder="Asset ID")
+						.two.wide.field
+							label Asset
+								p
+									button.ui.blue.button(type="button" onclick="loadAsset()") Load
+									script.
+										function loadAsset()	{
+											var assetID=document.getElementById('assetid').value;
+											var loc='/assets/'+assetID+'.png';
+											document.getElementById('assetImage').src=loc;
+										}
+						.eight.wide.field
+							label Sign Type
+								input(type="text" name="signType" placeholder="Sign Type")
+					.fields
+						.fourteen.wide.field
+							label RFID Tag
+								input(placeholder="Tag ID" name="tagId" readonly="" type="text")
+						.two.wide.field
+							label Reader
+								p
+									button.ui.blue.button(type="button" onclick="showModal()") Get
+					.field
+						label Address
+							input(placeholder="Address" name="address" type="text")
+					.fields
+						.seven.wide.field
+							label Latitude
+								input(type="text" name="lat" placeholder="Latitude")
+						.seven.wide.field
+							label Longitude
+								input(type="text" name="lon" placeholder="Longitude")
+						.two.wide.field
+							label GPS
+								p
+									button.ui.blue.button(type="button" onclick="") Get
+					.ui.centered.grid
+						.row
+							.left.floated.left.aligned.eight.wide.column
+								button.ui.labeled.icon.green.button(type="submit" name="update_button" value="update" formaction="/tagCreate/") Create
+									i.save.outline.icon
+			.four.wide.column(style="margin-top:3%")
+				img.ui.centered.medium.image(id="assetImage" alt="Asset Image")

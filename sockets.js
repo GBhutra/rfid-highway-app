@@ -14,7 +14,7 @@ io.on('connection', function (socket) {
     socket.emit('initialize',view);
     
 
-    //On clicking start
+    //On clicking start for the maintenance
     socket.on('start', function (data) {
     	if(log)	{	console.log("Start button is pressed by userID: "+socket.id);	}
     	reader.Connect();
@@ -58,6 +58,10 @@ io.on('connection', function (socket) {
     	gps.StopGPS();
         UpdateAllClients('status','stop');
     	process.exit(1);
+    });
+
+    //On clicking start for creating a new tag Entry in Database
+    socket.on('start_newTag', function (data) {
     });
 
     // on a socket disconnect reduce the number of users

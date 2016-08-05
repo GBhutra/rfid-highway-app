@@ -1,35 +1,176 @@
 extends layout
 block navigation
-	.ui.attached.header
-		nav.ui.four.item.menu
-			a.header.item(style="font-size:1.5em; padding: 0.45em 0.5em;" href="/") Home
-			a.item(style="font-size:1.5em; padding: 0.45em 0.5em;" href="/area") Inventory
-			a.active.item(style="font-size:1.5em; padding: 0.45em 0.5em;" href="/reports") Reports
-			a.item(style="font-size:1.5em; padding: 0.45em 0.5em;" href="/reader") Reader
+	.ui.top.attached.tabular.menu(style="margin-top:0.4em; margin-left:0.4em")
+		a.item(style="font-size:1.6em; padding: 0.45em 2.5em;" href="/") Home
+		a.item(style="font-size:1.6em; padding: 0.45em 2.5em;" href="/inventory") Inventory
+		a.active.item(style="background-color: rgba(150,150,150,0.5); font-size:1.6em; padding: 0.45em 2.5em;" href="/reports") Reports
+		.right.menu
+			a.item(href="/reports")
+				b Back&nbsp&nbsp  
+					i.arrow.right.icon
 block content
 	#info.ui.segment
 		.ui.fluid.grid
-			.eight.wide.column
-				h2=name
-			.eight.wide.right.aligned.column
-				.ui.areas.search
-					.ui.icon.input
-						input(class="prompt" type="text" placeholder="Search tags...")
-						i.search.icon
-					.results
+			.row
+				.eight.wide.column
+					h2=name
+				.eight.wide.right.aligned.column
+					.ui.areas.search
+						.ui.icon.input
+							input(class="prompt" type="text" placeholder="Search tags...")
+							i.search.icon
+						.results
+		form.ui.fluid.grid(method="post")
+			.row
+				.ten.wide.column
+					.ui.stackable.five.column.grid
+						.column
+							.ui.checkbox
+								if true==col.sign
+									input(type="checkbox" name="sign" checked)
+								else
+									input(type="checkbox" name="sign")
+								label Sign
+						.column
+							.ui.checkbox
+								if true==col.address
+									input(type="checkbox" name="address" checked)
+								else
+									input(type="checkbox" name="address")
+								label Address
+						.column
+							.ui.checkbox
+								if true==col.time
+									input(type="checkbox" name="time" checked)
+								else
+									input(type="checkbox" name="time")
+								label Time
+						.column
+							.ui.checkbox
+								if true==col.gps
+									input(type="checkbox" name="gps" checked)
+								else
+									input(type="checkbox" name="gps")
+								label GPS
+						.column
+							.ui.checkbox
+								if true==col.count
+									input(type="checkbox" name="count" checked)
+								else
+									input(type="checkbox" name="count")
+								label Count
+				.center.aligned.aligned.four.wide.column
+					.ui.floating.dropdown.labeled.icon.button
+						i.filter.icon
+						input(name="filter" type="hidden" value=filter)
+						.default.text Filter Tags
+						.menu
+							.scrolling.menu
+								.item All Tags
+								.item Not Read
+								.item Read
+								.item New Tags
+				.center.aligned.aligned.two.wide.column
+					button.ui.icon.button(type="submit" name="refresh" value="update" formaction="/reports/"+name) 
+						i.refresh.icon
+				script.
+					$('.ui.dropdown').dropdown();
 		.ui.divider
-		table.ui.celled.striped.table(id="tags")
+		table.ui.celled.table(id="tags")
 			thead
 				tr
-					th.five.wide=headers[8]
-					th.five.wide=headers[0]				
-					th.three.wide=headers[3]
-					th.three.wide=headers[4]
-
+					if true==col.sign
+						th:=headers[4]
+					if true==col.address
+						th:=headers[3]
+					if true==col.time
+						th:=headers[8]	
+					if true==col.gps
+						th:=headers[6]
+						th:=headers[5]		
+					if true==col.count
+						th:=headers[7]		
 			tbody
 				each rep in report
-					tr
-						td: =rep[8]
-						td: =rep[0]
-						td: =rep[3]
-						td: =rep[4]
+					if "all tags" == filter
+						if 0>rep[7]
+							tr.warning
+								if true==col.sign
+									td: =rep[4]
+								if true==col.address
+									td: =rep[3]
+								if true==col.time
+									td: =rep[8]	
+								if true==col.gps
+									td: =rep[6]	
+									td: =rep[5]	
+								if true==col.count
+									td: =rep[7]
+						else if 0==rep[7]
+							tr.negative
+								if true==col.sign
+									td: =rep[4]
+								if true==col.address
+									td: =rep[3]
+								if true==col.time
+									td: =rep[8]	
+								if true==col.gps
+									td: =rep[6]	
+									td: =rep[5]	
+								if true==col.count
+									td: =rep[7]
+						else
+							tr.positive
+								if true==col.sign
+									td: =rep[4]
+								if true==col.address
+									td: =rep[3]
+								if true==col.time
+									td: =rep[8]	
+								if true==col.gps
+									td: =rep[6]	
+									td: =rep[5]	
+								if true==col.count
+									td: =rep[7]
+					else if "not read"==filter
+						if 0==rep[7]
+							tr.negative
+								if true==col.sign
+									td: =rep[4]
+								if true==col.address
+									td: =rep[3]
+								if true==col.time
+									td: =rep[8]	
+								if true==col.gps
+									td: =rep[6]	
+									td: =rep[5]	
+								if true==col.count
+									td: =rep[7]
+					else if "read"==filter
+						if 0<rep[7]
+							tr.positive
+								if true==col.sign
+									td: =rep[4]
+								if true==col.address
+									td: =rep[3]
+								if true==col.time
+									td: =rep[8]	
+								if true==col.gps
+									td: =rep[6]	
+									td: =rep[5]	
+								if true==col.count
+									td: =rep[7]
+					else if "new tags"==filter
+						if 0>rep[7]
+							tr.warning
+								if true==col.sign
+									td: =rep[4]
+								if true==col.address
+									td: =rep[3]
+								if true==col.time
+									td: =rep[8]	
+								if true==col.gps
+									td: =rep[6]	
+									td: =rep[5]	
+								if true==col.count
+									td: =rep[7]

@@ -5,6 +5,7 @@ View.assets =[];
 View.assets_status= [];
 View.numClients = 0;
 View.controls=false;
+View.loc=null;
 
 
 View.UpdateStatusTo = function(data)	{
