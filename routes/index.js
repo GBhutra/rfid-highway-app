@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var view = require('../reader_view.js');
-var logger = require('../file_handler.js');
+var view = require('../reader_view');
+var logger = require('../file_handler');
 
 var log = true;
 
@@ -13,11 +13,27 @@ router.get('/', function(req, res, next) {
 router.get("/reader/:loc", function(req, res) {
 	if (null==view.loc)	{
 		view.loc = req.params.loc;
-		res.render("rfidReader",{view});
+		if (0==view.status)	{
+			res.render("initialization",{loc: req.params.loc});
+		}
+		else if (1==view.status)
+			res.render("rfidReader",{view});
+		else {
+			view.UpdateStatusTo('stop');
+			res.render("initialization",{loc: req.params.loc,error: "Could not start the reader. Check connections !"});
+		}
 		logger.initLogOfLocation(req.params.loc);
 	}
 	else if (req.params.loc == view.loc)	{
-		res.render("rfidReader",{view});
+		if (0==view.status)	{
+			res.render("initialization",{loc: req.params.loc});
+		}
+		else if (1==view.status)
+			res.render("rfidReader",{view});
+		else {
+			view.UpdateStatusTo('stop');
+			res.render("initialization",{loc: req.params.loc,error: "Could not start the reader. Check connections !"});
+		}
 	}
 	else
 		console.error("error opening the reader page !!");

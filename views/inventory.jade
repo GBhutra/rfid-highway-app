@@ -36,8 +36,8 @@ block content
 				  .modal('show')
 				;
 			}
-			
 		.ui.divider
+
 		#areas.ui.internally.celled.left.aligned.grid
 			each area in areas
 				.row
@@ -47,7 +47,7 @@ block content
 						button.ui.labeled.icon.blue.button(onclick="location.href='/inventory/"+area.DISTINCT+"'") Open
 							i.folder.open.outline.icon
 					.right.floated.center.aligned.five.wide.column
-						if true==view.status 
+						if 1==view.status 
 							if view.loc==area.DISTINCT
 								button.ui.labeled.icon.blue.button(onclick="location.href='/reader/"+area.DISTINCT+"'") Scanning..
 									i.play.icon

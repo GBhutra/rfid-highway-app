@@ -18,7 +18,8 @@ reader.on('disconnect', function () {
 reader.on('error', function (error) {
     var er = JSON.stringify(error);
     if(true==log)   { console.log('\nRFID Reader error: ' + er); }
-    io.UpdateAllClients('status','stop');
+    view.UpdateStatusTo('error');
+    io.UpdateAllClients('status','error');
 });
 
 reader.on('didSeeTag', function (tag) {

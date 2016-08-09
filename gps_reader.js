@@ -47,7 +47,7 @@ port.on('open',function()	{
 });
 
 port.on('data',function(data)	{
-	if(view.status==false)	return;
+	if(0==view.status)	return;
 	var temp = data.split(',');
 	if(temp.length>7)	{
 		if("$GPRMC"==temp[0])	{

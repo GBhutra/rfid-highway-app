@@ -11,8 +11,6 @@ window.onload = function() {
     var gpsRange=document.getElementById("gps_range");
     var loading = document.getElementById("loadingScreen");
 
-    var $progress = $('.ui.progress');
-
     socket.on('initialize', function (data) {
         console.log("Initialize !!");
          switch (data.assets.length) {
@@ -84,6 +82,15 @@ window.onload = function() {
             status.innerHTML = 'Stop';
         else if('stop'==data)
             status.innerHTML = 'Start';
+        else    {
+            status.innerHTML = 'Start';
+            $('.err.ui.basic.modal')
+              .modal({
+                closable : false,
+                blurring: true
+              })
+              .modal('show');
+        }
         status.className=status.className.replace( /(?:^|\s)loading(?!\S)/g , '' );
     });
 
@@ -189,13 +196,6 @@ window.onload = function() {
 
     status.onclick = function() {
         if (status.innerHTML == 'Start')    {
-            $progress.transition('scale');
-            window.fakeProgress = setInterval(function() {
-                $progress.progress('increment');
-                if($progress.progress('is complete'))   {
-                    clearInterval(window.fakeProgress);
-                    
-            }},10);
             socket.emit('start','Start the reader');
         }
         else   
@@ -204,12 +204,11 @@ window.onload = function() {
     };
 
     settings.onclick = function() {
-        $progress.transition('scale');
         socket.emit('settings','toggle settings tab');
     };
 
     save.onclick = function() {
-        $('.ui.modal')
+        $('.save.ui.modal')
           .modal({
             blurring: true,
             onApprove : function() {

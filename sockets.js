@@ -20,7 +20,7 @@ io.on('connection', function (socket) {
     	reader.Connect();
         gps.StartGPS();
     	view.UpdateStatusTo('start');
-    	setTimeout(UpdateAllClients,5000,'status','start');
+    	UpdateAllClients('status','start');
     });
    
     // invoked when one of the users

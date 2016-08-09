@@ -1,6 +1,6 @@
 var log=true;
 var View = new Object();
-View.status = false;
+View.status = 0;
 View.assets =[];
 View.assets_status= [];
 View.numClients = 0;
@@ -11,9 +11,11 @@ View.loc=null;
 View.UpdateStatusTo = function(data)	{
 	if(log)	{	console.log("In update reader status function data: "+data);	}
 	if ('start' == data)
-		this.status=true;
+		this.status=1;
+	else if ('stop' == data)
+		this.status=0;
 	else
-		this.status=false;
+		this.status=-1;
 }
 
 View.IncrementNumClients = function()	{

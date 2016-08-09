@@ -14,7 +14,6 @@
     "jade": "~1.11.0",
     "morgan": "~1.7.0",
     "prompt": "^1.0.0",
-    "semantic-ui": "^2.2.1",
     "sequelize": "^3.23.4",
     "sequelize-cli": "^2.4.0",
     "serialport": "^4.0.0",

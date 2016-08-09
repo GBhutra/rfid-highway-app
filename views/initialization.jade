@@ -1,0 +1,41 @@
+extends layout
+block append scripts
+	script(src='/socket.io/socket.io.js')
+block content
+	#bar.ui.raised.very.padded.text.container.segment(style="margin-top:5%;")
+		.ui.internally.celled.grid
+			.five.wide.column
+				h4 GPS Values :
+				p Longitude: 96.xxxxx
+				p Latitude: 34.xxxx
+			.six.wide.column
+				h4 Date :
+				p 8th August 2016
+			.five.wide.column
+				h4 Location:
+				p Riverside
+		if error
+			.ui.small.negative.message(style="margin-top:10%;")
+				.ui.fluid.grid
+					.ten.wide.column
+						.header Error
+						p= error
+					.six.wide.right.aligned.column
+						button.ui.right.labeled.icon.button(onclick="location.href='/inventory'") Back
+							i.right.arrow.icon 
+		if !error
+			.ui.indicating.progress.container(data-value="1" data-total="300" id="bar")
+				.bar
+					.progress
+				.label Initializing the RFID reader
+			script.
+				window.onload = function() {
+					var socket = io.connect('http://localhost:3200');
+					socket.emit('start','Start the reader');
+					window.fakeProgress = setInterval(function() {
+						$('.ui.progress').progress('increment');
+						if($('.ui.progress').progress('is complete'))   {
+							clearInterval(window.fakeProgress);
+							location.href="/reader/#{loc}";
+					}},10);
+				}
