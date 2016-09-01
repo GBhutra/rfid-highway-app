@@ -1,3 +1,5 @@
+// to be deleted
+
 var log=true;
 var View = new Object();
 View.status = 0;

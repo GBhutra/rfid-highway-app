@@ -1,0 +1,65 @@
+extends layout
+block append scripts
+	script(src='/socket.io/socket.io.js')
+block content
+	#bar.ui.raised.very.padded.text.container.segment(style="margin-top:5%;")
+		.ui.internally.celled.grid
+			.five.wide.column
+				h4 Location:
+				p= loc
+			.six.wide.column
+				h4 Date :
+				p= date
+			.five.wide.column
+				h4 GPS Values :
+				p Longitude: #{GPSLat}
+				p Latitude: #{GPSLon}
+		.ui.small.negative.message.transition.hidden(style="margin-top:10%;")
+			.ui.fluid.grid
+				.ten.wide.column
+					.header Error
+					p(id="errorMessage")= error
+				.six.wide.right.aligned.column
+					button.ui.right.labeled.icon.button(id="back_button") Back
+						i.right.arrow.icon 
+		.ui.indicating.progress.container(data-value="1" data-total="300" id="bar")
+				.bar
+					.progress
+				.label Initializing the RFID reader
+			script.
+				window.onload = function() {
+					var err = "#{error}";
+					if(err)	{
+						$('.message').transition('show');
+						$('.indicating.progress').transition('hide');
+					}
+					else	{
+						$('.message').transition('hide');
+						$('.indicating.progress').transition('show');
+					}
+
+					var socket = io.connect('http://172.24.1.1:3200');
+
+					$('#back_button').click(function(){
+						socket.emit('rfid_reader_reset',{location:"#{loc}"});
+						location.href='/inventory';
+					})
+
+					socket.emit('connect_rfid_reader',{location:"#{loc}"});
+					window.fakeProgress = setInterval(function() {
+						$('.ui.progress').progress('increment');
+						if($('.ui.progress').progress('is complete'))   {
+							clearInterval(window.fakeProgress);
+					}},10);
+
+					socket.on('rfid_reader_status', function (data) {
+						if ('ACTIVE'==data.status)
+							location.href="/scanner/#{loc}";
+						if ('ERROR'==data.status)	{
+							console.log("ERROR connecting to the reader!!");
+							$('.indicating.progress').transition('hide');
+							$('#errorMessage').text('Error connecting to rfid reader. Check Connections!');
+							$('.message').transition('show');
+						}
+					});
+				}

@@ -2,39 +2,45 @@ extends layout
 block navigation
 	.ui.top.attached.tabular.menu(style="margin-top:0.4em; margin-left:0.4em")
 		a.item(style="font-size:1.6em; padding: 0.45em 2.5em;" href="/") Home
-		a.active.item(style="background-color: rgba(150,150,150,0.5); font-size:1.6em; padding: 0.45em 2.5em;" href="/inventory") Inventory
+		a.active.item(style="background-color: #2185D0; color: #FFFFFF; font-size:1.6em; padding: 0.45em 2.5em;" href="/inventory") Inventory
 		a.item(style="font-size:1.6em; padding: 0.45em 2.5em;" href="/reports") Reports
 		.right.menu
-			a.item(href="/")
-				b Back&nbsp&nbsp  
-					i.arrow.right.icon
+			a.item(style="font-size:1.3em; padding: 0.2em .2em;" href="/")
+				b Back  
+					i.large.sign.out.icon
+			if "ACTIVE"==reader.status
+				a.item(style="font-size:1.3em; padding: 0.2em .2em;" href="/scanner/"+reader.location)
+					i.large.blue.spinner.loading.icon
+	if success
+		.ui.small.positive.message
+			h3= success
+	if error
+		.ui.small.negative.message
+			h3= error
 block content
 	#info.ui.container.segment
 		.ui.fluid.grid
-			.six.wide.column
-				h2 Locations 
-			.six.wide.right.aligned.column
-				.ui.areas.search
-					.ui.icon.input
-						input(class="prompt" type="text" placeholder="Search locations...")
-						i.search.icon
-					.results
+			.twelve.wide.column
+				h2 Locations
 			.four.wide.right.aligned.column
 				button.ui.blue.button(onclick="showModal()") New Location
 		.ui.modal
 			i.close.icon
-			.header	Add New Location..
-			.description &nbsp&nbsp&nbspPlease enter the path to the .CSV file directory&nbsp&nbsp&nbsp
-				.ui.input.focus
-					input(type="text" placeholder="Path")
+			.header	New Location 
+				i.upload.icon
+			.description
+				form#new_location(method="post" action="/inventory/newLocation" encType="multipart/form-data").ui.form
+					h3 
+						label(for="payload") Select CSV file: 
+						input#payload(type="file" name="new_location_file" accept=".csv")
 			.actions
-				.ui.button Add
+					button.ui.positive.right.labeled.icon.button#upload(onclick="document.getElementById('new_location').submit()") Upload
+						i.checkmark.icon
 		script.
 			function showModal()	{
 				$('.ui.modal')
 				  .modal({blurring: true})
-				  .modal('show')
-				;
+				  .modal('show');
 			}
 		.ui.divider
 
@@ -47,13 +53,13 @@ block content
 						button.ui.labeled.icon.blue.button(onclick="location.href='/inventory/"+area.DISTINCT+"'") Open
 							i.folder.open.outline.icon
 					.right.floated.center.aligned.five.wide.column
-						if 1==view.status 
-							if view.loc==area.DISTINCT
-								button.ui.labeled.icon.blue.button(onclick="location.href='/reader/"+area.DISTINCT+"'") Scanning..
+						if "ACTIVE"==reader.status 
+							if reader.location==area.DISTINCT
+								button.ui.labeled.icon.blue.button(onclick="location.href='/scanner/"+area.DISTINCT+"'") Scanning..
 									i.play.icon
 							else
-								button.ui.labeled.icon.blue.button(onclick="location.href='/reader/"+area.DISTINCT+"'") Scan
-								i.play.icon
+								button.ui.labeled.icon.blue.button(onclick="location.href='/scannerInit/"+area.DISTINCT+"'") Scan
+									i.play.icon
 						else
-							button.ui.labeled.icon.blue.button(onclick="location.href='/reader/"+area.DISTINCT+"'") Scan
+							button.ui.labeled.icon.blue.button(onclick="location.href='/scannerInit/"+area.DISTINCT+"'") Scan
 								i.play.icon

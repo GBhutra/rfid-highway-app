@@ -3,8 +3,8 @@ body	{
 }
 
 #sign_container	{
-	padding: 1%;
-	height: 85%;
+	margin:1%;
+	height: 100%;
 }
 
 #advanced_controls	{
@@ -16,24 +16,15 @@ body	{
 	padding: 1%;
 	height: 100%;
 }
-#signs	{
-	height: 100%
+#oneSign,#twoSign,#threeSign,#fourSign	{
+	height: 100%;
 }
 
-#sign1 {
-	padding: 3%;
-	justify-content: center;
-	height: 100%
+#sign11,#sign21,#sign22,#sign31,#sign32,#sign33,#sign41,#sign42,#sign43,#sign44 {
+	padding: 1%;
+	height: 90%;
 }
 
-#sign2 {
-	padding: 3%;
-	justify-content: center;
-	height: 100%
-}
-
-#sign3 {
-	padding: 3%;
-	justify-content: center;
-	height: 100%
+.image img {
+	display: block;
 }

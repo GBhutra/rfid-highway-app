@@ -4,13 +4,15 @@ var debug = require('debug')('rfidhwyapp:server');
 var http = require('http');
 var stdio = require('stdio');
 
+
+
 // defined locally 
 var models = require('../models');
-var fh = require('../file_handler.js');
-var io = require('../sockets.js').io;
-var view = require('../reader_view.js');
-var gps = require('../gps_reader.js');
-var reader = require('../rfid_reader.js');
+var invtryMgr = require('../middleware/inventoryManager.js');
+var cntrlr = require('../controller.js');
+var gps = require('../middleware/gpsReader.js');
+var rfid = require('../middleware/rfidReader.js');
+
 
 var log = true;
 var port = 3200;
@@ -18,38 +20,49 @@ var server = http.createServer(app);
 
 
 models.sequelize.sync({force:true}).then(function() {
-  if (log) {  console.log("Database initialized !! :D "); }
   app.set('port', port);
+  invtryMgr.initializeDB("inventory");
+  
+  gps.addObserver(cntrlr.gpsObserver);
+  rfid.reader.addObserver(cntrlr.readerObserver);
 
-  gps.Initialize();
-
-  io.listen(server.listen(port));
+  cntrlr.io.listen(server.listen(port));
   server.on('error', onError);
   server.on('listening', onListening);
-
-  fh.createDBFromFile("Riverside2.csv", models);
-
-  CLIStart();
+  CLIStart(null);
 });
 
-function CLIStart() {
-  stdio.question('Input Data ?', function (err, input) {
-    if('gps'==input)  {
-      stdio.question('Lat :', function (err, Lat) {
-        stdio.question('Lon :', function (err, Lon) {
-          console.log('Lat: '+Lat+' Lon: '+Lon);
-          gps.TestWithCoordinates(Lat,Lon);
-        });
+function CLIStart(data) {
+  console.log("Selected Input: "+data);
+  if ('1'==data) {
+    stdio.question('Lat :', function (err, Lat) {
+      stdio.question('Lon :', function (err, Lon) {
+        console.log('Lat: '+Lat+' Lon: '+Lon);
+        gps.gpsSimulate(Lat,Lon);
+        CLIStart(null);
       });
-    }
-    if('rfid'==input)  {
-      stdio.question('Tag :', function (err, Tag) {
-        console.log('Tag: '+Tag);
-        reader.TestWithTag({tagID: Tag});
-      });
-    }
-    CLIStart();
-  });
+    });
+  }
+  else if ('2'==data)  {
+    stdio.question('\nInput Data? \n(1) ACTIVE\n(2) IDLE\n(3) ERROR', function (err, sel) {
+      console.log('Tag Status : '+sel);
+      rfid.tagStatusSimulate(parseInt(sel));
+      CLIStart(null);
+    });
+  }
+  else if ('3'==data)  {
+    stdio.question('Tag :', function (err, Tag) {
+      console.log('Tag: '+Tag);
+      rfid.tagReadSimulate({tagID: Tag});
+      CLIStart(null);
+    });
+  }
+  else {
+    stdio.question('\nInput Data ? \n(1) GPS\n(2)RFID reader STATUS\n(3)RFID reader READ', function (err, input) {
+      console.log("Selection :: "+input);
+      CLIStart(input);
+    });
+  }
 }
 
 function onErr(err) {

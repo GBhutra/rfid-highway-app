@@ -1,81 +1,81 @@
+var log = require('../systemLog').routeReport;
 var express = require('express');
-var csv = require("fast-csv");
-var walk = require('walk'), fs = require('fs'), walker;
 var router = express.Router();
+var csv = require("fast-csv");
+var reportLocation = 'report/';
+var reader = require('../middleware/rfidReader.js').reader;
+var walk = require('walk'), fs = require('fs'), walker;
 
-var log = true;
-
-/* GET reports listing. */
 router.get('/', function(req, res, next) {
-	walker = walk.walk("public/reports/");
-    var availablelogs=[];
-    walker.on("file", function (root, fileStats, next) {
-    	fs.readFile(fileStats.name, function () {
-      	if (/.csv/.exec(fileStats.name))	{
-        	if (log) console.log("File Name: "+fileStats.name);
-        	availablelogs.push(fileStats.name);
-        }
-      	next();
-    	});
-  	});
-    
-    walker.on("errors", function (root, nodeStatsArray, next) {
-    	next();
-  	});
- 
-    walker.on("end", function () {
-    	if (log)	console.log("Logger: all done "+availablelogs.length+" logs found !!");
-    		res.render('reports',{reports: availablelogs});
-    		availablelogs = [];
+  walker = walk.walk(reportLocation);
+  var availablelogs=[];
+  walker
+  .on("file", function (root, fileStats, next) {
+  fs.readFile(fileStats.name, function () {
+    if (/.csv/.exec(fileStats.name))  {
+      if (log) console.log("Routes/reports: File Name: "+fileStats.name);
+        availablelogs.push(fileStats.name);
+    }
+    next();
+    });
   });
-});
-
-router.get('/reportDelete/:id', function(req,res,next)	{
-	console.log("report requested to delete :"+req.params.id);
-	fs.unlinkSync('public/reports/'+req.params.id);
-	walker = walk.walk("public/reports/");
-    var availablelogs=[];
-    walker.on("file", function (root, fileStats, next) {
-    	fs.readFile(fileStats.name, function () {
-      	if (/.csv/.exec(fileStats.name))	{
-        	if (log) console.log("File Name: "+fileStats.name);
-        	availablelogs.push(fileStats.name);
-        }
-      	next();
-    	});
-  	});
-    
-    walker.on("errors", function (root, nodeStatsArray, next) {
-    	next();
-  	});
- 
-    walker.on("end", function () {
-    	if (log)	console.log("Logger: all done "+availablelogs.length+" logs found !!");
-    		res.render('reports',{reports: availablelogs});
-    		availablelogs = [];
+  walker.on("errors", function (root, nodeStatsArray, next) {
+    next();
+  });
+  walker.on("end", function () {
+    if (log)  console.log("Routes/reports: all done "+availablelogs.length+" logs found !!");
+      res.render('reports',{reports: availablelogs, reader: reader});
+      availablelogs = [];
   });
 });
 
 router.get('/:rep', function(req, res, next) {
-	var rep=[];
-	var repHeader;
-	csv
-	 .fromPath('public/reports/'+req.params.rep+".csv")
-	 .on("data", function(data)	{
-	 	var temp = new function() {
-	 		if(data[0]=='TagID')
-	 			repHeader = data;
-	 		else
-	 			rep.push(data);
-	 	}
-	}).on("end", function()	{
-	     console.log("Report reading done "+rep.length+" entries found !!");
+  var rep=[];
+  var repHeader;
+  csv
+   .fromPath(reportLocation+req.params.rep+".csv")
+   .on("data", function(data) {
+    var temp = new function() {
+      if(data[0]=='TagID')
+        repHeader = data;
+      else
+        rep.push(data);
+    }
+  }).on("end", function() {
+       if (log)  console.log("Routes/reports: Report reading done "+rep.length+" entries found !!");
        var col = new Object();
        col.sign = true;
        col.address = true;
        col.time = true;
-	     res.render('report',{name: req.params.rep, report: rep, headers: repHeader,col: col, filter: "all tags"});
-	});
+       res.render('report',{name: req.params.rep, report: rep, headers: repHeader,col: col, filter: "all tags", reader: reader});
+  });
+});
+
+/* GET reports listing. */
+router.get('/reportDelete/:id', function(req,res,next)	{
+	if (log)  console.log("Routes/reports: report requested to delete :"+req.params.id);
+	fs.unlinkSync(reportLocation+req.params.id);
+	walker = walk.walk(reportLocation);
+    var availablelogs=[];
+    walker.on("file", function (root, fileStats, next) {
+    	fs.readFile(fileStats.name, function () {
+      	if (/.csv/.exec(fileStats.name))	{
+        	if (log)  console.log("Routes/reports: File Name: "+fileStats.name);
+        	availablelogs.push(fileStats.name);
+        }
+      	next();
+    	});
+  	});
+    
+    walker.on("errors", function (root, nodeStatsArray, next) {
+    	next();
+  	});
+ 
+    walker.on("end", function () {
+    	if (log)  console.log("Routes/reports: all done "+availablelogs.length+" logs found !!");
+    		res.render('reports',{reports: availablelogs, reader: reader});
+    		availablelogs = [];
+  });
 });
 
 router.post('/:rep', function(req, res, next) {
@@ -86,15 +86,15 @@ router.post('/:rep', function(req, res, next) {
   if(req.body.gps) col.gps = true;
   if(req.body.count) col.count = true;
 
-  console.log("Address: "+req.body.time);
-  console.log("Timestamp: "+req.body.address);
-  console.log("GPS: "+req.body.GPS);
-  console.log("Count: "+req.body.count);
-  console.log("Filter: "+req.body.filter);
+  if (log)  console.log("Routes/reports: Address: "+req.body.time);
+  if (log)  console.log("Routes/reports: Timestamp: "+req.body.address);
+  if (log)  console.log("Routes/reports: GPS: "+req.body.GPS);
+  if (log)  console.log("Routes/reports: Count: "+req.body.count);
+  if (log)  console.log("Routes/reports: Filter: "+req.body.filter);
   var rep=[];
   var repHeader;
   csv
-   .fromPath('public/reports/'+req.params.rep+".csv")
+   .fromPath(reportLocation+req.params.rep+".csv")
    .on("data", function(data) {
     var temp = new function() {
       if(data[0]=='TagID')
@@ -103,10 +103,9 @@ router.post('/:rep', function(req, res, next) {
         rep.push(data);
     }
   }).on("end", function() {
-       console.log("Report reading done "+rep.length+" entries found !!");
-       res.render('report',{name: req.params.rep, report: rep, headers: repHeader,col: col, filter: req.body.filter});
+       if (log)  console.log("Routes/reports: Report reading done "+rep.length+" entries found !!");
+       res.render('report',{name: req.params.rep, report: rep, headers: repHeader,col: col, filter: req.body.filter, reader: reader});
   });
 });
- 
 
 module.exports = router;

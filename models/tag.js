@@ -2,7 +2,7 @@
 
 module.exports = function(sequelize, DataTypes) {
   var Tag = sequelize.define("Tag", {
-    area : DataTypes.STRING(200),
+    location : DataTypes.STRING(200),
     signType: DataTypes.STRING(200),
     tagId: {
         type: DataTypes.STRING(200),

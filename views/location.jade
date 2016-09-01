@@ -2,25 +2,31 @@ extends layout
 block navigation
 	.ui.top.attached.tabular.menu(style="margin-top:0.4em; margin-left:0.4em")
 		a.item(style="font-size:1.6em; padding: 0.45em 2.5em;" href="/") Home
-		a.active.item(style="background-color: rgba(150,150,150,0.5); font-size:1.6em; padding: 0.45em 2.5em;" href="/inventory") Inventory
+		a.active.item(style="background-color: #2185D0; color: #FFFFFF; font-size:1.6em; padding: 0.45em 2.5em;" href="/inventory") Inventory
 		a.item(style="font-size:1.6em; padding: 0.45em 2.5em;" href="/reports") Reports
 		.right.menu
-			a.item(href="/inventory")
-				b Back&nbsp&nbsp  
-					i.arrow.right.icon
+			a.item(style="font-size:1.3em; padding: 0.2em .2em;" href="/inventory")
+				b Back
+					i.large.sign.out.right.icon
+			if "ACTIVE"==reader.status
+				a.item(style="font-size:1.3em; padding: 0.2em .2em;" href="/reader/"+reader.location)
+					i.large.blue.spinner.loading.icon
+	if success
+		.ui.small.positive.message
+			h3= success
+	if error
+		.ui.small.negative.message
+			h3= error
 block content
 	#info.ui.segment
 		.ui.fluid.grid
 			.eight.wide.column
-				h2=area
+				h2=location
 			.four.wide.right.aligned.column
-				.ui.areas.search
-					.ui.icon.input
-						input(class="prompt" type="text" placeholder="Search tags...")
-						i.search.icon
-					.results
+				button.ui.labeled.icon.blue.button(onclick="window.print()") Print
+					i.print.icon 
 			.four.wide.right.aligned.column
-				button.ui.blue.button(onclick="location.href+='newTag'") Add New Tag
+				button.ui.blue.disabled.button(onclick="location.href+='newTag'") Add New Tag
 		.ui.divider
 		table.ui.celled.striped.table(id="tags")
 			thead
