@@ -5,4 +5,4 @@ What is RFID Highway?
 
 The RFID Highway Project is a system intended to improve the process of maintaining road signs and structures along highways. The system makes use of RFID (radio-frequency identification) technology to automatically monitor and record the condition of signs and other structures, such as guard rails, as maintenance vehicles drive along the roads, thus making the entire process much easier, more efficient, and more accurate than manual recording.
 
-Check out the Project Wiki page<a href="https://github.com/GBhutra/rfid-highway-app/wiki">Here.</a>
+Check out the Project Wiki page<a href="https://github.com/GBhutra/rfid-highway-app/wiki"> Here.</a>
