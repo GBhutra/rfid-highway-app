@@ -38,7 +38,7 @@ block content
 						$('.indicating.progress').transition('show');
 					}
 
-					var socket = io.connect('http://172.24.1.1:3200');
+					var socket = io.connect('http://localhost:3200');
 
 					$('#back_button').click(function(){
 						socket.emit('rfid_reader_reset',{location:"#{loc}"});

@@ -1,5 +1,5 @@
 window.onload = function() {
-    var socket = io.connect('http://localhost:3200');
+    var socket = io.connect('http://rfid_raspberrypi:3200');
     var reader = document.getElementById("reader");
     var gps = document.getElementById("gps");
     socket.on('initialize', function (data) {

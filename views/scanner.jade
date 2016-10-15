@@ -15,7 +15,7 @@ block navigation
 					.column
 						button.blue.fluid.ui.button(style="font-size:1.5em; padding: 0.45em 0.5em;" id='status') Pause
 				.column
-					button.blue.fluid.ui.labeled.icon.dropdown.button(style="font-size:1.5em; padding: 0.45em 0.5em;" id='settings' onclick="toggleSettings()") Settings  
+					button.blue.fluid.ui.button(style="font-size:1.5em; padding: 0.45em 0.5em;" id='settings' onclick="toggleSettings()") Settings  
 				.column
 					button.blue.fluid.ui.button(style="font-size:1.5em; padding: 0.45em 0.5em;" id='save') Save
 				.save.ui.small.test.modal
@@ -92,7 +92,7 @@ block content
 				b Touch anywhere on the screen to get controls on and off screen.
 		#oneSign.ui.one.stackable.cards.transition.hidden(style="margin:1%;")
 			#sign11.ui.card
-				.image(id="sign11_asset" style="max-width:70%; max-height:100%; display: flex; justify-content:center; align-items: center;")
+				.image(id="sign11_asset" style="height:100%; display: flex; justify-content: center; align-items: center; max-width:70%")
 					img.ui.fluid.image(id="image11"  src="/images/load.gif" style="max-height:100%;")
 				.content(id="sign11_info" style="height:20%").transition.hidden
 					p(align="center" id="sign11_info_label") 
@@ -121,26 +121,26 @@ block content
 						.label(id="sign22_info_dist") Distance in feet ~
 		#threeSign.ui.three.stackable.cards.transition.hidden(style="margin:1%;")
 			#sign31.ui.card
-				.image(id="sign31_asset" style="height:80%; display: flex; justify-content:center; align-items: center;")
+				.image(id="sign31_asset" style="height:100%; display: flex; justify-content:center; align-items: center;")
 					img.ui.fluid.image(id="image31" src="/images/load.gif" style="max-height:100%;")
-				.content(id="sign31_info" style="height:20%")
+				.content(id="sign31_info" style="height:20%").transition.hidden
 					p( align="center" id="sign31_info_label") 
 						b SIGN
 					#sign31_info_bar.ui.small.indicating.progress(data-value="1" data-total="100")
 						.bar
 						.label(id="sign31_info_dist") Distance in feet ~
 			#sign32.ui.card
-				.image(id="sign32_asset" style="height:80%; display: flex; justify-content:center; align-items: center;")
+				.image(id="sign32_asset" style="height:100%; display: flex; justify-content:center; align-items: center;")
 					img.ui.fluid.image(id="image32" src="/images/load.gif" style="max-height:100%;")
-				.content(id="sign32_info" style="height:20%")
+				.content(id="sign32_info" style="height:20%").transition.hidden
 					p(id="sign32_info_label") SIGN
 					#sign32_info_bar.ui.small.indicating.progress(data-value="1" data-total="100")
 						.bar
 						.label(id="sign32_info_dist") Distance in feet ~
 			#sign33.ui.card
-				.image(id="sign33_asset" style="height:80%; display: flex; justify-content:center; align-items: center;")
+				.image(id="sign33_asset" style="height:100%; display: flex; justify-content:center; align-items: center;")
 					img.ui.fluid.image(id="image33" src="/images/load.gif" style="max-height:100%;")
-				.content(id="sign33_info" style="height:20%")
+				.content(id="sign33_info" style="height:20%").transition.hidden
 					p(id="sign33_info_label") SIGN
 					#sign33_info_bar.ui.small.indicating.progress(data-value="1" data-total="100")
 						.bar
@@ -155,7 +155,7 @@ block content
 						.bar
 						.label(id="sign41_info_dist") Distance in feet ~
 			#sign42.ui.card
-				.image(style="height:100%; display: flex; justify-content:center; align-items: center;")
+				.image(id="sign42_asset" style="height:100%; display: flex; justify-content:center; align-items: center;")
 					img.ui.fluid.image(id="image42" src="/images/load.gif" style="max-height:100%;")
 				.content(style="height:20%").transition.hidden
 					p(id="sign42_info_label") SIGN
@@ -163,7 +163,7 @@ block content
 						.bar
 						.label(id="sign42_info_dist") Distance in feet ~
 			#sign43.ui.card
-				.image(style="height:100%; display: flex; justify-content:center; align-items: center;")
+				.image(id="sign43_asset" style="height:100%; display: flex; justify-content:center; align-items: center;")
 					img.ui.fluid.image(id="image43" src="/images/load.gif" style="max-height:100%;")
 				.content(style="height:20%").transition.hidden
 					p(id="sign43_info_label") SIGN
@@ -171,7 +171,7 @@ block content
 						.bar
 						.label(id="sign43_info_dist") Distance in feet ~
 			#sign44.ui.card
-				.image(style="height:100%; display: flex; justify-content:center; align-items: center;")
+				.image(id="sign44_asset" style="height:100%; display: flex; justify-content:center; align-items: center;")
 					img.ui.fluid.image(id="image44" src="/images/load.gif" style="max-height:100%;")
 				.content(style="height:20%").transition.hidden
 					p(id="sign44_info_label") SIGN

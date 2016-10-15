@@ -1,6 +1,6 @@
 window.onload = function() {
     var log=true;
-    var socket = io.connect('http://172.24.1.1:3200');
+    var socket = io.connect('http://localhost:3200');
     var gpsRange = 50;
     
     var bVis_controls = false;
