@@ -2,49 +2,49 @@ extends layout
 block navigation
 	.ui.top.attached.tabular.menu(style="margin-top:0.4em; margin-left:0.4em")
 		a.active.item(style="background-color: #2185D0; color: #FFFFFF; font-size:1.6em; padding: 0.45em 2.5em;" href="/") Home
-		a.item(style="font-size:1.6em; padding: 0.45em 2.5em;" href="/inventory") Inventory
+		a.item(style="font-size:1.6em; padding: 0.45em 2.5em;" href="/inventory") Scan
 		a.item(style="font-size:1.6em; padding: 0.45em 2.5em;" href="/reports") Reports
 		if "ACTIVE"==reader.status
 			.right.menu
 				a.item(style="font-size:1.3em; padding: 0.2em .2em;" href="/scanner/"+reader.location) 
 					i.large.blue.spinner.loading.icon
 block content
-		#info.ui.container.segment(style="margin-top:5%;")		
-			.ui.right.aligned.grid(style="margin:2%;")
-				.left.floated.right.aligned.ten.wide.cloumn
-					h2.ui.header Welcome to RFID Highway Application
-				.right.floated.left.aligned.six.wide.cloumn
-					button.ui.blue.large.icon.button(onclick="toggleFullScreen()")
-						i.icon.maximize
-				script.
-					function toggleFullScreen()	{
-						if((document.fullscreenElement && document.fullScreenElement !== null) || (!document.mozFullScreen && !document.webkitIsFullScreen))	{
-							if (document.documentElement.requestFullScreen)	{
-								document.documentElement.requestFullScreen();
-							} else if (document.documentElement.mozRequestFullScreen)	{
-								document.documentElement.mozRequestFullScreen();	
-							} else if (document.documentElement.webkitRequestFullScreen)	{
-								document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);	
-							}
-						} else	{
-							if (document.cancelFullScreen)	{
-								document.cancelFullScreen();
-							} else if (document.mozCancelFullScreen)	{
-								document.mozCancelFullScreen();
-							} else if (document.webkitCancelFullScreen)	{
-								document.webkitCancelFullScreen();
-							}
+	#info.ui.container.segment(style="margin-top:5%;")		
+		.ui.right.aligned.grid(style="margin:2%;")
+			.left.floated.right.aligned.ten.wide.cloumn
+				h2.ui.header Welcome to RFID Highway Application
+			.right.floated.left.aligned.six.wide.cloumn
+				button.ui.blue.large.icon.button(onclick="toggleFullScreen()")
+					i.icon.maximize
+			script.
+				function toggleFullScreen()	{
+					if((document.fullscreenElement && document.fullScreenElement !== null) || (!document.mozFullScreen && !document.webkitIsFullScreen))	{
+						if (document.documentElement.requestFullScreen)	{
+							document.documentElement.requestFullScreen();
+						} else if (document.documentElement.mozRequestFullScreen)	{
+							document.documentElement.mozRequestFullScreen();	
+						} else if (document.documentElement.webkitRequestFullScreen)	{
+							document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);	
+						}
+					} else	{
+						if (document.cancelFullScreen)	{
+							document.cancelFullScreen();
+						} else if (document.mozCancelFullScreen)	{
+							document.mozCancelFullScreen();
+						} else if (document.webkitCancelFullScreen)	{
+							document.webkitCancelFullScreen();
 						}
 					}
-			p(style="font-size:1.2em") This software is designed to assist in the monitoring and maintenance of road signs as you drive along the highway. To get started touch the buttons along the top of the screen, or read the instructions below in each tab.
-			.ui.large.steps(style="width:100%;")
-				a.link.step(href="/inventory")
-					i.tags.icon
-					.content
-						h2.title Inventory
-						.description(style="font-size:1.2em") Manage & Scan RFID Tagss
-				a.link.step(href="/reports")
-					i.file.text.icon
-					.content
-						h2.title Reports
-						.description(style="font-size:1.2em") View or Print reports
+				}
+		p(style="font-size:1.2em") This software is designed to assist in the monitoring and maintenance of RFID tags as you drive along the highway. To get started touch the buttons along the top of the screen, or read the instructions below in each tab.
+		.ui.large.steps(style="width:100%;")
+			a.link.step(href="/inventory")
+				i.tags.icon
+				.content
+					h2.title Scan
+					.description(style="font-size:1.2em") Manage & Scan RFID Tags
+			a.link.step(href="/reports")
+				i.file.text.icon
+				.content
+					h2.title Reports
+					.description(style="font-size:1.2em") View or Print reports

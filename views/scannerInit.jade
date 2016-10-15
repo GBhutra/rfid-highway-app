@@ -3,17 +3,10 @@ block append scripts
 	script(src='/socket.io/socket.io.js')
 block content
 	#bar.ui.raised.very.padded.text.container.segment(style="margin-top:5%;")
-		.ui.internally.celled.grid
-			.five.wide.column
-				h4 Location:
-				p= loc
-			.six.wide.column
-				h4 Date :
-				p= date
-			.five.wide.column
-				h4 GPS Values :
-				p Longitude: #{GPSLat}
-				p Latitude: #{GPSLon}
+		p 
+			strong Date : #{date}
+		p
+			strong Max no. of RFID Tags = #{maxTags}
 		.ui.small.negative.message.transition.hidden(style="margin-top:10%;")
 			.ui.fluid.grid
 				.ten.wide.column
@@ -41,11 +34,11 @@ block content
 					var socket = io.connect('http://localhost:3200');
 
 					$('#back_button').click(function(){
-						socket.emit('rfid_reader_reset',{location:"#{loc}"});
+						socket.emit('rfid_reader_reset',{maxTags:"#{maxTags}"});
 						location.href='/inventory';
 					})
 
-					socket.emit('connect_rfid_reader',{location:"#{loc}"});
+					socket.emit('connect_rfid_reader',{maxTags:"#{maxTags}"});
 					window.fakeProgress = setInterval(function() {
 						$('.ui.progress').progress('increment');
 						if($('.ui.progress').progress('is complete'))   {
@@ -54,7 +47,7 @@ block content
 
 					socket.on('rfid_reader_status', function (data) {
 						if ('ACTIVE'==data.status)
-							location.href="/scanner/#{loc}";
+							location.href="/scanner/";
 						if ('ERROR'==data.status)	{
 							console.log("ERROR connecting to the reader!!");
 							$('.indicating.progress').transition('hide');

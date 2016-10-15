@@ -7,32 +7,31 @@ var stdio = require('stdio');
 
 
 // defined locally 
-var models = require('../models');
-var invtryMgr = require('../middleware/inventoryManager.js');
+//var models = require('../models');
+//var invtryMgr = require('../middleware/inventoryManager.js');
 var cntrlr = require('../controller.js');
-var gps = require('../middleware/gpsReader.js');
+//var gps = require('../middleware/gpsReader.js');
 var rfid = require('../middleware/rfidReader.js');
-
 
 var log = true;
 var port = 3200;
 var server = http.createServer(app);
 
 
-models.sequelize.sync({force:true}).then(function() {
+//models.sequelize.sync({force:true}).then(function() {
   app.set('port', port);
-  invtryMgr.initializeDB("inventory");
+  //invtryMgr.initializeDB("inventory");
   
-  gps.addObserver(cntrlr.gpsObserver);
+  //gps.addObserver(cntrlr.gpsObserver);
   rfid.reader.addObserver(cntrlr.readerObserver);
 
   cntrlr.io.listen(server.listen(port));
   server.on('error', onError);
   server.on('listening', onListening);
-  CLIStart(null);
-});
+  //CLIStart(null);
+//});
 
-function CLIStart(data) {
+/*function CLIStart(data) {
   console.log("Selected Input: "+data);
   if ('1'==data) {
     stdio.question('Lat :', function (err, Lat) {
@@ -68,7 +67,7 @@ function CLIStart(data) {
 function onErr(err) {
     console.log(err);
     return 1;
-}
+}*/
 
 function onError(error) {
   if (error.syscall !== 'listen') {
