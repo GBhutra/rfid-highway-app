@@ -2,7 +2,7 @@ extends layout
 block navigation
 	.ui.top.attached.tabular.menu(style="margin-top:0.4em; margin-left:0.4em")
 		a.item(style="font-size:1.6em; padding: 0.45em 2.5em;" href="/") Home
-		a.active.item(style="background-color: #2185D0; color: #FFFFFF; font-size:1.6em; padding: 0.45em 2.5em;" href="/inventory") Scan
+		a.active.item(style="background-color: #2185D0; color: #FFFFFF; font-size:1.6em; padding: 0.45em 2.5em;" href="/inventory") Inventory
 		a.item(style="font-size:1.6em; padding: 0.45em 2.5em;" href="/reports") Reports
 		.right.menu
 			a.item(style="font-size:1.3em; padding: 0.2em .2em;" href="/")
@@ -18,55 +18,48 @@ block navigation
 		.ui.small.negative.message
 			h3= error
 block content
-	#info.ui.container.segment(style="margin-top:5%;")
+	#info.ui.container.segment
+		.ui.fluid.grid
+			.twelve.wide.column
+				h2 Locations
+			.four.wide.right.aligned.column
+				button.ui.blue.button(onclick="showModal()") New Location
+		.ui.modal
+			i.close.icon
+			.header	New Location 
+				i.upload.icon
+			.description
+				form#new_location(method="post" action="/inventory/newLocation" encType="multipart/form-data").ui.form
+					h3 
+						label(for="payload") Select CSV file: 
+						input#payload(type="file" name="new_location_file" accept=".csv")
+			.actions
+					button.ui.positive.right.labeled.icon.button#upload(onclick="document.getElementById('new_location').submit()") Upload
+						i.checkmark.icon
+		script.
+			function showModal()	{
+				$('.ui.modal')
+				  .modal({blurring: true})
+				  .modal('show');
+			}
+		.ui.divider
+
 		#areas.ui.internally.celled.left.aligned.grid
-			.row
-				.left.floated.left.aligned.twelve.wide.column
-					p(style="font-size:1.3em;") Please select the maximum number of tags from 1 - 1000
-					.ui.internally.celled.grid
-						.row
-							.three.wide.column
-								center 
-									button.ui.icon.blue.button(onclick="decrementSlider()")
-										i.large.angle.left.icon
-							.ten.wide.column
-								center(id="slider_val") 1
-								p
-								.ui.slider.range
-									input(style="width:100%;" type="range" id="sliderVal" value="1" min="1" max="1000" onchange="sliderUpdate()")
-							.three.wide.column
-								center 
-									button.ui.icon.blue.button(onclick="incrementSlider()")
-										i.large.angle.right.icon
-				.right.floated.center.aligned.four.wide.column
-					if "ACTIVE"==reader.status 
-						if reader.location==area.DISTINCT
-							button.ui.labeled.icon.blue.button(onclick="location.href=/scanner/") Scanning..
-								i.play.icon
+			each area in areas
+				.row
+					.left.floated.left.aligned.seven.wide.column
+						p(style="font-size:1.3em;")=area.DISTINCT	
+					.right.floated.center.aligned.four.wide.column
+						button.ui.labeled.icon.blue.button(onclick="location.href='/inventory/"+area.DISTINCT+"'") Open
+							i.folder.open.outline.icon
+					.right.floated.center.aligned.five.wide.column
+						if "ACTIVE"==reader.status 
+							if reader.location==area.DISTINCT
+								button.ui.labeled.icon.blue.button(onclick="location.href='/scanner/"+area.DISTINCT+"'") Scanning..
+									i.play.icon
+							else
+								button.ui.labeled.icon.blue.button(onclick="location.href='/scannerInit/"+area.DISTINCT+"'") Scan
+									i.play.icon
 						else
-							button.ui.labeled.icon.blue.button(onclick="scanStart()") Scan
+							button.ui.labeled.icon.blue.button(onclick="location.href='/scannerInit/"+area.DISTINCT+"'") Scan
 								i.play.icon
-					else
-						button.ui.labeled.icon.blue.button(style="height:90%" onclick="scanStart()") Scan
-							i.play.icon
-				script.
-					function sliderUpdate()	{
-						var x = document.getElementById("sliderVal").value;
-						document.getElementById("slider_val").innerHTML = x;
-					}
-					function incrementSlider()	{
-						var x = parseInt(document.getElementById("sliderVal").value);
-						x=x+1;
-						document.getElementById("sliderVal").value=x;
-						document.getElementById("slider_val").innerHTML = x;
-					}
-					function decrementSlider()	{
-						document.getElementById("sliderVal").value-=1;
-						var x = parseInt(document.getElementById("sliderVal").value);	
-						x=x-1;
-						document.getElementById("sliderVal").value=x;
-						document.getElementById("slider_val").innerHTML = x;
-					}
-					function scanStart()	{
-						location.href='/scannerInit/'+document.getElementById("sliderVal").value;
-					}

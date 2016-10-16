@@ -47,7 +47,7 @@ router.get('/:rep', function(req, res, next) {
        col.sign = true;
        col.address = true;
        col.time = true;
-       res.render('report',{name: req.params.rep, report: rep, headers: repHeader, reader: reader});
+       res.render('report',{name: req.params.rep, report: rep, headers: repHeader,col: col, filter: "all tags", reader: reader});
   });
 });
 

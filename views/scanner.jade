@@ -31,23 +31,33 @@ block navigation
 	.err.ui.basic.modal
 		.header	ERROR : RFID reader connection lost ! Check connections.
 		.actions
-			button.ui.ok.right.green.icon.button(id='reconnect') Re-Connect
-			button.ui.cancel.right.red.labeled.icon.button Back
+			button.ui.right.labeled.icon.button(onclick="location.href='/inventory'") Back
 				i.right.arrow.icon
 	#settings_segment.ui.segment.transition.hidden(style="margin-left:10%; width:80%;")
-		.ui.center.aligned.two.column.grid 
+		.ui.center.aligned.three.column.grid 
 			.column 
-				.ui.toggle.checkbox.disabled
-					input(type="checkbox" disabled="disabled" name="public" id="more_info")
+				.ui.toggle.checkbox
+					input(type="checkbox" name="public" id="more_info")
 					label More info
 			.column
 				.ui.toggle.checkbox
 					input(type="checkbox" name="public" id="fullscreen")
 					label Full Screen
+			.column 
+				.ui.three.column.grid
+					.column
+						button.ui.icon.button(id="gps_range_up")
+							i.angle.up.icon 
+					.column 
+						span.text(id="gps_range") GPS Range
+					.column 
+						button.ui.icon.button(id="gps_range_down")
+							i.angle.down.icon
 	script.
 		function toggleSettings()	{	
 			$('#settings_segment').transition('scale');
 		}
+		
 		$('#fullscreen').click(function ()	{
 			$('#settings_segment').transition('scale');
 			if((document.fullscreenElement && document.fullScreenElement !== null) || (!document.mozFullScreen && !document.webkitIsFullScreen))	{
@@ -71,15 +81,100 @@ block navigation
 		});
 block content
 	#sign_container
-		#twoSign.ui.grid.transition.hidden(style="margin:1%;")
-			#sign21.eight.wide.column
-				.ui.raised.text.container.segment(id="sign21_asset" style="width:100%; height:100%;")
-					center(style="font-size:2em") Seen Tags
-					p
-					center(id="seen_tags" style="font-size:9em") 000
-			#sign22.eight.wide.column
-				.ui.raised.text.container.segment(id="sign21_asset" style="width:100%; height:100%;")
-					center(style="font-size:2em") Remaining Tags
-					p
-					center(id="rem_tags" style="font-size:9em") 000
-		
+		#noSign.ui.raised.very.padded.text.conrtainer.segment.transition.hidden(style="width:70%; margin:15%;")
+			h2.ui.header Scanning : 
+				font(color="red") #{reader.location}
+			.ui.active.centered.inline.loader.transition.hidden
+			br
+			p(style="font-size:1.1em")
+				b There are no tags in the gps range. Either continue to drive or try adjusting the range for better performance
+			p(style="font-size:1.1em")
+				b Touch anywhere on the screen to get controls on and off screen.
+		#oneSign.ui.one.stackable.cards.transition.hidden(style="margin:1%;")
+			#sign11.ui.card
+				.image(id="sign11_asset" style="height:100%; display: flex; justify-content: center; align-items: center; max-width:70%")
+					img.ui.fluid.image(id="image11"  src="/images/load.gif" style="max-height:100%;")
+				.content(id="sign11_info" style="height:20%").transition.hidden
+					p(align="center" id="sign11_info_label") 
+						b SIGN
+					#sign11_info_bar.ui.small.indicating.progress(data-value="1" data-total="100")
+						.bar
+						.label(id="sign11_info_dist") Distance in feet ~
+		#twoSign.ui.two.stackable.cards.transition.hidden(style="margin:1%;")
+			#sign21.ui.card
+				.image(id="sign21_asset" style="height:100%; display: flex; justify-content:center; align-items: center;")
+					img.ui.fluid.image(id="image21"  src="/images/load.gif" style="max-height:100%;")
+				.content(id="sign21_info" style="height:20%").transition.hidden
+					p(align="center" id="sign21_info_label") 
+						b SIGN
+					#sign21_info_bar.ui.small.indicating.progress(data-value="1" data-total="100")
+						.bar
+						.label(id="sign21_info_dist") Distance in feet ~
+			#sign22.ui.card
+				.image(id="sign22_asset" style="height:100%; display: flex; justify-content:center; align-items: center;")
+					img.ui.fluid.image(id="image22"  src="/images/load.gif" style="max-height:100%;")
+				.content(id="sign22_info" style="height:20%").transition.hidden
+					p(align="center" id="sign22_info_label") 
+						b SIGN
+					#sign22_info_bar.ui.small.indicating.progress(data-value="1" data-total="100")
+						.bar
+						.label(id="sign22_info_dist") Distance in feet ~
+		#threeSign.ui.three.stackable.cards.transition.hidden(style="margin:1%;")
+			#sign31.ui.card
+				.image(id="sign31_asset" style="height:100%; display: flex; justify-content:center; align-items: center;")
+					img.ui.fluid.image(id="image31" src="/images/load.gif" style="max-height:100%;")
+				.content(id="sign31_info" style="height:20%").transition.hidden
+					p( align="center" id="sign31_info_label") 
+						b SIGN
+					#sign31_info_bar.ui.small.indicating.progress(data-value="1" data-total="100")
+						.bar
+						.label(id="sign31_info_dist") Distance in feet ~
+			#sign32.ui.card
+				.image(id="sign32_asset" style="height:100%; display: flex; justify-content:center; align-items: center;")
+					img.ui.fluid.image(id="image32" src="/images/load.gif" style="max-height:100%;")
+				.content(id="sign32_info" style="height:20%").transition.hidden
+					p(id="sign32_info_label") SIGN
+					#sign32_info_bar.ui.small.indicating.progress(data-value="1" data-total="100")
+						.bar
+						.label(id="sign32_info_dist") Distance in feet ~
+			#sign33.ui.card
+				.image(id="sign33_asset" style="height:100%; display: flex; justify-content:center; align-items: center;")
+					img.ui.fluid.image(id="image33" src="/images/load.gif" style="max-height:100%;")
+				.content(id="sign33_info" style="height:20%").transition.hidden
+					p(id="sign33_info_label") SIGN
+					#sign33_info_bar.ui.small.indicating.progress(data-value="1" data-total="100")
+						.bar
+						.label(id="sign33_info_dist") Distance in feet ~
+		#fourSign.ui.four.stackable.cards.transition.hidden(style="margin:1%;")
+			#sign41.ui.card
+				.image(id="sign41_asset" style="height:100%; display: flex; justify-content:center; align-items: center;")
+					img.ui.fluid.image(id="image41" src="/images/load.gif" style="max-height:100%;")
+				.content(id="sign41_info" style="height:20%").transition.hidden
+					p(id="sign41_info_label") SIGN
+					#sign41_info_bar.ui.small.indicating.progress(data-value="1" data-total="100")
+						.bar
+						.label(id="sign41_info_dist") Distance in feet ~
+			#sign42.ui.card
+				.image(id="sign42_asset" style="height:100%; display: flex; justify-content:center; align-items: center;")
+					img.ui.fluid.image(id="image42" src="/images/load.gif" style="max-height:100%;")
+				.content(style="height:20%").transition.hidden
+					p(id="sign42_info_label") SIGN
+					#sign42_info_bar.ui.small.indicating.progress(data-value="1" data-total="100")
+						.bar
+						.label(id="sign42_info_dist") Distance in feet ~
+			#sign43.ui.card
+				.image(id="sign43_asset" style="height:100%; display: flex; justify-content:center; align-items: center;")
+					img.ui.fluid.image(id="image43" src="/images/load.gif" style="max-height:100%;")
+				.content(style="height:20%").transition.hidden
+					p(id="sign43_info_label") SIGN
+					#sign43_info_bar.ui.small.indicating.progress(data-value="1" data-total="100")
+						.bar
+						.label(id="sign43_info_dist") Distance in feet ~
+			#sign44.ui.card
+				.image(id="sign44_asset" style="height:100%; display: flex; justify-content:center; align-items: center;")
+					img.ui.fluid.image(id="image44" src="/images/load.gif" style="max-height:100%;")
+				.content(style="height:20%").transition.hidden
+					p(id="sign44_info_label") SIGN
+					#sign44_info_bar.ui.small.indicating.progress(data-value="1" data-total="100")
+						.bar
+						.label(id="sign44_info_dist") Distance in feet ~

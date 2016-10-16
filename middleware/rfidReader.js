@@ -11,6 +11,7 @@ var readerClient = new llrp({
 //reader defaults
 function Reader()   {
     this.status = "IDLE",
+    this.location=null,
     this.tagID=null,
     this.observers=[]
 }
@@ -30,7 +31,7 @@ Reader.prototype.remObserver = function(obs)   {
 // notify all observers 
 Reader.prototype.notifyStatus = function() {
   for(var i = 0; i < this.observers.length; i++){
-    this.observers[i].update({status: this.status, tagID: this.tagID});
+    this.observers[i].update({status: this.status, location: this.location, tagID: this.tagID});
   }
 }
 // notify all observers on change of status only
@@ -46,12 +47,20 @@ Reader.prototype.notifyRead = function() {
   }
 }
 
-//update the current state of the reader
+// update the location of the reader
+Reader.prototype.setLocation = function(loc) {
+    if(log)   { console.log('\nRFID Reader set location :'+loc); }
+    this.location = loc;
+}
+// update the current state of the reader
 Reader.prototype.setStatus = function(status) {
   this.status = status;
   this.notifyStatus();
 }
-
+// return the current location for which the reader is working 
+Reader.prototype.getLocation = function() {
+  return this.location;
+}
 // return the current state of the reader
 Reader.prototype.getStatus = function() {
   return this.status;
@@ -130,6 +139,7 @@ function disConnect() {
 
 var self = module.exports = {
     status : rdr.status,
+    loc    : rdr.location,
     reader : rdr,
     connect: function(hostName) {
         return connect(hostName);

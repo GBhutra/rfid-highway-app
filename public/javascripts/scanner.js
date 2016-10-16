@@ -1,13 +1,10 @@
 window.onload = function() {
     var log=true;
-    var socket = io.connect('http://169.254.21.12:3200');
+    var socket = io.connect('http://rfid_raspberrypi:3200');
     var gpsRange = 50;
     
     var bVis_controls = false;
     var bVis_moreInfo = false;
-
-    var maxTags=1;
-    var seenTags=0;
 
     $('#gps_range_up').click(function()  {   
         if (gpsRange<450)
@@ -25,21 +22,44 @@ window.onload = function() {
         socket.emit('gps_range_req',{val: 0});
     });
 
-    $('#more_info').click(function() {
+    $('#more_info')
+    .click(function() {
         bVis_moreInfo = !bVis_moreInfo;
         if (log) console.log("bVis_moreInfo: "+bVis_moreInfo);
         if (bVis_moreInfo)  {
+            $('#sign11_asset').height('80%');
             $('#sign21_asset').height('80%');
             $('#sign22_asset').height('80%');
-            
+            $('#sign31_asset').height('80%');
+            $('#sign32_asset').height('80%');
+            $('#sign33_asset').height('80%');
+            $('#sign41_asset').height('80%');
+            $('#sign42_asset').height('80%');
+            $('#sign43_asset').height('80%');
+            $('#sign44_asset').height('80%');
         }
         else    {
+            $('#sign11_asset').height('100%');
             $('#sign21_asset').height('100%');
             $('#sign22_asset').height('100%');
-           
+            $('#sign31_asset').height('100%');
+            $('#sign32_asset').height('100%');
+            $('#sign33_asset').height('100%');
+            $('#sign41_asset').height('100%');
+            $('#sign42_asset').height('100%');
+            $('#sign43_asset').height('100%');
+            $('#sign44_asset').height('100%');
         }
+        $('#sign11_info').transition('scale');
         $('#sign21_info').transition('scale');
         $('#sign22_info').transition('scale');
+        $('#sign31_info').transition('scale');
+        $('#sign32_info').transition('scale');
+        $('#sign33_info').transition('scale');
+        $('#sign41_info').transition('scale');
+        $('#sign42_info').transition('scale');
+        $('#sign43_info').transition('scale');
+        $('#sign44_info').transition('scale');
     });
 
     $('#sign_container').click(function()   {
@@ -86,37 +106,204 @@ window.onload = function() {
 
     socket.on('initialize', function (data) {
         if (log) console.log("Initialize !!");
-        if (log) console.log(data.maxTags+" "+data.seenTags);
-        maxTags = parseInt(data.maxTags);
-        seenTags = parseInt(data.seenTags);
-        var rem = maxTags-seenTags;
-        if (rem<0)
-            rem=0;
-        $('#rem_tags').html(rem.toString());
-        $('#seen_tags').html(seenTags.toString());
-        $('#sign_container').click();
-        $('#twoSign').transition('scale');
+        if (log) console.log(data);
+        switch (data.numSigns)  {
+            case 0:
+                $('#noSign').transition('scale');
+            break;
+
+            case 1:
+                if (1==data.signStatus[0])  $('#sign11_asset').css('background','rgba(76, 175, 80, 0.6)');
+                $('#image11').attr('src','/assets/'+data.sign[0].assetId+'.png');
+                $('#sign11_info_label').html(data.sign[0].signType);
+                $('#noSign').transition('hide');
+                $('#twoSign').transition('hide');
+                $('#threeSign').transition('hide');
+                $('#fourSign').transition('hide');
+                $('#oneSign').transition('scale');
+            break;
+
+            case 2:
+                if (1==data.signStatus[0])  $('#sign21_asset').css('background','rgba(76, 175, 80, 0.6)');
+                if (1==data.signStatus[1])  $('#sign22_asset').css('background','rgba(76, 175, 80, 0.6)');
+                $('#image21').attr('src','/assets/'+data.sign[0].assetId+'.png');
+                $('#image22').attr('src','/assets/'+data.sign[1].assetId+'.png');
+                $('#sign21_info_label').html(data.sign[0].signType);
+                $('#sign22_info_label').html(data.sign[1].signType);
+                $('#noSign').transition('hide');
+                $('#oneSign').transition('hide');
+                $('#threeSign').transition('hide');
+                $('#fourSign').transition('hide');
+                $('#twoSign').transition('scale');
+            break;
+
+            case 3:
+                if (1==data.signStatus[0])  $('#sign31_asset').css('background','rgba(76, 175, 80, 0.6)');
+                if (1==data.signStatus[1])  $('#sign32_asset').css('background','rgba(76, 175, 80, 0.6)');
+                if (1==data.signStatus[2])  $('#sign33_asset').css('background','rgba(76, 175, 80, 0.6)');
+                $('#image31').attr('src','/assets/'+data.sign[0].assetId+'.png');
+                $('#image32').attr('src','/assets/'+data.sign[1].assetId+'.png');
+                $('#image33').attr('src','/assets/'+data.sign[2].assetId+'.png');
+                $('#sign31_info_label').html(data.sign[0].signType);
+                $('#sign32_info_label').html(data.sign[1].signType);
+                $('#sign33_info_label').html(data.sign[2].signType);
+                $('#noSign').transition('hide');
+                $('#oneSign').transition('hide');
+                $('#twoSign').transition('hide');
+                $('#fourSign').transition('hide');
+                $('#threeSign').transition('scale');
+            break;
+
+            case 4:
+                if (1==data.signStatus[0])  $('#sign41_asset').css('background','rgba(76, 175, 80, 0.6)');
+                if (1==data.signStatus[1])  $('#sign42_asset').css('background','rgba(76, 175, 80, 0.6)');
+                if (1==data.signStatus[2])  $('#sign43_asset').css('background','rgba(76, 175, 80, 0.6)');
+                if (1==data.signStatus[3])  $('#sign43_asset').css('background','rgba(76, 175, 80, 0.6)');
+                $('#image41').attr('src','/assets/'+data.sign[0].assetId+'.png');
+                $('#image42').attr('src','/assets/'+data.sign[1].assetId+'.png');
+                $('#image43').attr('src','/assets/'+data.sign[2].assetId+'.png');
+                $('#image44').attr('src','/assets/'+data.sign[3].assetId+'.png');
+                $('#sign41_info_label').html(data.sign[0].signType);
+                $('#sign42_info_label').html(data.sign[1].signType);
+                $('#sign43_info_label').html(data.sign[2].signType);
+                $('#sign44_info_label').html(data.sign[3].signType);
+                $('#noSign').transition('hide');
+                $('#oneSign').transition('hide');
+                $('#threeSign').transition('hide');
+                $('#twoSign').transition('hide');
+                $('#fourSign').transition('scale');
+            break;
+
+            default:
+                    console.log("ERROR: unknown number of signs");
+            }
         });
 
-    socket.on('tagCount_update', function (data) {
-        if (log) console.log("tagCount_update");
+    socket.on('new_signs', function (data) {
+        if (log) console.log("new_signs");
         if (log) console.log(data);
-        maxTags = parseInt(data.maxTags);
-        seenTags = parseInt(data.seenTags);
-        var rem = maxTags-seenTags;
-        if (rem<0)
-            rem=0;
-        $('#rem_tags').html(rem.toString());
-        $('#seen_tags').html(seenTags.toString());
+        switch (data.numSigns)  {
+            case 0:
+                $('#oneSign').transition('hide');
+                $('#twoSign').transition('hide');
+                $('#threeSign').transition('hide');
+                $('#fourSign').transition('hide');
+                $('#noSign').transition('scale');
+            break;
+            case 1:
+                $('#image11').attr('src','/assets/'+data.sign[0].assetId+'.png');
+                $('#sign11_info_label').html(data.sign[0].signType);
+                $('#noSign').transition('hide');
+                $('#twoSign').transition('hide');
+                $('#threeSign').transition('hide');
+                $('#fourSign').transition('hide');
+                $('#oneSign').transition('scale');
+            break;
+
+            case 2:
+                $('#image21').attr('src','/assets/'+data.sign[0].assetId+'.png');
+                $('#image22').attr('src','/assets/'+data.sign[1].assetId+'.png');
+                $('#sign21_info_label').html(data.sign[0].signType);
+                $('#sign22_info_label').html(data.sign[1].signType);
+                $('#noSign').transition('hide');
+                $('#oneSign').transition('hide');
+                $('#threeSign').transition('hide');
+                $('#fourSign').transition('hide');
+                $('#twoSign').transition('scale');
+            break;
+
+            case 3:
+                $('#image31').attr('src','/assets/'+data.sign[0].assetId+'.png');
+                $('#image32').attr('src','/assets/'+data.sign[1].assetId+'.png');
+                $('#image33').attr('src','/assets/'+data.sign[2].assetId+'.png');
+                $('#sign31_info_label').html(data.sign[0].signType);
+                $('#sign32_info_label').html(data.sign[1].signType);
+                $('#sign33_info_label').html(data.sign[2].signType);
+                $('#noSign').transition('hide');
+                $('#oneSign').transition('hide');
+                $('#twoSign').transition('hide');
+                $('#fourSign').transition('hide');
+                $('#threeSign').transition('scale');
+            break;
+
+            case 4:
+                $('#image41').attr('src','/assets/'+data.sign[0].assetId+'.png');
+                $('#image42').attr('src','/assets/'+data.sign[1].assetId+'.png');
+                $('#image43').attr('src','/assets/'+data.sign[2].assetId+'.png');
+                $('#image44').attr('src','/assets/'+data.sign[3].assetId+'.png');
+                $('#sign41_info_label').html(data.sign[0].signType);
+                $('#sign42_info_label').html(data.sign[1].signType);
+                $('#sign43_info_label').html(data.sign[2].signType);
+                $('#sign44_info_label').html(data.sign[3].signType);
+                $('#noSign').transition('hide');
+                $('#oneSign').transition('hide');
+                $('#threeSign').transition('hide');
+                $('#twoSign').transition('hide');
+                $('#fourSign').transition('scale');
+            break;
+
+            default:
+                console.log("ERROR: unknown number of signs :"+data.numSigns);
+        }
     });
 
+    socket.on('signStatus_update', function (data) {
+        if (log) console.log("signStatus_update");
+        if (log) console.log(data);
+        if (1==data.status[0])  $('#sign11_asset').css('background','rgba(76, 175, 80, 0.6)');
+        if (1==data.status[0])  $('#sign21_asset').css('background','rgba(76, 175, 80, 0.6)');
+        if (1==data.status[1])  $('#sign32_asset').css('background','rgba(76, 175, 80, 0.6)');
+        if (1==data.status[0])  $('#sign31_asset').css('background','rgba(76, 175, 80, 0.6)');
+        if (1==data.status[1])  $('#sign32_asset').css('background','rgba(76, 175, 80, 0.6)');
+        if (1==data.status[2])  $('#sign33_asset').css('background','rgba(76, 175, 80, 0.6)');
+        if (1==data.status[0])  $('#sign41_asset').css('background','rgba(76, 175, 80, 0.6)');
+        if (1==data.status[1])  $('#sign42_asset').css('background','rgba(76, 175, 80, 0.6)');
+        if (1==data.status[2])  $('#sign43_asset').css('background','rgba(76, 175, 80, 0.6)');
+        if (1==data.status[3])  $('#sign44_asset').css('background','rgba(76, 175, 80, 0.6)');
+    });
+
+    socket.on('sign_distance_update', function (data) {
+        if (log) console.log("Sign distance update bVis_moreInfo: "+bVis_moreInfo);
+        if (log) console.log(data);
+        if (bVis_moreInfo)
+        switch (data.length)  {
+            case 1:
+                $('#sign11_info_dist').html('Approx. '+data[0].toString()+' feet');
+                $('#sign11_info_bar').progress('increment',Math.round((gpsRange-data[0])/gpsRange)*100);
+            break;
+            case 2:
+                $('#sign21_info_dist').html('Approx. '+data[0].toString()+' feet');
+                $('#sign22_info_dist').html('Approx. '+data[1].toString()+' feet');
+                $('#sign21_info_bar').progress('increment',Math.round((gpsRange-data[0])/gpsRange)*100);
+                $('#sign22_info_bar').progress('increment',Math.round((gpsRange-data[0])/gpsRange)*100);
+            break;
+            case 3:
+                $('#sign31_info_dist').html('Approx. '+data[0].toString()+' feet');
+                $('#sign32_info_dist').html('Approx. '+data[1].toString()+' feet');
+                $('#sign33_info_dist').html('Approx. '+data[0].toString()+' feet');
+                $('#sign31_info_bar').progress('increment',Math.round((gpsRange-data[0])/gpsRange)*100);
+                $('#sign32_info_bar').progress('increment',Math.round((gpsRange-data[0])/gpsRange)*100);
+                $('#sign33_info_bar').progress('increment',Math.round((gpsRange-data[0])/gpsRange)*100);
+            break;
+            case 4:
+                $('#sign41_info_dist').html('Approx. '+data[0].toString()+' feet');
+                $('#sign42_info_dist').html('Approx. '+data[1].toString()+' feet');
+                $('#sign43_info_dist').html('Approx. '+data[2].toString()+' feet');
+                $('#sign44_info_dist').html('Approx. '+data[3].toString()+' feet');
+                $('#sign41_info_bar').progress('increment',Math.round((gpsRange-data[0])/gpsRange)*100);
+                $('#sign42_info_bar').progress('increment',Math.round((gpsRange-data[0])/gpsRange)*100);
+                $('#sign43_info_bar').progress('increment',Math.round((gpsRange-data[0])/gpsRange)*100);
+                $('#sign44_info_bar').progress('increment',Math.round((gpsRange-data[0])/gpsRange)*100);
+            break;
+            default:
+                console.log("ERROR: unknown number of signs :");
+        }
+    });
 
     socket.on('rfid_reader_status', function (data) {
         if (log) console.log("Status : "+data.status);
         if('ACTIVE'==data.status)   {
             $('#status').html('Pause');
-            $('.err.ui.basic.modal').modal('hide');
-            $('.err.ui.basic.modal').removeClass('active');
             $('.ui.active.centered.inline.loader').transition('scale');
         }
         else if('IDLE'==data.status)    {
@@ -128,21 +315,12 @@ window.onload = function() {
             $('.err.ui.basic.modal')
             .modal({
                 closable : false,
-                blurring: true,
-                onDeny  :function() {
-                    location.href='/inventory';
-                },
-                onApprove:  function() {
-                    socket.emit('connect_rfid_reader','reconnect to the the reader');
-                    $('#reconnect').addClass('loading');
-                    return false;
-                } 
+                blurring: true
             })
             .modal('show');
-            $('.ui.active.centered.inline.loader').transition('hide');
+            $('.ui.active.centered.inline.loader').transition('hide');s
         }
         $('#status').removeClass('loading');
-        $('#reconnect').removeClass('loading');
     });
 
     socket.on('gps_range_res', function (data) {

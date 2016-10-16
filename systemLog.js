@@ -8,7 +8,7 @@ consoleLog.report 				= true;
 
 consoleLog.routeReport 			= true;
 consoleLog.routeIndex 			= true;
-consoleLog.routeInventory 		= true;
+consoleLog.routeInventory 			= true;
 
 consoleLog.controller 			= true;
 
