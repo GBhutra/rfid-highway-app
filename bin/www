@@ -14,7 +14,7 @@ var cntrlr = require('../controller.js');
 var rfid = require('../middleware/rfidReader.js');
 
 var log = true;
-var port = 3200;
+var port = 3300;
 var server = http.createServer(app);
 
 
