@@ -15,6 +15,7 @@ var ReaderObserver = function() {
             console.log("Controller: readerStatusObserver notified! STATUS: "+r.status);
             this.status = r.status;
             updateAllViews('rfid_reader_status',{status: this.status});
+            updateAllViews('initialize',{maxTags: maxTags,seenTags: report.log.count});
         },
         readUpdate: function(tagInfo) {
             if (log) console.log("Controller: readUpdate: "+tagInfo.readTag);
@@ -73,6 +74,10 @@ io.on('connection', function (socket) {
     socket.on('rfid_saveLog', function (data) {
         if (log)    console.log("Controller: msg rfid_saveLog name: "+data);
         report.saveExistingLog(data);
+        if ("ACTIVE"==rfid.reader.status)   {
+            rfid.disConnect();  
+            maxTags=1;
+        }
     });
 
     socket.on('rfid_reader_reset', function (data) {

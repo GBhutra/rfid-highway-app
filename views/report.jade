@@ -2,14 +2,14 @@ extends layout
 block navigation
 	.ui.top.attached.tabular.menu(style="margin-top:0.4em; margin-left:0.4em")
 		a.item(style="font-size:1.6em; padding: 0.45em 2.5em;" href="/") Home
-		a.item(style="font-size:1.6em; padding: 0.45em 2.5em;" href="/inventory") Inventory
+		a.item(style="font-size:1.6em; padding: 0.45em 2.5em;" href="/inventory") Scan
 		a.active.item(style="background-color: #2185D0; color: #FFFFFF; font-size:1.6em; padding: 0.45em 2.5em;" href="/reports") Reports
 		.right.menu
 			a.item(style="font-size:1.3em; padding: 0.2em .2em;" href="/reports")
 				b Back  
 					i.large.sign.out.icon
 			if "ACTIVE"==reader.status
-				a.item(style="font-size:1.3em; padding: 0.2em .2em;" href="/scanner/"+reader.location)
+				a.item(style="font-size:1.3em; padding: 0.2em .2em;" href="/scanner/")
 					i.large.blue.spinner.loading.icon
 block content
 	#info.ui.segment
@@ -20,12 +20,18 @@ block content
 				.eight.wide.right.aligned.column
 					button.ui.labeled.icon.blue.button(onclick="window.print()") Print
 						i.print.icon 
-		table.ui.celled.table(id="tags")
-			thead
-				tr
-					th:=headers[0]
-					th:=headers[1]		
-			tbody
-				each rep in report
-					td: =rep[0]
-					td: =rep[1]
+		if headers
+			table.ui.celled.table(id="tags")
+				thead
+					tr
+						th:=headers[0]
+						th:=headers[1]	
+						th:=headers[2]	
+				tbody
+					each rep in report
+						tr
+							td: =rep[0]
+							td: =rep[1]
+							td: =rep[2]
+		else
+			h3 No Data available

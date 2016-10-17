@@ -9,7 +9,7 @@ block navigation
 				b Back  
 					i.large.sign.out.icon
 			if "ACTIVE"==reader.status
-				a.item(style="font-size:1.3em; padding: 0.2em .2em;" href="/scanner/"+reader.location)
+				a.item(style="font-size:1.3em; padding: 0.2em .2em;" href="/scanner/")
 					i.large.blue.spinner.loading.icon
 	if success
 		.ui.small.positive.message
@@ -40,12 +40,8 @@ block content
 										i.large.angle.right.icon
 				.right.floated.center.aligned.four.wide.column
 					if "ACTIVE"==reader.status 
-						if reader.location==area.DISTINCT
-							button.ui.labeled.icon.blue.button(onclick="location.href=/scanner/") Scanning..
-								i.play.icon
-						else
-							button.ui.labeled.icon.blue.button(onclick="scanStart()") Scan
-								i.play.icon
+						button.ui.labeled.icon.blue.button(onclick="location.href=/scanner/") Scanning..
+							i.play.icon
 					else
 						button.ui.labeled.icon.blue.button(style="height:90%" onclick="scanStart()") Scan
 							i.play.icon

@@ -1,6 +1,6 @@
 window.onload = function() {
     var log=true;
-    var socket = io.connect('http://169.254.21.12:3200');
+    var socket = io.connect('http://localhost:3300');
     var gpsRange = 50;
     
     var bVis_controls = false;
@@ -75,6 +75,7 @@ window.onload = function() {
             onApprove : function() {
                 var logName = document.getElementById("logName");
                 socket.emit('rfid_saveLog',logName.value);
+                location.href="/";
             }})
           .modal('show');
     });
@@ -95,8 +96,9 @@ window.onload = function() {
         $('#rem_tags').html(rem.toString());
         $('#seen_tags').html(seenTags.toString());
         $('#sign_container').click();
-        $('#twoSign').transition('scale');
-        });
+        if ($('#twoSign').hasClass('hidden'))
+            $('#twoSign').transition('scale');
+    });
 
     socket.on('tagCount_update', function (data) {
         if (log) console.log("tagCount_update");
@@ -133,7 +135,7 @@ window.onload = function() {
                     location.href='/inventory';
                 },
                 onApprove:  function() {
-                    socket.emit('connect_rfid_reader','reconnect to the the reader');
+                    socket.emit('connect_rfid_reader',{maxTags:maxTags});
                     $('#reconnect').addClass('loading');
                     return false;
                 } 
